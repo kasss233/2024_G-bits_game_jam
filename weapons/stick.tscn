@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://ceqr8peo3gc10"]
+
+[ext_resource type="Texture2D" uid="uid://c4q5642mkojpt" path="res://assets/Pixel Crawler - FREE - 1.8/Weapons/Wood/Wood.png" id="1_foguy"]
+[ext_resource type="Script" path="res://weapons/stick.gd" id="1_l1sfp"]
+[ext_resource type="AnimationLibrary" uid="uid://d4fybwn0or211" path="res://animation/weapon.res" id="2_wynja"]
+[ext_resource type="Texture2D" uid="uid://c65fbkwa4hkaw" path="res://assets/Pixel Crawler - FREE - 1.8/Weapons/Hands/Hands.png" id="3_0e1sy"]
+
+[sub_resource type="Animation" id="Animation_annrd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hyy3n"]
+_data = {
+"RESET": SubResource("Animation_annrd")
+}
+
+[node name="stick" type="Node2D"]
+position = Vector2(58, 44)
+script = ExtResource("1_l1sfp")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hyy3n"),
+"weapon": ExtResource("2_wynja")
+}
+
+[node name="sprite" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="sprite"]
+rotation = -1.5708
+texture = ExtResource("1_foguy")
+region_enabled = true
+region_rect = Rect2(81, 3, 29, 10)
+
+[node name="Sprite2D2" type="Sprite2D" parent="sprite/Sprite2D"]
+position = Vector2(-6, -2.17199e-05)
+rotation = 1.5708
+texture = ExtResource("3_0e1sy")
+region_enabled = true
+region_rect = Rect2(21, 21, 7, 6)
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
