@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://dciamlle615vi"]
+[gd_scene load_steps=42 format=3 uid="uid://dciamlle615vi"]
 
 [ext_resource type="Texture2D" uid="uid://tdc5mo6qptr2" path="res://assets/Pixel Crawler - FREE - 1.8/Heroes/Wizzard/Idle/Idle-Sheet.png" id="1_7fxmy"]
 [ext_resource type="Script" path="res://players/player.gd" id="1_w6ftf"]
@@ -7,8 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://jhb85kjdy7h5" path="res://assets/Pixel Crawler - FREE - 1.8/Heroes/Wizzard/Death/Death-Sheet.png" id="3_0hqx0"]
 [ext_resource type="PackedScene" uid="uid://ceqr8peo3gc10" path="res://weapons/stick.tscn" id="5_6kho2"]
 [ext_resource type="PackedScene" uid="uid://djyd2d2r2k1qh" path="res://weapons/glock.tscn" id="8_da58w"]
-[ext_resource type="PackedScene" uid="uid://7srmhe0q62qx" path="res://weapons/ak47.tscn" id="8_og3ii"]
+[ext_resource type="PackedScene" uid="uid://7srmhe0q62qx" path="res://weapons/ak47/ak47.tscn" id="8_og3ii"]
 [ext_resource type="Script" path="res://resource/weapon_data.gd" id="9_s2sol"]
+[ext_resource type="PackedScene" uid="uid://caxi3vubeee7i" path="res://weapons/rpg/rpg.tscn" id="10_d6kmt"]
 
 [sub_resource type="Animation" id="Animation_bcdg2"]
 length = 0.001
@@ -316,26 +317,33 @@ transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2iwoq"]
 size = Vector2(8, 8)
 
-[sub_resource type="Resource" id="Resource_4uwm8"]
+[sub_resource type="Resource" id="Resource_e6ql1"]
 resource_local_to_scene = true
 script = ExtResource("9_s2sol")
 enabled = false
 cd = 0.1
 number = 30
 
-[sub_resource type="Resource" id="Resource_qbn8h"]
+[sub_resource type="Resource" id="Resource_wmom5"]
+resource_local_to_scene = true
+script = ExtResource("9_s2sol")
+enabled = false
+cd = 0.5
+number = 1
+
+[sub_resource type="Resource" id="Resource_e7iox"]
 resource_local_to_scene = true
 script = ExtResource("9_s2sol")
 enabled = false
 cd = 0.4
-number = 30
+number = 15
 
-[sub_resource type="Resource" id="Resource_uleb2"]
+[sub_resource type="Resource" id="Resource_1bgrf"]
 resource_local_to_scene = true
 script = ExtResource("9_s2sol")
 enabled = true
-cd = 0.4
-number = 15
+cd = 1.0
+number = 10
 
 [node name="Wizzard" type="CharacterBody2D" node_paths=PackedStringArray("animation_tree", "sprite")]
 collision_mask = 2
@@ -373,13 +381,17 @@ zoom = Vector2(3, 3)
 [node name="weapon" type="Node2D" parent="."]
 
 [node name="ak47" parent="weapon" instance=ExtResource("8_og3ii")]
-position = Vector2(10, -12)
-data = SubResource("Resource_4uwm8")
+position = Vector2(9, -11)
+data = SubResource("Resource_e6ql1")
 
 [node name="stick" parent="weapon" instance=ExtResource("5_6kho2")]
 position = Vector2(-8, -15)
-data = SubResource("Resource_qbn8h")
+data = SubResource("Resource_wmom5")
 
 [node name="glock" parent="weapon" instance=ExtResource("8_da58w")]
 position = Vector2(7, -14)
-data = SubResource("Resource_uleb2")
+data = SubResource("Resource_e7iox")
+
+[node name="RPG" parent="weapon" instance=ExtResource("10_d6kmt")]
+position = Vector2(6, -19)
+data = SubResource("Resource_1bgrf")

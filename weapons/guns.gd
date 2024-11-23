@@ -5,7 +5,7 @@ extends Node2D
 @onready var gun_sprite=$sprite/Sprite2D
 @onready var bullet_pos=$sprite/Sprite2D/bullet_position
 @export var data:WeaponDatas=null
-var bullet = preload("res://weapons/bullets/gun_bullets.tscn")
+@export var bullet :PackedScene
 var initial_position: Vector2 = Vector2.ZERO
 var direction
 var number=0

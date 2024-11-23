@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://d1kmv7m0nvxk8"]
 
 [ext_resource type="Script" path="res://weapons/bullets/bullets.gd" id="1_k4hn8"]
-[ext_resource type="Texture2D" uid="uid://crkp4wrnh08gs" path="res://assets/bullets.png" id="2_boh6y"]
+[ext_resource type="Texture2D" uid="uid://crkp4wrnh08gs" path="res://public_assets/bullets.png" id="2_boh6y"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1xi4t"]
 radius = 3.0

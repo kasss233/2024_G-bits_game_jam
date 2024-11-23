@@ -1,7 +1,9 @@
-[gd_scene load_steps=38 format=3 uid="uid://djyd2d2r2k1qh"]
+[gd_scene load_steps=40 format=3 uid="uid://djyd2d2r2k1qh"]
 
 [ext_resource type="Script" path="res://weapons/guns.gd" id="1_inhj2"]
 [ext_resource type="AnimationLibrary" uid="uid://d4fybwn0or211" path="res://animation/weapon.res" id="2_dq31k"]
+[ext_resource type="PackedScene" uid="uid://brihgfuhq8xps" path="res://weapons/bullets/gun_bullets.tscn" id="2_q6dqn"]
+[ext_resource type="Resource" uid="uid://clpemrvsow85x" path="res://resource/weapon_data.tres" id="2_yviru"]
 [ext_resource type="Texture2D" uid="uid://c65fbkwa4hkaw" path="res://assets/Pixel Crawler - FREE - 1.8/Weapons/Hands/Hands.png" id="3_f0e4j"]
 [ext_resource type="Texture2D" uid="uid://bdrp0q7f51xo7" path="res://assets/Guns Update - V1.01/Guns_V1.01 - Commission - Copy/02 - Sprite sheets/Glock - P80 [64x48]/[SHOOT WITH CASING] Glock - P80.png" id="3_q0co2"]
 [ext_resource type="Texture2D" uid="uid://ydrqp0h7jfq3" path="res://assets/Guns Update - V1.01/Guns_V1.01 - Commission - Copy/02 - Sprite sheets/Glock - P80 [64x48]/[RELOAD] Glock - P80.png" id="4_i40bx"]
@@ -250,6 +252,8 @@ animations = [{
 [node name="glock" type="Node2D"]
 position = Vector2(58, 44)
 script = ExtResource("1_inhj2")
+data = ExtResource("2_yviru")
+bullet = ExtResource("2_q6dqn")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -263,10 +267,8 @@ position = Vector2(-1, 0)
 [node name="Sprite2D" type="AnimatedSprite2D" parent="sprite"]
 scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_ot0k1")
-animation = &"reload"
+animation = &"shooting"
 autoplay = "idle"
-frame = 15
-frame_progress = 1.0
 offset = Vector2(20, 10)
 
 [node name="Sprite2D2" type="Sprite2D" parent="sprite/Sprite2D"]

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="PlayerData" load_steps=2 format=3 uid="uid://dametontd8w2k"]
+[gd_resource type="Resource" script_class="PlayerDatas" load_steps=2 format=3 uid="uid://dametontd8w2k"]
 
 [ext_resource type="Script" path="res://resource/player_data.gd" id="1_pchjb"]
 

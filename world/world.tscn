@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://d4a2cv76vxhcw" path="res://assets/Pixel Crawler - FREE - 1.8/Environment/Green Woods/Assets/Tiles.png" id="6_i4o5i"]
 [ext_resource type="PackedScene" uid="uid://c60x0k4ipvksn" path="res://item/item.tscn" id="7_kykml"]
 
-[sub_resource type="GDScript" id="GDScript_88ogw"]
+[sub_resource type="GDScript" id="GDScript_025u1"]
 resource_local_to_scene = true
 script/source = "extends Resource
 class_name PlayerData
@@ -27,7 +27,7 @@ enum Hands { LEFT, RIGHT }
 
 [sub_resource type="Resource" id="Resource_uyn4v"]
 resource_local_to_scene = true
-script = SubResource("GDScript_88ogw")
+script = SubResource("GDScript_025u1")
 direction = Vector2(0, 0)
 left_weapon = 0
 right_weapon = 0
@@ -37,7 +37,7 @@ speed = 300
 hp = 5
 state = 2
 
-[sub_resource type="GDScript" id="GDScript_khtjp"]
+[sub_resource type="GDScript" id="GDScript_5jlj1"]
 resource_local_to_scene = true
 script/source = "extends Resource
 class_name EnemyData
@@ -48,12 +48,12 @@ class_name EnemyData
 
 [sub_resource type="Resource" id="Resource_vp8i8"]
 resource_local_to_scene = true
-script = SubResource("GDScript_khtjp")
+script = SubResource("GDScript_5jlj1")
 speed = 100
 hp = 5
 knockback_distance = 20
 
-[sub_resource type="GDScript" id="GDScript_tlpuc"]
+[sub_resource type="GDScript" id="GDScript_0g33e"]
 resource_local_to_scene = true
 script/source = "extends Resource
 class_name EnemyData
@@ -64,12 +64,12 @@ class_name EnemyData
 
 [sub_resource type="Resource" id="Resource_nwos2"]
 resource_local_to_scene = true
-script = SubResource("GDScript_tlpuc")
+script = SubResource("GDScript_0g33e")
 speed = 100
 hp = 5
 knockback_distance = 20
 
-[sub_resource type="GDScript" id="GDScript_udrjn"]
+[sub_resource type="GDScript" id="GDScript_336mh"]
 resource_local_to_scene = true
 script/source = "extends Resource
 class_name EnemyData
@@ -80,12 +80,12 @@ class_name EnemyData
 
 [sub_resource type="Resource" id="Resource_8a0bi"]
 resource_local_to_scene = true
-script = SubResource("GDScript_udrjn")
+script = SubResource("GDScript_336mh")
 speed = 100
 hp = 5
 knockback_distance = 20
 
-[sub_resource type="GDScript" id="GDScript_h7204"]
+[sub_resource type="GDScript" id="GDScript_rohqs"]
 resource_local_to_scene = true
 script/source = "extends Resource
 class_name EnemyData
@@ -96,7 +96,7 @@ class_name EnemyData
 
 [sub_resource type="Resource" id="Resource_vx27d"]
 resource_local_to_scene = true
-script = SubResource("GDScript_h7204")
+script = SubResource("GDScript_rohqs")
 speed = 100
 hp = 5
 knockback_distance = 20

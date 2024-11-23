@@ -26,7 +26,8 @@ enabled=PackedStringArray("res://addons/net.yarvis.pixel_pen/plugin.cfg")
 [file_customization]
 
 folder_colors={
-"res://assets/": "green"
+"res://assets/": "green",
+"res://public_assets/": "yellow"
 }
 
 [input]

@@ -23,13 +23,7 @@ func death_event():
 		animation.play("death")
 	
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	body.queue_free()
-	body.global_position.y += 20
-	data.hp -= GlobalVal.bullet["damage"] * GlobalVal.stick["damage"];
-	modulate = Color(1, 0, 0, 1)
-	knockback((global_position-GlobalVal.player["position"]).normalized())
-	await get_tree().create_timer(0.2).timeout
-	modulate = Color(1, 1, 1, 1) # 恢复为白色
+	get_attack()
 	
 func knockback(back_direction: Vector2):
 	var knockback_direction = back_direction
@@ -37,3 +31,9 @@ func knockback(back_direction: Vector2):
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	queue_free()
+func get_attack():
+	data.hp -= GlobalVal.bullet["damage"] * GlobalVal.stick["damage"];
+	modulate = Color(1, 0, 0, 1)
+	knockback((global_position-GlobalVal.player["position"]).normalized())
+	await get_tree().create_timer(0.2).timeout
+	modulate = Color(1, 1, 1, 1) # 恢复为白色
