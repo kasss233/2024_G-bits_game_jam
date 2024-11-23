@@ -1,17 +1,33 @@
-[gd_scene load_steps=18 format=4 uid="uid://dlrf0vep8ps11"]
+[gd_scene load_steps=21 format=4 uid="uid://dlrf0vep8ps11"]
 
 [ext_resource type="PackedScene" uid="uid://dciamlle615vi" path="res://players/wizzard.tscn" id="1_xhgil"]
-[ext_resource type="Script" path="res://resource/player_data.gd" id="2_wgs5a"]
 [ext_resource type="PackedScene" uid="uid://dn3aulsu7xq2e" path="res://enemy/enemy.tscn" id="3_b2k7v"]
 [ext_resource type="Texture2D" uid="uid://ccmf0wa51u2bo" path="res://assets/Pixel Crawler - FREE - 1.8/Environment/Dungeon Prison/Assets/Props.png" id="4_oa627"]
-[ext_resource type="Script" path="res://resource/enemy_data.gd" id="4_yeyly"]
 [ext_resource type="Texture2D" uid="uid://b7tawaakr6f1i" path="res://assets/Pixel Crawler - FREE - 1.8/Environment/Dungeon Prison/Assets/Tiles.png" id="5_nqyth"]
 [ext_resource type="Texture2D" uid="uid://d4a2cv76vxhcw" path="res://assets/Pixel Crawler - FREE - 1.8/Environment/Green Woods/Assets/Tiles.png" id="6_i4o5i"]
 [ext_resource type="PackedScene" uid="uid://c60x0k4ipvksn" path="res://item/item.tscn" id="7_kykml"]
 
+[sub_resource type="GDScript" id="GDScript_88ogw"]
+resource_local_to_scene = true
+script/source = "extends Resource
+class_name PlayerData
+
+enum States { MOVE, DEATH, IDLE }
+enum Weapons { HAND, STICK }
+enum Hands { LEFT, RIGHT }
+@export var direction:Vector2=Vector2.ZERO
+@export var left_weapon: Weapons = Weapons.HAND
+@export var right_weapon: Weapons = Weapons.HAND
+@export var acc: int = 2000 ## 加速度
+@export var fri: int = 2000 ## 摩擦力
+@export var speed: int = 300 ## 最大速度
+@export var hp: int = 5 ## 生命值
+@export var state:States=States.IDLE
+"
+
 [sub_resource type="Resource" id="Resource_uyn4v"]
 resource_local_to_scene = true
-script = ExtResource("2_wgs5a")
+script = SubResource("GDScript_88ogw")
 direction = Vector2(0, 0)
 left_weapon = 0
 right_weapon = 0
@@ -21,30 +37,66 @@ speed = 300
 hp = 5
 state = 2
 
+[sub_resource type="GDScript" id="GDScript_khtjp"]
+resource_local_to_scene = true
+script/source = "extends Resource
+class_name EnemyData
+@export var speed:int=100
+@export var hp: int = 5
+@export var knockback_distance: int = 20
+"
+
 [sub_resource type="Resource" id="Resource_vp8i8"]
 resource_local_to_scene = true
-script = ExtResource("4_yeyly")
+script = SubResource("GDScript_khtjp")
 speed = 100
 hp = 5
 knockback_distance = 20
+
+[sub_resource type="GDScript" id="GDScript_tlpuc"]
+resource_local_to_scene = true
+script/source = "extends Resource
+class_name EnemyData
+@export var speed:int=100
+@export var hp: int = 5
+@export var knockback_distance: int = 20
+"
 
 [sub_resource type="Resource" id="Resource_nwos2"]
 resource_local_to_scene = true
-script = ExtResource("4_yeyly")
+script = SubResource("GDScript_tlpuc")
 speed = 100
 hp = 5
 knockback_distance = 20
+
+[sub_resource type="GDScript" id="GDScript_udrjn"]
+resource_local_to_scene = true
+script/source = "extends Resource
+class_name EnemyData
+@export var speed:int=100
+@export var hp: int = 5
+@export var knockback_distance: int = 20
+"
 
 [sub_resource type="Resource" id="Resource_8a0bi"]
 resource_local_to_scene = true
-script = ExtResource("4_yeyly")
+script = SubResource("GDScript_udrjn")
 speed = 100
 hp = 5
 knockback_distance = 20
 
+[sub_resource type="GDScript" id="GDScript_h7204"]
+resource_local_to_scene = true
+script/source = "extends Resource
+class_name EnemyData
+@export var speed:int=100
+@export var hp: int = 5
+@export var knockback_distance: int = 20
+"
+
 [sub_resource type="Resource" id="Resource_vx27d"]
 resource_local_to_scene = true
-script = ExtResource("4_yeyly")
+script = SubResource("GDScript_h7204")
 speed = 100
 hp = 5
 knockback_distance = 20

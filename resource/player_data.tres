@@ -5,9 +5,11 @@
 [resource]
 resource_local_to_scene = true
 script = ExtResource("1_pchjb")
+direction = Vector2(0, 0)
 left_weapon = 0
 right_weapon = 0
 acc = 2000
 fri = 2000
 speed = 300
 hp = 5
+state = 2

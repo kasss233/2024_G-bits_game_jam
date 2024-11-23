@@ -1,5 +1,5 @@
 extends Resource
-class_name WeaponData
-@export var number:int=1
-@export var cd:float=1.0
-@export var damage:float=1.0
+class_name WeaponDatas
+@export var enabled:bool=true
+@export var cd=0.1
+@export var number:int=30##子弹数

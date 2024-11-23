@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://d1kmv7m0nvxk8"]
+
+[ext_resource type="Script" path="res://weapons/bullets/bullets.gd" id="1_k4hn8"]
+[ext_resource type="Texture2D" uid="uid://crkp4wrnh08gs" path="res://assets/bullets.png" id="2_boh6y"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1xi4t"]
+radius = 3.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8smkk"]
+radius = 200.003
+
+[node name="bullets" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("1_k4hn8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_boh6y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1xi4t")
+
+[node name="detectArea" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detectArea"]
+shape = SubResource("CircleShape2D_8smkk")
+
+[node name="collisionArea" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collisionArea"]
+shape = SubResource("CircleShape2D_1xi4t")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="body_entered" from="collisionArea" to="." method="_on_collision_area_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

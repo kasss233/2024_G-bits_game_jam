@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="WeaponData" load_steps=2 format=3 uid="uid://clpemrvsow85x"]
+[gd_resource type="Resource" script_class="WeaponDatas" load_steps=2 format=3 uid="uid://clpemrvsow85x"]
 
-[ext_resource type="Script" path="res://resource/weapon_data.gd" id="1_14ldw"]
+[ext_resource type="Script" path="res://resource/weapon_data.gd" id="1_8sl2c"]
 
 [resource]
-script = ExtResource("1_14ldw")
-number = 1
-cd = 1.0
-damage = 1.0
+resource_local_to_scene = true
+script = ExtResource("1_8sl2c")
+enabled = false
+cd = 0.4

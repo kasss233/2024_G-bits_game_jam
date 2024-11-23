@@ -1,5 +1,5 @@
 extends CharacterBody2D
-@export var data:PlayerData
+@export var data:PlayerDatas=null
 @export var animation_tree:AnimationTree##动画树
 @export var sprite:Sprite2D
 @onready	var animation_state=animation_tree.get("parameters/playback")

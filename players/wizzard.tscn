@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://dciamlle615vi"]
+[gd_scene load_steps=40 format=3 uid="uid://dciamlle615vi"]
 
 [ext_resource type="Texture2D" uid="uid://tdc5mo6qptr2" path="res://assets/Pixel Crawler - FREE - 1.8/Heroes/Wizzard/Idle/Idle-Sheet.png" id="1_7fxmy"]
 [ext_resource type="Script" path="res://players/player.gd" id="1_w6ftf"]
@@ -6,7 +6,9 @@
 [ext_resource type="Resource" uid="uid://dametontd8w2k" path="res://resource/player_data.tres" id="2_s6qrl"]
 [ext_resource type="Texture2D" uid="uid://jhb85kjdy7h5" path="res://assets/Pixel Crawler - FREE - 1.8/Heroes/Wizzard/Death/Death-Sheet.png" id="3_0hqx0"]
 [ext_resource type="PackedScene" uid="uid://ceqr8peo3gc10" path="res://weapons/stick.tscn" id="5_6kho2"]
-[ext_resource type="PackedScene" uid="uid://ceukar0pw0cpk" path="res://weapons/hand.tscn" id="6_puscc"]
+[ext_resource type="PackedScene" uid="uid://djyd2d2r2k1qh" path="res://weapons/glock.tscn" id="8_da58w"]
+[ext_resource type="PackedScene" uid="uid://7srmhe0q62qx" path="res://weapons/ak47.tscn" id="8_og3ii"]
+[ext_resource type="Script" path="res://resource/weapon_data.gd" id="9_s2sol"]
 
 [sub_resource type="Animation" id="Animation_bcdg2"]
 length = 0.001
@@ -314,6 +316,27 @@ transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2iwoq"]
 size = Vector2(8, 8)
 
+[sub_resource type="Resource" id="Resource_4uwm8"]
+resource_local_to_scene = true
+script = ExtResource("9_s2sol")
+enabled = false
+cd = 0.1
+number = 30
+
+[sub_resource type="Resource" id="Resource_qbn8h"]
+resource_local_to_scene = true
+script = ExtResource("9_s2sol")
+enabled = false
+cd = 0.4
+number = 30
+
+[sub_resource type="Resource" id="Resource_uleb2"]
+resource_local_to_scene = true
+script = ExtResource("9_s2sol")
+enabled = true
+cd = 0.4
+number = 15
+
 [node name="Wizzard" type="CharacterBody2D" node_paths=PackedStringArray("animation_tree", "sprite")]
 collision_mask = 2
 script = ExtResource("1_w6ftf")
@@ -349,8 +372,14 @@ zoom = Vector2(3, 3)
 
 [node name="weapon" type="Node2D" parent="."]
 
-[node name="stick" parent="weapon" instance=ExtResource("5_6kho2")]
-position = Vector2(10, -14)
+[node name="ak47" parent="weapon" instance=ExtResource("8_og3ii")]
+position = Vector2(10, -12)
+data = SubResource("Resource_4uwm8")
 
-[node name="hand" parent="weapon" instance=ExtResource("6_puscc")]
-position = Vector2(-5, -9)
+[node name="stick" parent="weapon" instance=ExtResource("5_6kho2")]
+position = Vector2(-8, -15)
+data = SubResource("Resource_qbn8h")
+
+[node name="glock" parent="weapon" instance=ExtResource("8_da58w")]
+position = Vector2(7, -14)
+data = SubResource("Resource_uleb2")
