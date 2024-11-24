@@ -64,6 +64,7 @@ animations = [{
 radius = 92.228
 
 [node name="explosion" type="Node2D"]
+z_index = 2
 script = ExtResource("1_6dcuy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

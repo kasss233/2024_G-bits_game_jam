@@ -3,8 +3,10 @@ extends CharacterBody2D
 var target: Node2D = null  # 最近的目标
 var target_position:Vector2
 var direction
+var damage:int=1
 @export var speed=200
 func _ready() -> void:
+	init()
 	set_random_direction()
 func _physics_process(delta: float) -> void:
 	find_target()
@@ -30,6 +32,7 @@ func set_random_direction():
 	direction = Vector2(randf() * 2 - 1, randf() * 2 - 1).normalized()
 	
 func _on_collision_area_body_entered(body: Node2D) -> void:
+	body.get_attack(damage)
 	queue_free()
 
 func _on_timer_timeout() -> void:
@@ -37,3 +40,5 @@ func _on_timer_timeout() -> void:
 	
 func update_velocity():
 	velocity=direction*speed
+func init():
+	pass

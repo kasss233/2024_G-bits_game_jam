@@ -5,6 +5,8 @@
 [resource]
 resource_local_to_scene = true
 script = ExtResource("1_8sl2c")
+weapon = 0
 enabled = false
 cd = 0.1
 number = 30
+damage = 1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://dciamlle615vi"]
+[gd_scene load_steps=48 format=3 uid="uid://dciamlle615vi"]
 
 [ext_resource type="Texture2D" uid="uid://tdc5mo6qptr2" path="res://assets/Pixel Crawler - FREE - 1.8/Heroes/Wizzard/Idle/Idle-Sheet.png" id="1_7fxmy"]
 [ext_resource type="Script" path="res://players/player.gd" id="1_w6ftf"]
@@ -8,8 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://ceqr8peo3gc10" path="res://weapons/stick.tscn" id="5_6kho2"]
 [ext_resource type="PackedScene" uid="uid://djyd2d2r2k1qh" path="res://weapons/glock.tscn" id="8_da58w"]
 [ext_resource type="PackedScene" uid="uid://7srmhe0q62qx" path="res://weapons/ak47/ak47.tscn" id="8_og3ii"]
+[ext_resource type="PackedScene" uid="uid://d1kmv7m0nvxk8" path="res://weapons/bullets/stick_bullets.tscn" id="9_hh5wd"]
 [ext_resource type="Script" path="res://resource/weapon_data.gd" id="9_s2sol"]
 [ext_resource type="PackedScene" uid="uid://caxi3vubeee7i" path="res://weapons/rpg/rpg.tscn" id="10_d6kmt"]
+[ext_resource type="PackedScene" uid="uid://cgahjpcrq648b" path="res://weapons/sword/sword.tscn" id="12_ne4kw"]
+[ext_resource type="PackedScene" uid="uid://77xr7edq5miv" path="res://weapons/mp5/mp_5.tscn" id="13_pqyrx"]
 
 [sub_resource type="Animation" id="Animation_bcdg2"]
 length = 0.001
@@ -320,30 +323,59 @@ size = Vector2(8, 8)
 [sub_resource type="Resource" id="Resource_e6ql1"]
 resource_local_to_scene = true
 script = ExtResource("9_s2sol")
-enabled = false
-cd = 0.1
+weapon = 2
+enabled = true
+cd = 0.2
 number = 30
+damage = 1
 
-[sub_resource type="Resource" id="Resource_wmom5"]
+[sub_resource type="Resource" id="Resource_kvcrk"]
 resource_local_to_scene = true
 script = ExtResource("9_s2sol")
+weapon = 1
 enabled = false
 cd = 0.5
 number = 1
+damage = 1
 
 [sub_resource type="Resource" id="Resource_e7iox"]
 resource_local_to_scene = true
 script = ExtResource("9_s2sol")
+weapon = 3
 enabled = false
 cd = 0.4
 number = 15
+damage = 1
 
 [sub_resource type="Resource" id="Resource_1bgrf"]
 resource_local_to_scene = true
 script = ExtResource("9_s2sol")
-enabled = true
-cd = 1.0
-number = 10
+weapon = 4
+enabled = false
+cd = 2.0
+number = 1
+damage = 1
+
+[sub_resource type="Resource" id="Resource_pofu6"]
+resource_local_to_scene = true
+script = ExtResource("9_s2sol")
+weapon = 6
+enabled = false
+cd = 0.1
+number = 30
+damage = 1
+
+[sub_resource type="Resource" id="Resource_bs07r"]
+resource_local_to_scene = true
+script = ExtResource("9_s2sol")
+weapon = 5
+enabled = false
+cd = 0.1
+number = 30
+damage = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_626yc"]
+size = Vector2(26, 32)
 
 [node name="Wizzard" type="CharacterBody2D" node_paths=PackedStringArray("animation_tree", "sprite")]
 collision_mask = 2
@@ -370,6 +402,7 @@ parameters/move/blend_position = Vector2(-0.000873387, 0.957219)
 position = Vector2(0, -14)
 texture = ExtResource("1_7fxmy")
 hframes = 4
+frame = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, -11)
@@ -385,13 +418,37 @@ position = Vector2(9, -11)
 data = SubResource("Resource_e6ql1")
 
 [node name="stick" parent="weapon" instance=ExtResource("5_6kho2")]
+visible = false
 position = Vector2(-8, -15)
-data = SubResource("Resource_wmom5")
+data = SubResource("Resource_kvcrk")
+bullet = ExtResource("9_hh5wd")
 
 [node name="glock" parent="weapon" instance=ExtResource("8_da58w")]
+visible = false
 position = Vector2(7, -14)
 data = SubResource("Resource_e7iox")
 
 [node name="RPG" parent="weapon" instance=ExtResource("10_d6kmt")]
+visible = false
 position = Vector2(6, -19)
 data = SubResource("Resource_1bgrf")
+
+[node name="sword" parent="weapon" instance=ExtResource("12_ne4kw")]
+visible = false
+position = Vector2(12, -13)
+data = SubResource("Resource_pofu6")
+
+[node name="mp5" parent="weapon" instance=ExtResource("13_pqyrx")]
+visible = false
+position = Vector2(2, -10)
+data = SubResource("Resource_bs07r")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, -15)
+shape = SubResource("RectangleShape2D_626yc")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
