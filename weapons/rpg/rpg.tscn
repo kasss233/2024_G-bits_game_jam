@@ -1,7 +1,6 @@
-[gd_scene load_steps=40 format=3 uid="uid://caxi3vubeee7i"]
+[gd_scene load_steps=39 format=3 uid="uid://caxi3vubeee7i"]
 
 [ext_resource type="Script" path="res://weapons/guns.gd" id="1_bwjw7"]
-[ext_resource type="Resource" uid="uid://clpemrvsow85x" path="res://resource/weapon_data.tres" id="2_gdjfs"]
 [ext_resource type="AnimationLibrary" uid="uid://d4fybwn0or211" path="res://animation/weapon.res" id="2_ikcih"]
 [ext_resource type="Texture2D" uid="uid://8027nfokh2mn" path="res://public_assets/Guns Update - V1.01/Guns_V1.01 - Commission - Copy/02 - Sprite sheets/Thick Bazooka - M20 [192x32]/[SHOOT WITH MUZZLE FLASH] Thick Bazooka - M20.png" id="3_1r217"]
 [ext_resource type="PackedScene" uid="uid://c58m1cf2yxv4w" path="res://weapons/bullets/rpg_bullets.tscn" id="3_myc2k"]
@@ -271,8 +270,9 @@ _data = {
 [node name="RPG" type="Node2D"]
 position = Vector2(58, 44)
 script = ExtResource("1_bwjw7")
-data = ExtResource("2_gdjfs")
 bullet = ExtResource("3_myc2k")
+number = 1
+weapon = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

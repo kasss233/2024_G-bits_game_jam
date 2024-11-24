@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://dlrf0vep8ps11"]
+[gd_scene load_steps=16 format=4 uid="uid://dlrf0vep8ps11"]
 
 [ext_resource type="PackedScene" uid="uid://dciamlle615vi" path="res://players/wizzard.tscn" id="1_xhgil"]
 [ext_resource type="PackedScene" uid="uid://dn3aulsu7xq2e" path="res://enemy/enemy.tscn" id="3_b2k7v"]
@@ -6,8 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://b7tawaakr6f1i" path="res://assets/Pixel Crawler - FREE - 1.8/Environment/Dungeon Prison/Assets/Tiles.png" id="5_nqyth"]
 [ext_resource type="Texture2D" uid="uid://d4a2cv76vxhcw" path="res://assets/Pixel Crawler - FREE - 1.8/Environment/Green Woods/Assets/Tiles.png" id="6_i4o5i"]
 [ext_resource type="PackedScene" uid="uid://c60x0k4ipvksn" path="res://item/item.tscn" id="7_kykml"]
+[ext_resource type="PackedScene" uid="uid://dnvog3ate4vc0" path="res://enemy/fly_enemy/fly_enemy.tscn" id="7_sw5b8"]
+[ext_resource type="PackedScene" uid="uid://spglirt5fokp" path="res://ui/ui.tscn" id="8_ngymi"]
+[ext_resource type="PackedScene" uid="uid://b1qnucsboo7jx" path="res://enemy_generator/enemy_generator.tscn" id="9_l2rqa"]
 
-[sub_resource type="GDScript" id="GDScript_gqojw"]
+[sub_resource type="GDScript" id="GDScript_accyn"]
 resource_local_to_scene = true
 script/source = "extends Resource
 class_name PlayerData
@@ -25,9 +28,9 @@ enum Hands { LEFT, RIGHT }
 @export var state:States=States.IDLE
 "
 
-[sub_resource type="Resource" id="Resource_uyn4v"]
+[sub_resource type="Resource" id="Resource_xaob2"]
 resource_local_to_scene = true
-script = SubResource("GDScript_gqojw")
+script = SubResource("GDScript_accyn")
 direction = Vector2(0, 0)
 left_weapon = 0
 right_weapon = 0
@@ -36,70 +39,6 @@ fri = 2000
 speed = 300
 hp = 5
 state = 2
-
-[sub_resource type="GDScript" id="GDScript_yddv6"]
-resource_local_to_scene = true
-script/source = "extends Resource
-class_name EnemyData
-@export var speed:int=100
-@export var hp: int = 5
-@export var knockback_distance: int = 20
-"
-
-[sub_resource type="Resource" id="Resource_vp8i8"]
-resource_local_to_scene = true
-script = SubResource("GDScript_yddv6")
-speed = 100
-hp = 5
-knockback_distance = 20
-
-[sub_resource type="GDScript" id="GDScript_jfjch"]
-resource_local_to_scene = true
-script/source = "extends Resource
-class_name EnemyData
-@export var speed:int=100
-@export var hp: int = 5
-@export var knockback_distance: int = 20
-"
-
-[sub_resource type="Resource" id="Resource_nwos2"]
-resource_local_to_scene = true
-script = SubResource("GDScript_jfjch")
-speed = 100
-hp = 5
-knockback_distance = 20
-
-[sub_resource type="GDScript" id="GDScript_f7yb4"]
-resource_local_to_scene = true
-script/source = "extends Resource
-class_name EnemyData
-@export var speed:int=100
-@export var hp: int = 5
-@export var knockback_distance: int = 20
-"
-
-[sub_resource type="Resource" id="Resource_8a0bi"]
-resource_local_to_scene = true
-script = SubResource("GDScript_f7yb4")
-speed = 100
-hp = 5
-knockback_distance = 20
-
-[sub_resource type="GDScript" id="GDScript_snxmu"]
-resource_local_to_scene = true
-script/source = "extends Resource
-class_name EnemyData
-@export var speed:int=100
-@export var hp: int = 5
-@export var knockback_distance: int = 20
-"
-
-[sub_resource type="Resource" id="Resource_vx27d"]
-resource_local_to_scene = true
-script = SubResource("GDScript_snxmu")
-speed = 100
-hp = 5
-knockback_distance = 20
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5lf0r"]
 texture = ExtResource("4_oa627")
@@ -728,27 +667,8 @@ sources/2 = SubResource("TileSetAtlasSource_sky6q")
 [node name="world" type="Node2D"]
 
 [node name="Wizzard" parent="." instance=ExtResource("1_xhgil")]
-data = SubResource("Resource_uyn4v")
-
-[node name="enemy" parent="." instance=ExtResource("3_b2k7v")]
-position = Vector2(112, -24)
-collision_mask = 1
-data = SubResource("Resource_vp8i8")
-
-[node name="enemy2" parent="." instance=ExtResource("3_b2k7v")]
-position = Vector2(55, 84)
-collision_mask = 1
-data = SubResource("Resource_nwos2")
-
-[node name="enemy3" parent="." instance=ExtResource("3_b2k7v")]
-position = Vector2(-86, 53)
-collision_mask = 1
-data = SubResource("Resource_8a0bi")
-
-[node name="enemy4" parent="." instance=ExtResource("3_b2k7v")]
-position = Vector2(-89, -27)
-collision_mask = 1
-data = SubResource("Resource_vx27d")
+position = Vector2(-17, 14)
+data = SubResource("Resource_xaob2")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 z_index = -5
@@ -756,4 +676,45 @@ tile_map_data = PackedByteArray("AADs//T/AgAKAAAAAADs//X/AgAKAAEAAADs//b/AgAKAAI
 tile_set = SubResource("TileSet_kcj26")
 
 [node name="item" parent="." instance=ExtResource("7_kykml")]
-position = Vector2(66, -19)
+position = Vector2(-143, -67)
+
+[node name="item2" parent="." instance=ExtResource("7_kykml")]
+position = Vector2(-193, -45)
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="fly_enemy4" parent="Node2D" instance=ExtResource("7_sw5b8")]
+position = Vector2(132, 53)
+
+[node name="fly_enemy3" parent="Node2D" instance=ExtResource("7_sw5b8")]
+position = Vector2(82, -65)
+
+[node name="fly_enemy2" parent="Node2D" instance=ExtResource("7_sw5b8")]
+position = Vector2(-23, -61)
+
+[node name="fly_enemy" parent="Node2D" instance=ExtResource("7_sw5b8")]
+position = Vector2(-132, -6)
+
+[node name="enemy4" parent="Node2D" instance=ExtResource("3_b2k7v")]
+position = Vector2(-89, -27)
+collision_mask = 1
+
+[node name="enemy3" parent="Node2D" instance=ExtResource("3_b2k7v")]
+position = Vector2(-86, 53)
+collision_mask = 1
+
+[node name="enemy2" parent="Node2D" instance=ExtResource("3_b2k7v")]
+position = Vector2(55, 84)
+collision_mask = 1
+
+[node name="enemy" parent="Node2D" instance=ExtResource("3_b2k7v")]
+position = Vector2(112, -24)
+collision_mask = 1
+
+[node name="Control" parent="." node_paths=PackedStringArray("player") instance=ExtResource("8_ngymi")]
+player = NodePath("../Wizzard")
+
+[node name="enemy_generator" parent="." instance=ExtResource("9_l2rqa")]
+position = Vector2(2, 1)
+enemy_scenes = Array[PackedScene]([ExtResource("7_sw5b8"), ExtResource("3_b2k7v")])
+spawn_points = Array[Vector2]([Vector2(0, 0), Vector2(50, 50), Vector2(50, -50), Vector2(-50, -50)])

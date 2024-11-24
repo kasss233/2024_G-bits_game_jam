@@ -2,16 +2,18 @@ extends Node2D
 @onready var animation = $AnimationPlayer
 @onready var sprite = $sprite
 @onready var timer = $Timer
-@export var data: WeaponDatas = null
+@onready var initial_position=sprite.position
 @export var bullet: PackedScene
-var initial_position: Vector2 = Vector2.ZERO
+@export var weapon:GlobalVal.weapons
+@export var enabled:bool=false
+@export var cd:float
+@export var number:int
+@export var damage:int
 func _ready() -> void:
 	#if GlobalVal.player["weapon"]!=GlobalVal.weapons.STICK:
 		#queue_free()
-	if !data.enabled:
+	if !enabled:
 		queue_free()
-	initial_position = sprite.position
-	init()
 func _physics_process(delta) -> void:
 	update_animation()
 	update_position()
@@ -32,14 +34,12 @@ func update_bullets():
 	get_tree().current_scene.add_child(b)
 	b.global_position = global_position
 	b.global_position.y -= 10
-	b.damage = data.damage
+	b.damage = damage
 func _on_timer_timeout() -> void:
-	timer.wait_time = data.cd
-	for i in data.number:
+	timer.wait_time = cd
+	for i in number:
 		update_bullets()
-func init() -> void:
-	data.damage = GlobalVal.stick["damage"]
-	data.number = GlobalVal.stick["number"]
-	data.cd = GlobalVal.stick["cd"]
-	initial_position = sprite.position
-	timer.wait_time = data.cd
+func _init() -> void:
+	damage = GlobalVal.stick["damage"]
+	number = GlobalVal.stick["number"]
+	cd = GlobalVal.stick["cd"]

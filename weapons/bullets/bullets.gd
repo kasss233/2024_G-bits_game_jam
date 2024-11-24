@@ -11,6 +11,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	find_target()
 	update_direction()
+	update_rotation()
 	update_velocity()
 	move_and_slide()
 func find_target():
@@ -27,7 +28,8 @@ func find_target():
 func update_direction():
 	if target:
 		direction = (target_position+Vector2(0,-20) - global_position).normalized()
-	
+func update_rotation():
+	rotation = direction.angle()
 func set_random_direction():
 	direction = Vector2(randf() * 2 - 1, randf() * 2 - 1).normalized()
 	

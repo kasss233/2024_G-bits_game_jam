@@ -4,7 +4,7 @@ extends CharacterBody2D
 @export var sprite: Sprite2D
 @onready var animation_state = animation_tree.get("parameters/playback")
 func _ready() -> void:
-	#init()
+	init()
 	pass
 func _physics_process(delta: float) -> void:
 	update_direction()
@@ -12,7 +12,6 @@ func _physics_process(delta: float) -> void:
 	update_animation()
 	update_velocity(delta)
 	update_global_val()
-	print(data.speed)
 	move_and_collide(velocity * delta)
 func update_direction():
 	data.direction = Vector2.ZERO
@@ -40,7 +39,6 @@ func update_animation():
 			animation_state.travel("idle")
 		data.States.DEATH:
 			animation_state.travel("death")
-			queue_free()
 func update_velocity(delta):
 	match data.state:
 		data.States.MOVE:
@@ -54,11 +52,10 @@ func update_global_val():
 	GlobalVal.player["state"] = data.state
 	GlobalVal.player["position"] = global_position
 
-
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	get_attack(body)
 func get_attack(body: Node2D):
-	data.hp -= body.data.damage
+	data.hp -= body.damage
 	modulate = Color(1, 0, 0, 1)
 	await get_tree().create_timer(0.2).timeout
 	modulate = Color(1, 1, 1, 1) # 恢复为白色

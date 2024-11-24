@@ -1,9 +1,8 @@
-[gd_scene load_steps=42 format=3 uid="uid://7srmhe0q62qx"]
+[gd_scene load_steps=41 format=3 uid="uid://7srmhe0q62qx"]
 
 [ext_resource type="Script" path="res://weapons/guns.gd" id="1_ncgjk"]
 [ext_resource type="AnimationLibrary" uid="uid://d4fybwn0or211" path="res://animation/weapon.res" id="2_0qyob"]
 [ext_resource type="PackedScene" uid="uid://brihgfuhq8xps" path="res://weapons/bullets/gun_bullets.tscn" id="2_hu751"]
-[ext_resource type="Resource" uid="uid://clpemrvsow85x" path="res://resource/weapon_data.tres" id="2_imieu"]
 [ext_resource type="Texture2D" uid="uid://bwh3w4shd0lbx" path="res://assets/Guns Update - V1.01/Guns_V1.01 - Commission - Copy/02 - Sprite sheets/AK 47 [96x48]/[SHOOT] AK 47.png" id="3_pfe8y"]
 [ext_resource type="Texture2D" uid="uid://bfqkx3hqfygho" path="res://assets/Guns Update - V1.01/Guns_V1.01 - Commission - Copy/02 - Sprite sheets/AK 47 [96x48]/[RELOAD] AK 47.png" id="4_mbptq"]
 [ext_resource type="Texture2D" uid="uid://bdud74nmclhp3" path="res://assets/Guns Update - V1.01/Guns_V1.01 - Commission - Copy/02 - Sprite sheets/AK 47 [96x48]/[SHOOT WITH CASING AND MUZZLE FLASH] AK 47.png" id="5_xl2h7"]
@@ -266,8 +265,8 @@ animations = [{
 [node name="ak47" type="Node2D"]
 position = Vector2(58, 44)
 script = ExtResource("1_ncgjk")
-data = ExtResource("2_imieu")
 bullet = ExtResource("2_hu751")
+weapon = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

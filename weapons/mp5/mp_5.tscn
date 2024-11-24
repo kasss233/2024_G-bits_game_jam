@@ -1,7 +1,6 @@
-[gd_scene load_steps=44 format=3 uid="uid://77xr7edq5miv"]
+[gd_scene load_steps=43 format=3 uid="uid://77xr7edq5miv"]
 
 [ext_resource type="Script" path="res://weapons/guns.gd" id="1_vv0w3"]
-[ext_resource type="Resource" uid="uid://clpemrvsow85x" path="res://resource/weapon_data.tres" id="2_p0ifd"]
 [ext_resource type="PackedScene" uid="uid://brihgfuhq8xps" path="res://weapons/bullets/gun_bullets.tscn" id="3_oervy"]
 [ext_resource type="AnimationLibrary" uid="uid://d4fybwn0or211" path="res://animation/weapon.res" id="4_hp1ub"]
 [ext_resource type="Texture2D" uid="uid://cywjwpy3xemv2" path="res://public_assets/枪械/Guns Update - V1.01/Guns_V1.01 - Commission - Copy/02 - Sprite sheets/Submachine - MP5A3 [80x48]/[SHOOT WITH CASING] Submachine - MP5A3.png" id="5_64754"]
@@ -313,8 +312,9 @@ _data = {
 [node name="mp5" type="Node2D"]
 position = Vector2(58, 44)
 script = ExtResource("1_vv0w3")
-data = ExtResource("2_p0ifd")
 bullet = ExtResource("3_oervy")
+number = 40
+weapon = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

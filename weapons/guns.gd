@@ -1,22 +1,22 @@
 extends Node2D
 @onready var animation = $AnimationPlayer
 @onready var sprite = $sprite
-@onready var timer = $Timer
 @onready var gun_sprite = $sprite/Sprite2D
 @onready var bullet_pos = $sprite/Sprite2D/bullet_position
 @onready var method_player = $method_player
-@export var data: WeaponDatas = null
+@onready var initial_position: Vector2 = sprite.position
 @export var bullet: PackedScene
-var initial_position: Vector2 = Vector2.ZERO
+@export var number = 30
+@export var weapon: GlobalVal.weapons
+@export var damage: int = 1
+@export var enabled: bool
+var constNumber: int = 0
 var direction
-var number = 0
-var reloading: bool = false
 func _ready() -> void:
 	#if GlobalVal.player["weapon"]!=GlobalVal.weapons.AK47:
 		#queue_free()
-	if !data.enabled:
+	if !enabled:
 		queue_free()
-	init()
 func _physics_process(delta) -> void:
 	update_animation()
 	update_position()
@@ -46,7 +46,7 @@ func update_bullets():
 		get_tree().current_scene.add_child(b)
 		b.global_position = bullet_pos.global_position
 		b.direction = direction
-		b.damage = data.damage
+		b.damage = damage
 		gun_sprite.play("shooting")
 		number -= 1
 	
@@ -57,23 +57,22 @@ func update_gun_rotation():
 		gun_sprite.scale.y = -0.6 # 上下反转
 	else:
 		gun_sprite.scale.y = 0.6
-func init():
-	match data.weapon:
+func _init() -> void:
+	match weapon:
 		GlobalVal.weapons.AK47:
-			data.damage = GlobalVal.ak47["damage"]
-			data.number = GlobalVal.ak47["number"]
+			damage = GlobalVal.ak47["damage"]
+			number = GlobalVal.ak47["number"]
 		GlobalVal.weapons.GLOCK:
-			data.damage = GlobalVal.glock["damage"]
-			data.number = GlobalVal.glock["number"]
+			damage = GlobalVal.glock["damage"]
+			number = GlobalVal.glock["number"]
 		GlobalVal.weapons.RPG:
-			data.damage = GlobalVal.rpg["damage"]
-			data.number = GlobalVal.rpg["number"]
+			damage = GlobalVal.rpg["damage"]
+			number = GlobalVal.rpg["number"]
 		GlobalVal.weapons.MP5:
-			data.damage = GlobalVal.mp5["damage"]
-			data.number = GlobalVal.mp5["number"]
-	initial_position = sprite.position
-	number = data.number
+			damage = GlobalVal.mp5["damage"]
+			number = GlobalVal.mp5["number"]
+	constNumber = number
 func reload_start():
 	gun_sprite.play("reload")
 func reload_end():
-	number = data.number
+	number = constNumber

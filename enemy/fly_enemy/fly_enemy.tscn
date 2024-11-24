@@ -1,0 +1,149 @@
+[gd_scene load_steps=20 format=3 uid="uid://dnvog3ate4vc0"]
+
+[ext_resource type="Script" path="res://enemy/enemy.gd" id="1_l1p6h"]
+[ext_resource type="Texture2D" uid="uid://cad036khb850s" path="res://public_assets/敌人/Cacodaemon Sprite Sheet.png" id="3_jheuf"]
+[ext_resource type="Texture2D" uid="uid://bhuxwjxk031p5" path="res://public_assets/shadow.png" id="4_wmq8a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xbtyi"]
+size = Vector2(10, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frsd0"]
+atlas = ExtResource("3_jheuf")
+region = Rect2(0, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gldan"]
+atlas = ExtResource("3_jheuf")
+region = Rect2(64, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d4v2f"]
+atlas = ExtResource("3_jheuf")
+region = Rect2(128, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f8r8p"]
+atlas = ExtResource("3_jheuf")
+region = Rect2(192, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8gg6r"]
+atlas = ExtResource("3_jheuf")
+region = Rect2(256, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0vgqj"]
+atlas = ExtResource("3_jheuf")
+region = Rect2(320, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jdksf"]
+atlas = ExtResource("3_jheuf")
+region = Rect2(384, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oujf1"]
+atlas = ExtResource("3_jheuf")
+region = Rect2(448, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1s2wy"]
+atlas = ExtResource("3_jheuf")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lf1ci"]
+atlas = ExtResource("3_jheuf")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ks0vk"]
+atlas = ExtResource("3_jheuf")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6lh8"]
+atlas = ExtResource("3_jheuf")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qrxgg"]
+atlas = ExtResource("3_jheuf")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rednt"]
+atlas = ExtResource("3_jheuf")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q0u2f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frsd0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gldan")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d4v2f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f8r8p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8gg6r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0vgqj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jdksf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oujf1")
+}],
+"loop": false,
+"name": &"death",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1s2wy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lf1ci")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ks0vk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t6lh8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qrxgg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rednt")
+}],
+"loop": true,
+"name": &"move",
+"speed": 10.0
+}]
+
+[node name="fly_enemy" type="CharacterBody2D"]
+z_index = 2
+collision_layer = 16
+collision_mask = 296
+script = ExtResource("1_l1p6h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -13)
+shape = SubResource("RectangleShape2D_xbtyi")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
+color = Color(100, 95.676, 100, 1)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_q0u2f")
+animation = &"death"
+autoplay = "move"
+frame = 7
+frame_progress = 1.0
+
+[node name="Sprite2D2" type="Sprite2D" parent="AnimatedSprite2D"]
+z_index = -5
+position = Vector2(6, 29)
+scale = Vector2(0.375, 0.299316)
+texture = ExtResource("4_wmq8a")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

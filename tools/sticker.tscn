@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://xmreic57dsn1"]
+
+[ext_resource type="Texture2D" uid="uid://gvbisljdee0x" path="res://public_assets/临时拾取物/coins-chests-etc-2-0-noborders.png" id="1_juv1c"]
+[ext_resource type="Script" path="res://tools/sticker.gd" id="1_q2pwt"]
+[ext_resource type="PackedScene" uid="uid://d1kmv7m0nvxk8" path="res://weapons/bullets/stick_bullets.tscn" id="2_ucg0b"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xtwh0"]
+radius = 8.0
+
+[node name="sticker" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_q2pwt")
+bullet = ExtResource("2_ucg0b")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_juv1c")
+region_enabled = true
+region_rect = Rect2(113, 386, 14, 14)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_xtwh0")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

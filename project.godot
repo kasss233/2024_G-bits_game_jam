@@ -19,6 +19,11 @@ config/icon="res://icon.svg"
 
 GlobalVal="*res://players/global_val.gd"
 
+[display]
+
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/net.yarvis.pixel_pen/plugin.cfg")

@@ -6,8 +6,8 @@ var player = {
 	"direction" = Vector2.ZERO,
 	"position" = Vector2.ZERO,
 	"state" = states.IDLE,
-	"weapon" = weapons.HAND,
-	"hp" = 10,
+	"weapon" = weapons.HAND,#确定使用武器
+	"hp" = 25,
 	"speed" = 200,
 }
 var stick = {
@@ -32,12 +32,15 @@ var mp5 = {
 	"number" = 50 # 弹量
 }
 var sword = {
-	"damage" = 1
+	"damage" = 10
+}
+var spear={
+	"damage"=20
 }
 var enemy = {
-	"hp" = 500,
-	"speed" = 100,
-	"damage" = 1
+	"hp" : 50,
+	"speed" : 100,
+	"damage" : 1
 }
 func _ready() -> void:
 	pass
