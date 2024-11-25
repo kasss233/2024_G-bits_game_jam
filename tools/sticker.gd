@@ -21,7 +21,6 @@ func update_bullets():
 	var b = bullet.instantiate()
 	get_tree().current_scene.add_child(b)
 	b.global_position = global_position
-	b.global_position.y -= 10
 	b.damage = damage
 func _on_timer_timeout() -> void:
 	timer.wait_time = cd

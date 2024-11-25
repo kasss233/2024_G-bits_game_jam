@@ -74,6 +74,7 @@ attack={
 2d_physics/layer_7="enemy_area"
 2d_physics/layer_8="item"
 2d_physics/layer_9="player_area"
+2d_physics/layer_10="cat_body"
 
 [rendering]
 

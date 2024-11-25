@@ -16,7 +16,8 @@ func find_target():
 	var bodies = area.get_overlapping_bodies()
 	if bodies.size() > 0:
 		for body in bodies:
-			body.get_attack(damage)
+			if !used:
+				body.get_attack(damage)
 		used=true
 func init():
 	pass

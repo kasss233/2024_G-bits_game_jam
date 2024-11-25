@@ -11,13 +11,18 @@ func _ready() -> void:
 	init()
 func _physics_process(delta: float) -> void:
 	update_direction()
+	update_animation()
 	death_event()
 	move_and_collide(velocity * delta)
 	
 func update_direction():
 	direction = (GlobalVal.player["position"] - global_position).normalized()
 	velocity = direction * speed
-	
+func update_animation():
+	if direction.x<0:
+		animation.flip_h=true
+	else:
+		animation.flip_h=false
 func death_event():
 	if hp <= 0:
 		collision_layer = 0
