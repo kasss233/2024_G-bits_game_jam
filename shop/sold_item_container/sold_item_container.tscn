@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://1v60nrr6cgdt"]
+
+[ext_resource type="PackedScene" uid="uid://d3ve51ir527g0" path="res://shop/sold_item/sold_item.tscn" id="1_qpvre"]
+[ext_resource type="Script" path="res://shop/sold_item_container/label.gd" id="2_6j2ti"]
+
+[node name="sold_item_container" type="HBoxContainer"]
+offset_left = 41.0
+offset_top = 35.0
+offset_right = 145.0
+offset_bottom = 103.0
+size_flags_horizontal = 0
+
+[node name="sold_items" type="GridContainer" parent="."]
+layout_mode = 2
+columns = 3
+
+[node name="sold_item" parent="sold_items" node_paths=PackedStringArray("label_price") instance=ExtResource("1_qpvre")]
+layout_mode = 2
+texture = "res://public_resource/球类/balls/pix_basketball.png"
+label_price = NodePath("../../Label")
+
+[node name="sold_item2" parent="sold_items" instance=ExtResource("1_qpvre")]
+layout_mode = 2
+
+[node name="sold_item3" parent="sold_items" instance=ExtResource("1_qpvre")]
+layout_mode = 2
+
+[node name="sold_item4" parent="sold_items" instance=ExtResource("1_qpvre")]
+layout_mode = 2
+
+[node name="sold_item5" parent="sold_items" instance=ExtResource("1_qpvre")]
+layout_mode = 2
+
+[node name="sold_item6" parent="sold_items" instance=ExtResource("1_qpvre")]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "111"
+script = ExtResource("2_6j2ti")

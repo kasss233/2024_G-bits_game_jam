@@ -339,6 +339,7 @@ parameters/move/blend_position = Vector2(-0.000873387, 0.957219)
 position = Vector2(0, -14)
 texture = ExtResource("1_7fxmy")
 hframes = 4
+frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, -11)

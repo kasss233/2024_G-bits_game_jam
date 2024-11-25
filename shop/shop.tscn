@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://bmxplr0w5os0c"]
+
+[node name="shop" type="GridContainer"]
