@@ -69,7 +69,7 @@ func _init() -> void:
 	stick["damage"] = 1
 	stick["number"] = 1
 	stick["cd"] = 1
-	bullet["damage"] = 1
+	#bullet["damage"] = 1
 	properties["mobility"] = 3
 	properties["stamina"] = 5
 	properties["mood"] = 5
