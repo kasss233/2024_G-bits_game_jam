@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5808658ppe8g"]
+
+[ext_resource type="Script" path="res://audio_player/audio_player.gd" id="1_wddt7"]
+
+[node name="AudioPlayer" type="Node"]
+script = ExtResource("1_wddt7")
+
+[node name="SE" type="Node" parent="."]
+
+[node name="button_focused" type="AudioStreamPlayer" parent="SE"]
+bus = &"SFX"
+
+[node name="button_pressed" type="AudioStreamPlayer" parent="SE"]
+bus = &"SFX"
+
+[node name="BGM" type="Node" parent="."]
+
+[node name="BGMPlayer" type="AudioStreamPlayer" parent="BGM"]
+bus = &"BGM"

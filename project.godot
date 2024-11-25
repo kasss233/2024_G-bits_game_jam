@@ -18,6 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 GlobalVal="*res://players/global_val.gd"
+AudioPlayer="*res://audio_player/audio_player.gd"
+GlobalSoldItemList="*res://shop/global_sold_item_list.gd"
 
 [display]
 
@@ -32,7 +34,9 @@ enabled=PackedStringArray("res://addons/net.yarvis.pixel_pen/plugin.cfg")
 
 folder_colors={
 "res://assets/": "green",
-"res://public_assets/": "yellow"
+"res://audio_player/": "red",
+"res://public_resource/": "green",
+"res://shop/": "orange"
 }
 
 [input]
