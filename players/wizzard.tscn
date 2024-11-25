@@ -1,12 +1,19 @@
-[gd_scene load_steps=35 format=3 uid="uid://dciamlle615vi"]
+[gd_scene load_steps=43 format=3 uid="uid://dciamlle615vi"]
 
 [ext_resource type="Texture2D" uid="uid://tdc5mo6qptr2" path="res://assets/Pixel Crawler - FREE - 1.8/Heroes/Wizzard/Idle/Idle-Sheet.png" id="1_7fxmy"]
 [ext_resource type="Script" path="res://players/player.gd" id="1_w6ftf"]
 [ext_resource type="Texture2D" uid="uid://blskbp7ebrpwg" path="res://assets/Pixel Crawler - FREE - 1.8/Heroes/Wizzard/Run/Run-Sheet.png" id="2_dhjsb"]
 [ext_resource type="Resource" uid="uid://dametontd8w2k" path="res://resource/player_data.tres" id="2_s6qrl"]
 [ext_resource type="Texture2D" uid="uid://jhb85kjdy7h5" path="res://assets/Pixel Crawler - FREE - 1.8/Heroes/Wizzard/Death/Death-Sheet.png" id="3_0hqx0"]
-[ext_resource type="PackedScene" uid="uid://ceqr8peo3gc10" path="res://weapons/stick.tscn" id="5_6kho2"]
-[ext_resource type="PackedScene" uid="uid://ceukar0pw0cpk" path="res://weapons/hand.tscn" id="6_puscc"]
+[ext_resource type="PackedScene" uid="uid://ceqr8peo3gc10" path="res://weapons/stick/stick.tscn" id="5_6kho2"]
+[ext_resource type="PackedScene" uid="uid://djyd2d2r2k1qh" path="res://weapons/glock/glock.tscn" id="8_da58w"]
+[ext_resource type="PackedScene" uid="uid://7srmhe0q62qx" path="res://weapons/ak47/ak47.tscn" id="8_og3ii"]
+[ext_resource type="PackedScene" uid="uid://caxi3vubeee7i" path="res://weapons/rpg/rpg.tscn" id="10_d6kmt"]
+[ext_resource type="PackedScene" uid="uid://cgahjpcrq648b" path="res://weapons/sword/sword.tscn" id="12_ne4kw"]
+[ext_resource type="PackedScene" uid="uid://xmreic57dsn1" path="res://tools/sticker.tscn" id="13_4q7pw"]
+[ext_resource type="PackedScene" uid="uid://cwd72xqhe7qtl" path="res://weapons/spear/spear.tscn" id="13_jblv3"]
+[ext_resource type="PackedScene" uid="uid://77xr7edq5miv" path="res://weapons/mp5/mp_5.tscn" id="13_pqyrx"]
+[ext_resource type="PackedScene" uid="uid://dum2im2q7hfnm" path="res://weapons/bullets/stick_bullets_2.tscn" id="14_msjoh"]
 
 [sub_resource type="Animation" id="Animation_bcdg2"]
 length = 0.001
@@ -26,7 +33,6 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_l1x0g"]
 resource_name = "death"
 length = 0.6
-loop_mode = 1
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -314,8 +320,11 @@ transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2iwoq"]
 size = Vector2(8, 8)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_626yc"]
+size = Vector2(26, 32)
+
 [node name="Wizzard" type="CharacterBody2D" node_paths=PackedStringArray("animation_tree", "sprite")]
-collision_mask = 2
+collision_mask = 642
 script = ExtResource("1_w6ftf")
 data = ExtResource("2_s6qrl")
 animation_tree = NodePath("AnimationPlayer/AnimationTree")
@@ -350,8 +359,40 @@ zoom = Vector2(3, 3)
 
 [node name="weapon" type="Node2D" parent="."]
 
-[node name="stick" parent="weapon" instance=ExtResource("5_6kho2")]
-position = Vector2(10, -14)
+[node name="ak47" parent="weapon" instance=ExtResource("8_og3ii")]
+position = Vector2(9, -11)
 
-[node name="hand" parent="weapon" instance=ExtResource("6_puscc")]
-position = Vector2(-5, -9)
+[node name="stick" parent="weapon" instance=ExtResource("5_6kho2")]
+position = Vector2(15, -16)
+
+[node name="glock" parent="weapon" instance=ExtResource("8_da58w")]
+position = Vector2(7, -14)
+
+[node name="RPG" parent="weapon" instance=ExtResource("10_d6kmt")]
+position = Vector2(6, -19)
+enabled = true
+
+[node name="sword" parent="weapon" instance=ExtResource("12_ne4kw")]
+position = Vector2(12, -13)
+
+[node name="mp5" parent="weapon" instance=ExtResource("13_pqyrx")]
+position = Vector2(2, -10)
+
+[node name="spear" parent="weapon" instance=ExtResource("13_jblv3")]
+position = Vector2(8, -6)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, -15)
+shape = SubResource("RectangleShape2D_626yc")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="sticker" parent="Node2D" instance=ExtResource("13_4q7pw")]
+bullet = ExtResource("14_msjoh")
+enabled = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

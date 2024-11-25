@@ -1,8 +1,58 @@
-[gd_scene load_steps=8 format=3 uid="uid://c60x0k4ipvksn"]
+[gd_scene load_steps=15 format=3 uid="uid://c60x0k4ipvksn"]
 
 [ext_resource type="Script" path="res://item/item.gd" id="1_q62iq"]
-[ext_resource type="Texture2D" uid="uid://c4q5642mkojpt" path="res://assets/Pixel Crawler - FREE - 1.8/Weapons/Wood/Wood.png" id="2_uvhxn"]
-[ext_resource type="Texture2D" uid="uid://bhuxwjxk031p5" path="res://assets/shadow.png" id="3_38i5u"]
+[ext_resource type="Texture2D" uid="uid://gvbisljdee0x" path="res://public_assets/临时拾取物/coins-chests-etc-2-0-noborders.png" id="2_pyosx"]
+[ext_resource type="Texture2D" uid="uid://bhuxwjxk031p5" path="res://public_assets/shadow.png" id="3_38i5u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2geri"]
+atlas = ExtResource("2_pyosx")
+region = Rect2(400, 192, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g24fy"]
+atlas = ExtResource("2_pyosx")
+region = Rect2(416, 192, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mvwp6"]
+atlas = ExtResource("2_pyosx")
+region = Rect2(432, 192, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t775v"]
+atlas = ExtResource("2_pyosx")
+region = Rect2(448, 192, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_27j2a"]
+atlas = ExtResource("2_pyosx")
+region = Rect2(464, 192, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_61p51"]
+atlas = ExtResource("2_pyosx")
+region = Rect2(480, 192, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lxi7j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2geri")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g24fy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mvwp6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t775v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_27j2a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_61p51")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [sub_resource type="Animation" id="Animation_7uys0"]
 length = 0.001
@@ -59,17 +109,11 @@ radius = 17.0
 
 [node name="item" type="Node2D"]
 script = ExtResource("1_q62iq")
-effect = {
-"addNumber": 4,
-"mulDamage": 1.5,
-"subCd": 1
-}
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-rotation = -1.5708
-texture = ExtResource("2_uvhxn")
-region_enabled = true
-region_rect = Rect2(81, 3, 29, 10)
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -5.17678)
+sprite_frames = SubResource("SpriteFrames_lxi7j")
+frame_progress = 0.661624
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -79,15 +123,15 @@ autoplay = "item/item_animation"
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(0, -0.395203)
-collision_layer = 4
+collision_layer = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_t0bgo")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(0, 18)
-scale = Vector2(0.15625, 0.223632)
+position = Vector2(0, 14)
+scale = Vector2(0.114651, 0.164741)
 texture = ExtResource("3_38i5u")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

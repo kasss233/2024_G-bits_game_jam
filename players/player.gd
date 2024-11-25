@@ -1,34 +1,37 @@
 extends CharacterBody2D
-@export var data:PlayerData
-@export var animation_tree:AnimationTree##动画树
-@export var sprite:Sprite2D
-@onready	var animation_state=animation_tree.get("parameters/playback")
+@export var data: PlayerDatas = null
+@export var animation_tree: AnimationTree ## 动画树
+@export var sprite: Sprite2D
+@onready var animation_state = animation_tree.get("parameters/playback")
+func _ready() -> void:
+	init()
+	pass
 func _physics_process(delta: float) -> void:
 	update_direction()
 	update_state()
 	update_animation()
 	update_velocity(delta)
 	update_global_val()
-	move_and_collide(velocity*delta)
+	move_and_collide(velocity * delta)
 func update_direction():
-	data.direction=Vector2.ZERO
-	data.direction.x=Input.get_action_strength("right")-Input.get_action_strength("left")
-	data.direction.y=Input.get_action_strength("down")-Input.get_action_strength("up")
-	data.direction=data.direction.normalized()	
+	data.direction = Vector2.ZERO
+	data.direction.x = Input.get_action_strength("right") - Input.get_action_strength("left")
+	data.direction.y = Input.get_action_strength("down") - Input.get_action_strength("up")
+	data.direction = data.direction.normalized()
 func update_state():
-	if data.hp==0:
-		data.state=data.States.DEATH
+	if data.hp == 0:
+		data.state = data.States.DEATH
 		return
-	if data.direction==Vector2.ZERO:
-		data.state=data.States.IDLE
-	else: data.state=data.States.MOVE	
+	if data.direction == Vector2.ZERO:
+		data.state = data.States.IDLE
+	else: data.state = data.States.MOVE
 func update_animation():
-	if data.direction.x<0:
-		sprite.flip_h=true
-	elif data.direction.x>0: 
-		sprite.flip_h=false	
-	animation_tree.set("parameters/idle/blend_position",data.direction)
-	animation_tree.set("parameters/move/blend_position",data.direction)
+	if data.direction.x < 0:
+		sprite.flip_h = true
+	elif data.direction.x > 0:
+		sprite.flip_h = false
+	animation_tree.set("parameters/idle/blend_position", data.direction)
+	animation_tree.set("parameters/move/blend_position", data.direction)
 	match data.state:
 		data.States.MOVE:
 			animation_state.travel("move")
@@ -39,12 +42,23 @@ func update_animation():
 func update_velocity(delta):
 	match data.state:
 		data.States.MOVE:
-			velocity=velocity.move_toward(data.direction*data.speed,data.acc*delta)
+			velocity = velocity.move_toward(data.direction * data.speed, data.acc * delta)
 		data.States.IDLE:
-			velocity=velocity.move_toward(Vector2.ZERO,data.fri*delta)
+			velocity = velocity.move_toward(Vector2.ZERO, data.fri * delta)
 		data.States.DEATH:
-			velocity=Vector2.ZERO
+			velocity = Vector2.ZERO
 func update_global_val():
-	GlobalVal.player["direction"]=data.direction
-	GlobalVal.player["state"]=data.state
-	GlobalVal.player["position"]=global_position    
+	GlobalVal.player["direction"] = data.direction
+	GlobalVal.player["state"] = data.state
+	GlobalVal.player["position"] = global_position
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	get_attack(body)
+func get_attack(body: Node2D):
+	data.hp -= body.damage
+	modulate = Color(1, 0, 0, 1)
+	await get_tree().create_timer(0.2).timeout
+	modulate = Color(1, 1, 1, 1) # 恢复为白色
+func init():
+	data.hp = GlobalVal.player["hp"]
+	data.speed = GlobalVal.player["speed"]

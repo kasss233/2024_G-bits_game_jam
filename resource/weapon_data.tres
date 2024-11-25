@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="WeaponData" load_steps=2 format=3 uid="uid://clpemrvsow85x"]
-
-[ext_resource type="Script" path="res://resource/weapon_data.gd" id="1_14ldw"]
-
-[resource]
-script = ExtResource("1_14ldw")
-number = 1
-cd = 1.0
-damage = 1.0

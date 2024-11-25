@@ -1,5 +1,5 @@
 extends Resource
-class_name PlayerData
+class_name PlayerDatas
 
 enum States { MOVE, DEATH, IDLE }
 enum Weapons { HAND, STICK }

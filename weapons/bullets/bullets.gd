@@ -3,12 +3,16 @@ extends CharacterBody2D
 var target: Node2D = null  # 最近的目标
 var target_position:Vector2
 var direction
+var damage:int=1
 @export var speed=200
 func _ready() -> void:
+	init()
 	set_random_direction()
 func _physics_process(delta: float) -> void:
 	find_target()
 	update_direction()
+	update_rotation()
+	update_velocity()
 	move_and_slide()
 func find_target():
 	var bodies = area.get_overlapping_bodies()
@@ -24,13 +28,19 @@ func find_target():
 func update_direction():
 	if target:
 		direction = (target_position+Vector2(0,-20) - global_position).normalized()
-	velocity = direction * speed 
-	
+func update_rotation():
+	rotation = direction.angle()
 func set_random_direction():
 	direction = Vector2(randf() * 2 - 1, randf() * 2 - 1).normalized()
 	
 func _on_collision_area_body_entered(body: Node2D) -> void:
+	body.get_attack(damage)
 	queue_free()
 
 func _on_timer_timeout() -> void:
 	queue_free()
+	
+func update_velocity():
+	velocity=direction*speed
+func init():
+	pass

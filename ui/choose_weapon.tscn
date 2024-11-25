@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://cs8cegd4t2a2x"]
+
+[ext_resource type="Script" path="res://ui/choose_weapon.gd" id="1_lvxfk"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 139.0
+offset_top = 114.0
+offset_right = 179.0
+offset_bottom = 154.0
+script = ExtResource("1_lvxfk")
+
+[node name="stick" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "stick
+"
+
+[node name="ak47" type="Button" parent="."]
+layout_mode = 0
+offset_left = 81.0
+offset_right = 126.0
+offset_bottom = 31.0
+text = "ak47"
+
+[node name="start" type="Button" parent="."]
+layout_mode = 0
+offset_left = 166.0
+offset_top = -1.0
+offset_right = 211.0
+offset_bottom = 30.0
+text = "start"
+
+[connection signal="pressed" from="stick" to="." method="_on_stick_pressed"]
+[connection signal="pressed" from="ak47" to="." method="_on_ak_47_pressed"]
+[connection signal="pressed" from="start" to="." method="_on_start_pressed"]
