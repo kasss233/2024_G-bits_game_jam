@@ -1,11 +1,10 @@
-[gd_scene load_steps=39 format=3 uid="uid://caxi3vubeee7i"]
+[gd_scene load_steps=38 format=3 uid="uid://caxi3vubeee7i"]
 
 [ext_resource type="Script" path="res://weapons/guns.gd" id="1_bwjw7"]
 [ext_resource type="AnimationLibrary" uid="uid://d4fybwn0or211" path="res://animation/weapon.res" id="2_ikcih"]
 [ext_resource type="Texture2D" uid="uid://8027nfokh2mn" path="res://public_assets/Guns Update - V1.01/Guns_V1.01 - Commission - Copy/02 - Sprite sheets/Thick Bazooka - M20 [192x32]/[SHOOT WITH MUZZLE FLASH] Thick Bazooka - M20.png" id="3_1r217"]
 [ext_resource type="PackedScene" uid="uid://c58m1cf2yxv4w" path="res://weapons/bullets/rpg_bullets.tscn" id="3_myc2k"]
 [ext_resource type="Texture2D" uid="uid://cqmkyt7eijlpm" path="res://public_assets/Guns Update - V1.01/Guns_V1.01 - Commission - Copy/02 - Sprite sheets/Thick Bazooka - M20 [192x32]/[ASSEMBLE] Thick Bazooka - M20.png" id="4_dxigk"]
-[ext_resource type="Texture2D" uid="uid://c65fbkwa4hkaw" path="res://assets/Pixel Crawler - FREE - 1.8/Weapons/Hands/Hands.png" id="5_jphce"]
 
 [sub_resource type="Animation" id="Animation_annrd"]
 length = 0.001
@@ -290,17 +289,10 @@ animation = &"shooting"
 autoplay = "idle"
 frame = 7
 frame_progress = 1.0
-offset = Vector2(20, 10)
-
-[node name="Sprite2D2" type="Sprite2D" parent="sprite/Sprite2D"]
-position = Vector2(5, 16.6667)
-scale = Vector2(1.22703, 1.44144)
-texture = ExtResource("5_jphce")
-region_enabled = true
-region_rect = Rect2(21, 21, 7, 6)
+offset = Vector2(15, -8)
 
 [node name="bullet_position" type="Node2D" parent="sprite/Sprite2D"]
-position = Vector2(36.6667, -1.66667)
+position = Vector2(65, -13.3333)
 
 [node name="method_player" type="AnimationPlayer" parent="."]
 libraries = {

@@ -171,8 +171,8 @@ animations = [{
 size = Vector2(20, 12)
 
 [node name="cat" type="CharacterBody2D"]
-collision_layer = 512
-collision_mask = 17
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("1_nra6a")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -185,3 +185,4 @@ position = Vector2(1, -3)
 shape = SubResource("RectangleShape2D_d3v4v")
 
 [node name="weapon_generator" parent="." instance=ExtResource("4_gjsmr")]
+position = Vector2(-3, -6)

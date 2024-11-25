@@ -13,10 +13,11 @@ extends Node2D
 var constNumber: int = 0
 var direction
 func _ready() -> void:
+	print("666666")
 	#if GlobalVal.player["weapon"]!=GlobalVal.weapons.AK47:
 		#queue_free()
-	if !enabled:
-		queue_free()
+	#if !enabled:
+		#queue_free()
 	pass
 func _physics_process(delta) -> void:
 	update_animation()

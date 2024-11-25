@@ -9,7 +9,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 func update_velocity():
 	var player_pos=GlobalVal.player["position"]
-	player_pos.x-=100
+	player_pos.x-=20
 	var distance=player_pos.distance_to(global_position)
 	if distance<5:
 		direction=Vector2.ZERO

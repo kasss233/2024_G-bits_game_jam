@@ -8,7 +8,7 @@ var bullet_position: Vector2
 @export var damage: int = 1
 @export var knockback_distance: int = 20
 func _ready() -> void:
-	init()
+	pass
 func _physics_process(delta: float) -> void:
 	update_direction()
 	update_animation()
@@ -43,7 +43,8 @@ func get_attack(get_damage: int):
 	knockback((global_position - GlobalVal.player["position"]).normalized())
 	await get_tree().create_timer(0.2).timeout
 	modulate = Color(1, 1, 1, 1) # 恢复为白色
-func init():
-	speed = GlobalVal.enemy["speed"]
-	hp = GlobalVal.enemy["hp"]
-	damage = GlobalVal.enemy["damage"]
+func _init():
+	#speed = GlobalVal.enemy["speed"]
+	#hp = GlobalVal.enemy["hp"]
+	#damage = GlobalVal.enemy["damage"]
+	pass

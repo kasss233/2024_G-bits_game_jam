@@ -121,8 +121,9 @@ animations = [{
 [node name="fly_enemy" type="CharacterBody2D"]
 z_index = 2
 collision_layer = 16
-collision_mask = 296
+collision_mask = 298
 script = ExtResource("1_l1p6h")
+speed = 125
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, -13)

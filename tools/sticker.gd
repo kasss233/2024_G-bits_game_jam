@@ -11,12 +11,7 @@ func _ready() -> void:
 		#queue_free()
 	if !enabled:
 		queue_free()
-func _physics_process(delta) -> void:
-	update_position()
-func update_position():
-	global_position=GlobalVal.player["position"]
-	global_position.x+=20
-	global_position.y-=40
+
 func update_bullets():
 	var b = bullet.instantiate()
 	get_tree().current_scene.add_child(b)

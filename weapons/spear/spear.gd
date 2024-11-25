@@ -9,10 +9,9 @@ var direction = Vector2.ZERO
 var is_attacking = false
 
 func _ready() -> void:
-	if not enabled:
-		print(enabled)
-		queue_free()
-
+	#if not enabled:
+		#queue_free()
+	pass
 func _physics_process(delta: float) -> void:
 	update_position()
 	update_rotation()
@@ -52,4 +51,4 @@ func update_position():
 	if GlobalVal.player["direction"].x > 0:
 		sprite.position = initial_position
 	elif GlobalVal.player["direction"].x < 0:
-		sprite.position.x = initial_position.x - 15
+		sprite.position.x = initial_position.x - 5

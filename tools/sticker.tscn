@@ -1,19 +1,67 @@
-[gd_scene load_steps=5 format=3 uid="uid://xmreic57dsn1"]
+[gd_scene load_steps=12 format=3 uid="uid://xmreic57dsn1"]
 
-[ext_resource type="Texture2D" uid="uid://gvbisljdee0x" path="res://public_assets/临时拾取物/coins-chests-etc-2-0-noborders.png" id="1_juv1c"]
 [ext_resource type="Script" path="res://tools/sticker.gd" id="1_q2pwt"]
 [ext_resource type="PackedScene" uid="uid://d1kmv7m0nvxk8" path="res://weapons/bullets/stick_bullets.tscn" id="2_ucg0b"]
+[ext_resource type="Texture2D" uid="uid://dp6oe0n5pqky7" path="res://public_assets/临时拾取物/coins-chests-etc-2-0.png" id="3_nam37"]
 [ext_resource type="AnimationLibrary" uid="uid://ceq546xrg4i4" path="res://animation/item.res" id="4_6r8j4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1ph1"]
+atlas = ExtResource("3_nam37")
+region = Rect2(80, 367, 16, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8p64g"]
+atlas = ExtResource("3_nam37")
+region = Rect2(96, 367, 16, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_edeuv"]
+atlas = ExtResource("3_nam37")
+region = Rect2(112, 367, 16, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uv5nb"]
+atlas = ExtResource("3_nam37")
+region = Rect2(128, 367, 16, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nikl8"]
+atlas = ExtResource("3_nam37")
+region = Rect2(144, 367, 16, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_us7nd"]
+atlas = ExtResource("3_nam37")
+region = Rect2(160, 367, 16, 17)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8qbcj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u1ph1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8p64g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_edeuv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uv5nb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nikl8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_us7nd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [node name="sticker" type="Node2D"]
 script = ExtResource("1_q2pwt")
 bullet = ExtResource("2_ucg0b")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -0.0337122)
-texture = ExtResource("1_juv1c")
-region_enabled = true
-region_rect = Rect2(113, 386, 14, 14)
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_8qbcj")
+frame_progress = 0.149238
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true

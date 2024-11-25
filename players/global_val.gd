@@ -6,7 +6,7 @@ var player = {
 	"direction" = Vector2.ZERO,
 	"position" = Vector2.ZERO,
 	"state" = states.IDLE,
-	"weapon" = weapons.AK47, # 确定使用武器
+	"weapon" = weapons.SWORD, # 确定使用武器
 	"hp" = 25,
 	"speed" = 200,
 }
@@ -62,13 +62,6 @@ var pets = []
 func _ready() -> void:
 	pass
 func _init() -> void:
-	player["direction"] = Vector2.ZERO
-	player["position"] = Vector2.ZERO
-	player["state"] = states.IDLE
-	player["weapon"] = weapons.AK47
-	stick["damage"] = 1
-	stick["number"] = 1
-	stick["cd"] = 1
 	#bullet["damage"] = 1
 	properties["mobility"] = 3
 	properties["stamina"] = 5

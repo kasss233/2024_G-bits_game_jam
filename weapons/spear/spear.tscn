@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cwd72xqhe7qtl"]
+[gd_scene load_steps=4 format=3 uid="uid://cwd72xqhe7qtl"]
 
 [ext_resource type="Texture2D" uid="uid://5mleyvwe31yi" path="res://public_assets/64x64 weapons final.png" id="1_krxuq"]
 [ext_resource type="Script" path="res://weapons/spear/spear.gd" id="1_p7uwh"]
-[ext_resource type="Texture2D" uid="uid://c65fbkwa4hkaw" path="res://assets/Pixel Crawler - FREE - 1.8/Weapons/Hands/Hands.png" id="3_g6gbe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fsjti"]
 size = Vector2(11, 47)
@@ -31,12 +30,5 @@ collision_mask = 16
 [node name="CollisionShape2D" type="CollisionShape2D" parent="sprite/sprite/Area2D"]
 position = Vector2(-1.5, -57.5)
 shape = SubResource("RectangleShape2D_fsjti")
-
-[node name="Sprite2D2" type="Sprite2D" parent="sprite/sprite"]
-position = Vector2(-2, -6)
-scale = Vector2(1.22703, 1.44144)
-texture = ExtResource("3_g6gbe")
-region_enabled = true
-region_rect = Rect2(21, 21, 7, 6)
 
 [connection signal="body_entered" from="sprite/sprite/Area2D" to="." method="_on_area_2d_body_entered"]

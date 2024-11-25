@@ -1,0 +1,82 @@
+[gd_scene load_steps=10 format=3 uid="uid://bww3mbswa5t6"]
+
+[ext_resource type="Script" path="res://weapons/bullets/bullets.gd" id="1_o5kko"]
+[ext_resource type="Texture2D" uid="uid://bsnom2kh1145n" path="res://public_assets/New_All_Fire_Bullet_Pixel_16x16/All_Fire_Bullet_Pixel_16x16_04.png" id="2_5i5vm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkwx3"]
+atlas = ExtResource("2_5i5vm")
+region = Rect2(496, 110, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p55h2"]
+atlas = ExtResource("2_5i5vm")
+region = Rect2(512, 110, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y218c"]
+atlas = ExtResource("2_5i5vm")
+region = Rect2(528, 110, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e861c"]
+atlas = ExtResource("2_5i5vm")
+region = Rect2(544, 110, 16, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nke7n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jkwx3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p55h2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y218c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e861c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1xi4t"]
+radius = 4.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8smkk"]
+radius = 200.003
+
+[node name="stick_bullets3" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_o5kko")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -1)
+scale = Vector2(0.625, 0.625)
+sprite_frames = SubResource("SpriteFrames_nke7n")
+autoplay = "default"
+frame_progress = 0.968598
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1xi4t")
+
+[node name="detectArea" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detectArea"]
+shape = SubResource("CircleShape2D_8smkk")
+
+[node name="collisionArea" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collisionArea"]
+shape = SubResource("CircleShape2D_1xi4t")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="body_entered" from="collisionArea" to="." method="_on_collision_area_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

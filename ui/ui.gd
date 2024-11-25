@@ -34,4 +34,4 @@ func _update_countdown(delta: float):
 
 # 游戏结束逻辑（可选）
 func _game_over():
-	print("Game Over")
+	pass

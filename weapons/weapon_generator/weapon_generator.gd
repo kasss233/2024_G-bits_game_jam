@@ -1,16 +1,15 @@
 extends Node2D
-@export var AK47: PackedScene
+@export var AK47=PackedScene
 @export var GLOCK: PackedScene
 @export var MP5: PackedScene
 @export var RPG: PackedScene
 @export var SPEAR: PackedScene
 @export var SWORD: PackedScene
 @export var STICK: PackedScene
-
+func _physics_process(delta: float) -> void:
+	pass
 func _ready() -> void:
-	var weapon = choose_weapon().instantiate()
-	get_tree().current_scene.add_child(weapon)
-	weapon.position = get_parent().position
+	generate()
 func choose_weapon() -> PackedScene:
 	match GlobalVal.player["weapon"]:
 		GlobalVal.weapons.AK47:
@@ -27,5 +26,10 @@ func choose_weapon() -> PackedScene:
 			return SWORD
 		GlobalVal.weapons.STICK:
 			return STICK
-		_:
-			return AK47
+		_:	
+			print("no weapon")
+			return null
+func generate():
+	var weapon = choose_weapon().instantiate()
+	add_child(weapon)
+	weapon.global_position = global_position

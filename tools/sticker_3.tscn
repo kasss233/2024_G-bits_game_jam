@@ -1,0 +1,77 @@
+[gd_scene load_steps=12 format=3 uid="uid://exl2pavgp5w6"]
+
+[ext_resource type="Script" path="res://tools/sticker.gd" id="1_h4j1u"]
+[ext_resource type="PackedScene" uid="uid://bww3mbswa5t6" path="res://weapons/bullets/stick_bullets_3.tscn" id="2_svesf"]
+[ext_resource type="Texture2D" uid="uid://dp6oe0n5pqky7" path="res://public_assets/临时拾取物/coins-chests-etc-2-0.png" id="3_tgwln"]
+[ext_resource type="AnimationLibrary" uid="uid://ceq546xrg4i4" path="res://animation/item.res" id="4_845y5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i63y3"]
+atlas = ExtResource("3_tgwln")
+region = Rect2(80, 401, 16, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yu26l"]
+atlas = ExtResource("3_tgwln")
+region = Rect2(96, 401, 16, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nfo38"]
+atlas = ExtResource("3_tgwln")
+region = Rect2(112, 401, 16, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mcyq2"]
+atlas = ExtResource("3_tgwln")
+region = Rect2(128, 401, 16, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c8jew"]
+atlas = ExtResource("3_tgwln")
+region = Rect2(144, 401, 16, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i2tt8"]
+atlas = ExtResource("3_tgwln")
+region = Rect2(160, 401, 16, 17)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t0qip"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i63y3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yu26l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nfo38")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mcyq2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c8jew")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i2tt8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="sticker3" type="Node2D"]
+script = ExtResource("1_h4j1u")
+bullet = ExtResource("2_svesf")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -0.0337122)
+sprite_frames = SubResource("SpriteFrames_t0qip")
+autoplay = "default"
+frame_progress = 0.521073
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"item": ExtResource("4_845y5")
+}
+autoplay = "item/item_animation"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -12,8 +12,9 @@ var direction = Vector2.ZERO
 func _ready() -> void:
 	#if GlobalVal.player["weapon"]!=GlobalVal.weapons.AK47:
 		#queue_free()
-	if !enabled:
-		queue_free()
+	#if !enabled:
+		#queue_free()
+	pass
 func _physics_process(delta) -> void:
 	update_position()
 	update_rotation()
@@ -41,6 +42,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	
 func update_position():
 	if GlobalVal.player["direction"].x > 0:
-		sprite.position = initial_position
+		sprite.position.x = initial_position.x+5
 	if GlobalVal.player["direction"].x < 0:
-		sprite.position.x = initial_position.x - 15
+		sprite.position.x = initial_position.x - 5
