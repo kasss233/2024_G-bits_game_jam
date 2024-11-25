@@ -17,6 +17,7 @@ func _ready() -> void:
 		#queue_free()
 	if !enabled:
 		queue_free()
+	pass
 func _physics_process(delta) -> void:
 	update_animation()
 	update_position()

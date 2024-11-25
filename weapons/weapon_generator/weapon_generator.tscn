@@ -1,0 +1,20 @@
+[gd_scene load_steps=9 format=3 uid="uid://cbgkuxbqbmj23"]
+
+[ext_resource type="Script" path="res://weapons/weapon_generator/weapon_generator.gd" id="1_ag4ti"]
+[ext_resource type="PackedScene" uid="uid://7srmhe0q62qx" path="res://weapons/ak47/ak47.tscn" id="2_h17nh"]
+[ext_resource type="PackedScene" uid="uid://djyd2d2r2k1qh" path="res://weapons/glock/glock.tscn" id="3_kx5q2"]
+[ext_resource type="PackedScene" uid="uid://77xr7edq5miv" path="res://weapons/mp5/mp_5.tscn" id="4_gresd"]
+[ext_resource type="PackedScene" uid="uid://caxi3vubeee7i" path="res://weapons/rpg/rpg.tscn" id="5_r2js7"]
+[ext_resource type="PackedScene" uid="uid://cwd72xqhe7qtl" path="res://weapons/spear/spear.tscn" id="6_jmhyy"]
+[ext_resource type="PackedScene" uid="uid://ceqr8peo3gc10" path="res://weapons/stick/stick.tscn" id="7_cvmk8"]
+[ext_resource type="PackedScene" uid="uid://cgahjpcrq648b" path="res://weapons/sword/sword.tscn" id="8_qjjvv"]
+
+[node name="weapon_generator" type="Node2D"]
+script = ExtResource("1_ag4ti")
+AK47 = ExtResource("2_h17nh")
+GLOCK = ExtResource("3_kx5q2")
+MP5 = ExtResource("4_gresd")
+RPG = ExtResource("5_r2js7")
+SPEAR = ExtResource("6_jmhyy")
+SWORD = ExtResource("8_qjjvv")
+STICK = ExtResource("7_cvmk8")
