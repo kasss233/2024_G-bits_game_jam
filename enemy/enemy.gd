@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var Modulate = $CanvasModulate
 var direction: Vector2
 var bullet_position: Vector2
-var used:bool=false
+var used: bool = false
 signal nohp
 @export var speed: int = 300
 @export var hp: int = 50
@@ -12,21 +12,21 @@ signal nohp
 @export var drop_chance: float = 0.3 # 掉落概率 (30%)
 @export var possible_drops: Array[PackedScene] = [] # 可掉落的物品预制体数组
 func _ready() -> void:
-	connect("nohp",Callable(self,"death_event"))
+	connect("nohp", Callable(self, "death_event"))
 func _physics_process(delta: float) -> void:
 	detect_hp()
-	update_direction()
+	update_direction(delta)
 	update_animation()
-	move_and_collide(velocity * delta)
+	move_and_slide()
 	
-func update_direction():
+func update_direction(delta):
 	direction = (GlobalVal.player["position"] - global_position).normalized()
-	velocity = direction * speed
+	velocity = velocity.move_toward(direction * speed,2000*delta)
 func update_animation():
-	if direction.x<0:
-		animation.flip_h=true
+	if direction.x < 0:
+		animation.flip_h = true
 	else:
-		animation.flip_h=false
+		animation.flip_h = false
 func death_event():
 	collision_layer = 0
 	velocity = Vector2.ZERO
@@ -36,6 +36,7 @@ func death_event():
 	
 func knockback(back_direction: Vector2):
 	var knockback_direction = back_direction
+	velocity=0.5*speed*back_direction.normalized()
 	global_position += knockback_direction * knockback_distance
 
 func _on_animated_sprite_2d_animation_finished() -> void:
@@ -57,6 +58,6 @@ func drop_item():
 		get_parent().add_child(item_instance) # 添加到场景
 		item_instance.global_position = global_position # 将物品放在怪物死亡的位置
 func detect_hp():
-	if hp<=0&&!used:
+	if hp <= 0 && !used:
 		emit_signal("nohp")
-		used=true
+		used = true

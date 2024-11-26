@@ -112,7 +112,8 @@ script = ExtResource("1_q62iq")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_lxi7j")
-frame_progress = 0.661624
+autoplay = "default"
+frame_progress = 0.015022
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -130,7 +131,7 @@ shape = SubResource("CircleShape2D_t0bgo")
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 z_index = -1
 position = Vector2(0, 14)
-scale = Vector2(0.114651, 0.164741)
+scale = Vector2(0.15625, 0.223632)
 texture = ExtResource("3_38i5u")
 
 [node name="Timer" type="Timer" parent="."]

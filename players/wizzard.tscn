@@ -317,7 +317,7 @@ size = Vector2(8, 8)
 size = Vector2(26, 32)
 
 [node name="Wizzard" type="CharacterBody2D" node_paths=PackedStringArray("animation_tree", "sprite")]
-collision_mask = 642
+collision_mask = 130
 script = ExtResource("1_w6ftf")
 data = ExtResource("2_s6qrl")
 animation_tree = NodePath("AnimationPlayer/AnimationTree")
@@ -341,7 +341,7 @@ parameters/move/blend_position = Vector2(-0.000873387, 0.957219)
 position = Vector2(0, -14)
 texture = ExtResource("1_7fxmy")
 hframes = 4
-frame = 3
+frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, -11)

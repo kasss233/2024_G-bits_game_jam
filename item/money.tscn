@@ -58,7 +58,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [sub_resource type="Animation" id="Animation_7uys0"]
@@ -118,9 +118,9 @@ radius = 17.0
 script = ExtResource("1_5kif4")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -1.26807)
 sprite_frames = SubResource("SpriteFrames_v6xmk")
-frame_progress = 0.577965
+autoplay = "default"
+frame_progress = 0.353818
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

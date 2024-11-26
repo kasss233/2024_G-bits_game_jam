@@ -8,7 +8,7 @@ const add_ammo: int = 5 ## 武器弹量增加
 const sub_cd: float = 0.1 ## 武器冷却时间减少
 const add_hp: int = 1 ## 血量增加
 const add_speed: int = 10 ## 速度增加
-const points:int=1
+var points: int = 1
 var player = {
 	"direction" = Vector2.ZERO, # 非可修改属性
 	"position" = Vector2.ZERO, # 非可修改属性
@@ -25,7 +25,7 @@ var player = {
 	"cat_weapon" = weapons.MP5, # 猫咪武器
 	"dog" = true, # 是否拥有狗狗
 	"dog_weapon" = weapons.AK47, # 狗狗武器
-	"points"=0,# 武器升级点数
+	"points" = 0, # 武器升级点数
 }
 var stick = {
 	"damage" = 1, # 伤害
@@ -162,3 +162,22 @@ func upgrade_weapon(weapon: weapons, attr: String) -> void:
 				"damage":
 					spear["damage"] += add_damage
 		# TODO: 添加其他武器
+func add_points():
+	player["points"] += 1
+	points += 1
+func reset_weapons():
+	stick["damage"] = 1
+	stick["number"] = 1
+	stick["cd"] = 1
+	ak47["damage"] = 3
+	ak47["number"] = 30
+	glock["damage"] = 1
+	glock["number"] = 15
+	rpg["damage"] = 7
+	rpg["number"] = 1
+	mp5["damage"] = 2
+	mp5["number"] = 50
+	sword["damage"] = 4
+	spear["damage"] = 4
+	player["points"] = points
+# TODO: 添加其他武器

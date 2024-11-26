@@ -130,29 +130,38 @@ func _init() -> void:
 	cd_times = 0
 	init_points = GlobalVal.player["points"]
 func reset():
+	GlobalVal.reset_weapons()
+	weapon_damage[GlobalVal.weapons.STICK] = GlobalVal.stick["damage"]
+	weapon_ammo[GlobalVal.weapons.STICK] = GlobalVal.stick["number"]
+	weapon_cd[GlobalVal.weapons.STICK] = GlobalVal.stick["cd"]
+	weapon_damage[GlobalVal.weapons.AK47] = GlobalVal.ak47["damage"]
+	weapon_ammo[GlobalVal.weapons.AK47] = GlobalVal.ak47["number"]
+	weapon_damage[GlobalVal.weapons.GLOCK] = GlobalVal.glock["damage"]
+	weapon_ammo[GlobalVal.weapons.GLOCK] = GlobalVal.glock["number"]
+	weapon_damage[GlobalVal.weapons.RPG] = GlobalVal.rpg["damage"]
+	weapon_ammo[GlobalVal.weapons.RPG] = GlobalVal.rpg["number"]
+	weapon_damage[GlobalVal.weapons.MP5] = GlobalVal.mp5["damage"]
+	weapon_ammo[GlobalVal.weapons.MP5] = GlobalVal.mp5["number"]
+	weapon_damage[GlobalVal.weapons.SWORD] = GlobalVal.sword["damage"]
+	weapon_damage[GlobalVal.weapons.SPEAR] = GlobalVal.spear["damage"]
 	if damage:
-		for i in damage_times:
-			weapon_damage[weapon_pos[pos]] -= GlobalVal.add_damage
-		damage_times = 0
 		dbutton.disabled = false
+		damage_times = 0
+
 	if ammo:
-		for i in ammo_times:
-			weapon_ammo[weapon_pos[pos]] -= GlobalVal.add_ammo
-		ammo_times = 0
 		abutton.disabled = false
+		ammo_times = 0
+
 	if cd:
-		for i in cd_times:
-			weapon_cd[weapon_pos[pos]] += GlobalVal.sub_cd
+		cbutton.disabled = false
 		cd_times = 0
-		if weapon_cd[weapon_pos[pos]] > 0.2:
-			cbutton.disabled = false
-	GlobalVal.player["points"] = init_points
+
 func commit_change():
 	update_global_val()
 func update_global_val():
-	for i in damage_times:
+	for i in range(damage_times):
 		GlobalVal.upgrade_weapon(weapon_pos[pos], "damage")
-	for i in ammo_times:
+	for i in range(ammo_times):
 		GlobalVal.upgrade_weapon(weapon_pos[pos], "number")
-	for i in cd_times:
+	for i in range(cd_times):
 		GlobalVal.upgrade_weapon(weapon_pos[pos], "cd")

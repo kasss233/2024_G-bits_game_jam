@@ -144,7 +144,7 @@ animations = [{
 [node name="enemy" type="CharacterBody2D"]
 z_index = 2
 collision_layer = 16
-collision_mask = 811
+collision_mask = 2
 script = ExtResource("1_sdcho")
 speed = 100
 hp = 25
