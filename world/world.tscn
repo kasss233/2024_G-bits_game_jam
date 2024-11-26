@@ -1,17 +1,19 @@
-[gd_scene load_steps=17 format=4 uid="uid://dlrf0vep8ps11"]
+[gd_scene load_steps=19 format=4 uid="uid://dlrf0vep8ps11"]
 
 [ext_resource type="PackedScene" uid="uid://dciamlle615vi" path="res://players/wizzard.tscn" id="1_xhgil"]
 [ext_resource type="PackedScene" uid="uid://dn3aulsu7xq2e" path="res://enemy/enemy.tscn" id="3_b2k7v"]
 [ext_resource type="Texture2D" uid="uid://ccmf0wa51u2bo" path="res://assets/Pixel Crawler - FREE - 1.8/Environment/Dungeon Prison/Assets/Props.png" id="4_oa627"]
 [ext_resource type="Texture2D" uid="uid://b7tawaakr6f1i" path="res://assets/Pixel Crawler - FREE - 1.8/Environment/Dungeon Prison/Assets/Tiles.png" id="5_nqyth"]
 [ext_resource type="Texture2D" uid="uid://d4a2cv76vxhcw" path="res://assets/Pixel Crawler - FREE - 1.8/Environment/Green Woods/Assets/Tiles.png" id="6_i4o5i"]
-[ext_resource type="PackedScene" uid="uid://c60x0k4ipvksn" path="res://item/item.tscn" id="7_kykml"]
+[ext_resource type="PackedScene" uid="uid://c60x0k4ipvksn" path="res://item/heart.tscn" id="7_kykml"]
 [ext_resource type="PackedScene" uid="uid://dnvog3ate4vc0" path="res://enemy/fly_enemy/fly_enemy.tscn" id="7_sw5b8"]
 [ext_resource type="PackedScene" uid="uid://spglirt5fokp" path="res://ui/ui.tscn" id="8_ngymi"]
 [ext_resource type="PackedScene" uid="uid://b1qnucsboo7jx" path="res://enemy_generator/enemy_generator.tscn" id="9_l2rqa"]
 [ext_resource type="PackedScene" uid="uid://b6fy1cjxrhacu" path="res://cat/cat.tscn" id="10_agtkg"]
+[ext_resource type="PackedScene" uid="uid://bnjbr7267gsho" path="res://ui/upgrade_board.tscn" id="10_f46jn"]
+[ext_resource type="PackedScene" uid="uid://bx3hr07ldxequ" path="res://cat/dog.tscn" id="12_q8o2u"]
 
-[sub_resource type="GDScript" id="GDScript_50gcr"]
+[sub_resource type="GDScript" id="GDScript_vbs8h"]
 resource_local_to_scene = true
 script/source = "extends Resource
 class_name PlayerData
@@ -29,9 +31,9 @@ enum Hands { LEFT, RIGHT }
 @export var state:States=States.IDLE
 "
 
-[sub_resource type="Resource" id="Resource_u7753"]
+[sub_resource type="Resource" id="Resource_vco8r"]
 resource_local_to_scene = true
-script = SubResource("GDScript_50gcr")
+script = SubResource("GDScript_vbs8h")
 direction = Vector2(0, 0)
 left_weapon = 0
 right_weapon = 0
@@ -711,7 +713,7 @@ sources/2 = SubResource("TileSetAtlasSource_sky6q")
 
 [node name="Wizzard" parent="." instance=ExtResource("1_xhgil")]
 position = Vector2(-17, 14)
-data = SubResource("Resource_u7753")
+data = SubResource("Resource_vco8r")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 z_index = -5
@@ -724,36 +726,6 @@ position = Vector2(-143, -67)
 [node name="item2" parent="." instance=ExtResource("7_kykml")]
 position = Vector2(-193, -45)
 
-[node name="Node2D" type="Node2D" parent="."]
-
-[node name="fly_enemy4" parent="Node2D" instance=ExtResource("7_sw5b8")]
-position = Vector2(132, 53)
-
-[node name="fly_enemy3" parent="Node2D" instance=ExtResource("7_sw5b8")]
-position = Vector2(82, -65)
-
-[node name="fly_enemy2" parent="Node2D" instance=ExtResource("7_sw5b8")]
-position = Vector2(-23, -61)
-
-[node name="fly_enemy" parent="Node2D" instance=ExtResource("7_sw5b8")]
-position = Vector2(-132, -6)
-
-[node name="enemy4" parent="Node2D" instance=ExtResource("3_b2k7v")]
-position = Vector2(-89, -27)
-collision_mask = 1
-
-[node name="enemy3" parent="Node2D" instance=ExtResource("3_b2k7v")]
-position = Vector2(-86, 53)
-collision_mask = 1
-
-[node name="enemy2" parent="Node2D" instance=ExtResource("3_b2k7v")]
-position = Vector2(55, 84)
-collision_mask = 1
-
-[node name="enemy" parent="Node2D" instance=ExtResource("3_b2k7v")]
-position = Vector2(112, -24)
-collision_mask = 1
-
 [node name="Control" parent="." node_paths=PackedStringArray("player") instance=ExtResource("8_ngymi")]
 player = NodePath("../Wizzard")
 
@@ -761,6 +733,11 @@ player = NodePath("../Wizzard")
 position = Vector2(2, 1)
 enemy_scenes = Array[PackedScene]([ExtResource("7_sw5b8"), ExtResource("3_b2k7v")])
 spawn_points = Array[Vector2]([Vector2(0, 0), Vector2(50, 50), Vector2(50, -50), Vector2(-50, -50)])
+enemies_per_batch = 50
+upgrade_board = ExtResource("10_f46jn")
 
 [node name="cat" parent="." instance=ExtResource("10_agtkg")]
 position = Vector2(-150, 51)
+
+[node name="dog" parent="." instance=ExtResource("12_q8o2u")]
+position = Vector2(120, -49)

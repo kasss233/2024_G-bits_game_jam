@@ -1,6 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://dnvog3ate4vc0"]
+[gd_scene load_steps=22 format=3 uid="uid://dnvog3ate4vc0"]
 
 [ext_resource type="Script" path="res://enemy/enemy.gd" id="1_l1p6h"]
+[ext_resource type="PackedScene" uid="uid://c60x0k4ipvksn" path="res://item/heart.tscn" id="2_1xn4n"]
+[ext_resource type="PackedScene" uid="uid://drdy6m07xwd8f" path="res://item/money.tscn" id="3_4aupn"]
 [ext_resource type="Texture2D" uid="uid://cad036khb850s" path="res://public_assets/敌人/Cacodaemon Sprite Sheet.png" id="3_jheuf"]
 [ext_resource type="Texture2D" uid="uid://bhuxwjxk031p5" path="res://public_assets/shadow.png" id="4_wmq8a"]
 
@@ -124,6 +126,8 @@ collision_layer = 16
 collision_mask = 298
 script = ExtResource("1_l1p6h")
 speed = 125
+hp = 30
+possible_drops = Array[PackedScene]([ExtResource("2_1xn4n"), ExtResource("3_4aupn")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, -13)

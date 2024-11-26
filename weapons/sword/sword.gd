@@ -8,6 +8,7 @@ extends Node2D
 @export var cd:float=0.1
 @export var damage:int=1
 @export var enabled:bool=false
+var weapon:GlobalVal.weapons
 var direction = Vector2.ZERO
 func _ready() -> void:
 	#if GlobalVal.player["weapon"]!=GlobalVal.weapons.AK47:
@@ -16,6 +17,7 @@ func _ready() -> void:
 		#queue_free()
 	pass
 func _physics_process(delta) -> void:
+	update_data()
 	update_position()
 	update_rotation()
 	pass
@@ -45,3 +47,5 @@ func update_position():
 		sprite.position.x = initial_position.x+5
 	if GlobalVal.player["direction"].x < 0:
 		sprite.position.x = initial_position.x - 5
+func update_data():
+	damage=GlobalVal.sword["damage"]

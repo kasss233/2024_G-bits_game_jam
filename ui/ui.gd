@@ -4,7 +4,7 @@ extends Control
 @export var enemy_generator:Node2D
 @onready var hp_sprite = $hps/hp_frame/hp_value
 @onready var label = $labels/VSplitContainer/Label
-
+@onready var mlabel=$labels/VSplitContainer/money
 var countdown_time: float = 15 * 60 # 倒计时总时间（15分钟，单位为秒）
 
 # 更新血条和倒计时
@@ -31,7 +31,7 @@ func _update_countdown(delta: float):
 	else:
 		label.text = "Time's up!"
 		_game_over() # 倒计时结束后调用游戏结束逻辑（可选）
-
+	mlabel.text="金币："+var_to_str(GlobalVal.money["night"])
 # 游戏结束逻辑（可选）
 func _game_over():
 	pass

@@ -6,12 +6,10 @@ extends Node2D
 @export var cd:float
 @export var number:int
 @export var damage:int
+func _process(delta: float) -> void:
+	update_data()
 func _ready() -> void:
-	#if GlobalVal.player["weapon"]!=GlobalVal.weapons.STICK:
-		#queue_free()
-	if !enabled:
-		queue_free()
-
+	pass
 func update_bullets():
 	var b = bullet.instantiate()
 	get_tree().current_scene.add_child(b)
@@ -22,6 +20,10 @@ func _on_timer_timeout() -> void:
 	for i in number:
 		update_bullets()
 func _init() -> void:
+	damage = GlobalVal.stick["damage"]
+	number = GlobalVal.stick["number"]
+	cd = GlobalVal.stick["cd"]
+func update_data():
 	damage = GlobalVal.stick["damage"]
 	number = GlobalVal.stick["number"]
 	cd = GlobalVal.stick["cd"]

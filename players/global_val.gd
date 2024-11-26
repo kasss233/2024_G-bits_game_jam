@@ -1,51 +1,67 @@
 extends Node
 enum states {MOVE, DEATH, IDLE}
-enum weapons {HAND, STICK, AK47, GLOCK, RPG, MP5, SWORD, SPEAR}
+enum weapons {STICK, AK47, GLOCK, RPG, MP5, SWORD, SPEAR, NULL}
+enum stickers {SPEEDER, DAMAGER, HPER, NULL}
 enum hands {LEFT, RIGHT}
+const add_damage: int = 1 ## 武器伤害增加
+const add_ammo: int = 5 ## 武器弹量增加
+const sub_cd: float = 0.1 ## 武器冷却时间减少
+const add_hp: int = 1 ## 血量增加
+const add_speed: int = 10 ## 速度增加
+const points:int=1
 var player = {
-	"direction" = Vector2.ZERO,
-	"position" = Vector2.ZERO,
-	"state" = states.IDLE,
-	"weapon" = weapons.SWORD, # 确定使用武器
-	"hp" = 25,
-	"speed" = 200,
+	"direction" = Vector2.ZERO, # 非可修改属性
+	"position" = Vector2.ZERO, # 非可修改属性
+	"state" = states.IDLE, # 非可修改属性
+	"hp" = 10, # 血量
+	"speed" = 150, # 速度
+	"left_weapon" = weapons.STICK, # 左边武器栏
+	"weapon" = weapons.SWORD, # 中间武器栏
+	"right_weapon" = weapons.AK47, # 右边武器栏
+	"left_sticker" = stickers.NULL, # 左边饰品栏
+	"mid_sticker" = stickers.DAMAGER, # 中间饰品栏
+	"right_sticker" = stickers.HPER, # 右边饰品栏
+	"cat" = true, # 是否拥有猫咪
+	"cat_weapon" = weapons.MP5, # 猫咪武器
+	"dog" = true, # 是否拥有狗狗
+	"dog_weapon" = weapons.AK47, # 狗狗武器
+	"points"=0,# 武器升级点数
 }
 var stick = {
-	"damage" = 1,
+	"damage" = 1, # 伤害
 	"number" = 1, # 一次性发射个数
-	"cd" = 1,
+	"cd" = 1, # 冷却时间
 }
 var ak47 = {
-	"damage" = 5, #
+	"damage" = 3, # 伤害
 	"number" = 30 # 弹量
 }
 var glock = {
-	"damage" = 1, #
+	"damage" = 1, # 伤害
 	"number" = 15 # 弹量
 }
 var rpg = {
-	"damage" = 5, #
+	"damage" = 7, # 伤害
 	"number" = 1 # 弹量
 }
 var mp5 = {
-	"damage" = 1, #
+	"damage" = 2, # 伤害
 	"number" = 50 # 弹量
 }
 var sword = {
-	"damage" = 10
+	"damage" = 4 # 伤害
 }
 var spear = {
-	"damage" = 20
+	"damage" = 4 # 伤害
 }
-var enemy = {
-	"hp": 50,
+var enemy = { ## 此处不生效，敌人属性在场景设置
+	"hp": 30,
 	"speed": 100,
 	"damage": 1
 }
-
 var money = {
 	"day" = 1,
-	"night" = 1
+	"night" = 0
 }
 
 var properties = {
@@ -83,13 +99,13 @@ func minus_night_money(amount: int) -> void:
 	money["night"] -= amount
 
 func add_property(prop: String, value: int) -> void:
-	if properties[prop]+value > 10:
+	if properties[prop] + value > 10:
 		properties[prop] = 10
 	else:
 		properties[prop] += value
 
 func minus_property(prop: String, value: int) -> void:
-	if properties[prop]-value < 0:
+	if properties[prop] - value < 0:
 		properties[prop] = 0
 	else:
 		properties[prop] -= value
@@ -102,3 +118,47 @@ func add_weapon(weapon) -> void:
 
 func add_pet(pet) -> void:
 	pets.append(pet)
+
+func upgrade_weapon(weapon: weapons, attr: String) -> void:
+	match weapon:
+		weapons.STICK:
+			match attr:
+				"damage":
+					stick["damage"] += add_damage
+				"number":
+					stick["number"] += add_damage
+				"cd":
+					stick["cd"] -= sub_cd
+		weapons.AK47:
+			match attr:
+				"damage":
+					ak47["damage"] += add_damage
+				"number":
+					ak47["number"] += add_ammo
+		weapons.GLOCK:
+			match attr:
+				"damage":
+					glock["damage"] += add_damage
+				"number":
+					glock["number"] += add_ammo
+		weapons.RPG:
+			match attr:
+				"damage":
+					rpg["damage"] += add_damage
+				"number":
+					rpg["number"] += add_ammo
+		weapons.MP5:
+			match attr:
+				"damage":
+					mp5["damage"] += add_damage
+				"number":
+					mp5["number"] += add_ammo
+		weapons.SWORD:
+			match attr:
+				"damage":
+					sword["damage"] += add_damage
+		weapons.SPEAR:
+			match attr:
+				"damage":
+					spear["damage"] += add_damage
+		# TODO: 添加其他武器

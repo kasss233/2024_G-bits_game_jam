@@ -17,6 +17,7 @@ func _ready() -> void:
 		#queue_free()
 	pass
 func _physics_process(delta) -> void:
+	update_data()
 	update_animation()
 	update_position()
 func update_animation():
@@ -41,6 +42,10 @@ func _on_timer_timeout() -> void:
 	for i in number:
 		update_bullets()
 func _init() -> void:
+	damage = GlobalVal.stick["damage"]
+	number = GlobalVal.stick["number"]
+	cd = GlobalVal.stick["cd"]
+func update_data():
 	damage = GlobalVal.stick["damage"]
 	number = GlobalVal.stick["number"]
 	cd = GlobalVal.stick["cd"]

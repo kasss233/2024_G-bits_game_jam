@@ -1,0 +1,12 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4dl61s5dauwm"]
+
+[ext_resource type="Script" path="res://sticker_generator.gd" id="1_i7176"]
+[ext_resource type="PackedScene" uid="uid://xmreic57dsn1" path="res://tools/speeder.tscn" id="2_0faa4"]
+[ext_resource type="PackedScene" uid="uid://exl2pavgp5w6" path="res://tools/damager.tscn" id="3_s5egp"]
+[ext_resource type="PackedScene" uid="uid://o2677cycxaex" path="res://tools/hper.tscn" id="4_bqyoe"]
+
+[node name="sticker_generator" type="Node2D"]
+script = ExtResource("1_i7176")
+SPEEDER = ExtResource("2_0faa4")
+DAMAGER = ExtResource("3_s5egp")
+HPER = ExtResource("4_bqyoe")

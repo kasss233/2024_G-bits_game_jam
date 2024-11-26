@@ -6,20 +6,20 @@ extends Node2D
 @onready var method_player = $method_player
 @onready var initial_position: Vector2 = sprite.position
 @export var bullet: PackedScene
-@export var number = 30
 @export var weapon: GlobalVal.weapons
-@export var damage: int = 1
 @export var enabled: bool
+var number = 30
+var damage: int = 1
 var constNumber: int = 0
 var direction
 func _ready() -> void:
-	print("666666")
 	#if GlobalVal.player["weapon"]!=GlobalVal.weapons.AK47:
 		#queue_free()
 	#if !enabled:
 		#queue_free()
 	pass
 func _physics_process(delta) -> void:
+	update_data()
 	update_animation()
 	update_position()
 	update_gun_rotation()
@@ -74,6 +74,20 @@ func _init() -> void:
 			damage = GlobalVal.mp5["damage"]
 			number = GlobalVal.mp5["number"]
 	constNumber = number
+func update_data():
+	match weapon:
+		GlobalVal.weapons.AK47:
+			damage = GlobalVal.ak47["damage"]
+			constNumber = GlobalVal.ak47["number"]
+		GlobalVal.weapons.GLOCK:
+			damage = GlobalVal.glock["damage"]
+			constNumber = GlobalVal.glock["number"]
+		GlobalVal.weapons.RPG:
+			damage = GlobalVal.rpg["damage"]
+			constNumber = GlobalVal.rpg["number"]
+		GlobalVal.weapons.MP5:
+			damage = GlobalVal.mp5["damage"]
+			constNumber = GlobalVal.mp5["number"]
 func reload_start():
 	gun_sprite.play("reload")
 func reload_end():

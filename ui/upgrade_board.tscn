@@ -1,0 +1,87 @@
+[gd_scene load_steps=6 format=3 uid="uid://bnjbr7267gsho"]
+
+[ext_resource type="PackedScene" uid="uid://dcxe76bciqar1" path="res://ui/weapon_upgrade.tscn" id="1_4tk5f"]
+[ext_resource type="Script" path="res://ui/upgrade_board.gd" id="1_pbdyk"]
+[ext_resource type="Script" path="res://ui/label.gd" id="3_c3wnn"]
+[ext_resource type="Texture2D" uid="uid://c02s1ih4s3h5g" path="res://public_assets/UI/Interface.png" id="4_82yah"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2l4pp"]
+font_size = 30
+
+[node name="upgrade_board" type="Control" node_paths=PackedStringArray("left", "mid", "right")]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pbdyk")
+left = NodePath("CanvasLayer/HBoxContainer/weapon_upgrade_left")
+mid = NodePath("CanvasLayer/HBoxContainer/weapon_upgrade_mid")
+right = NodePath("CanvasLayer/HBoxContainer/weapon_upgrade_right")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -285.0
+offset_top = -207.5
+offset_right = 285.0
+offset_bottom = 207.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="weapon_upgrade_left" parent="CanvasLayer/HBoxContainer" instance=ExtResource("1_4tk5f")]
+layout_mode = 2
+
+[node name="weapon_upgrade_mid" parent="CanvasLayer/HBoxContainer" instance=ExtResource("1_4tk5f")]
+layout_mode = 2
+pos = 1
+
+[node name="weapon_upgrade_right" parent="CanvasLayer/HBoxContainer" instance=ExtResource("1_4tk5f")]
+layout_mode = 2
+pos = 2
+
+[node name="exit" type="Button" parent="CanvasLayer"]
+offset_left = 878.0
+offset_top = 498.0
+offset_right = 982.0
+offset_bottom = 533.0
+text = "继续"
+
+[node name="reset" type="Button" parent="CanvasLayer"]
+offset_left = 159.0
+offset_top = 497.0
+offset_right = 263.0
+offset_bottom = 532.0
+text = "重置点数"
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 502.0
+offset_top = 82.0
+offset_right = 542.0
+offset_bottom = 124.0
+label_settings = SubResource("LabelSettings_2l4pp")
+script = ExtResource("3_c3wnn")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+z_index = -1
+position = Vector2(578, 329)
+scale = Vector2(15.4531, 8.74206)
+texture = ExtResource("4_82yah")
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 63)
+
+[connection signal="pressed" from="CanvasLayer/exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="CanvasLayer/reset" to="." method="_on_reset_pressed"]

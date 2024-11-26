@@ -5,6 +5,7 @@ extends Node2D
 @onready var area=$sprite/sprite/Area2D
 @export var damage: int = 1
 @export var enabled: bool = false
+@export var weapon:GlobalVal.weapons
 var direction = Vector2.ZERO
 var is_attacking = false
 
@@ -13,6 +14,7 @@ func _ready() -> void:
 		#queue_free()
 	pass
 func _physics_process(delta: float) -> void:
+	update_data()
 	update_position()
 	update_rotation()
 
@@ -52,3 +54,5 @@ func update_position():
 		sprite.position = initial_position
 	elif GlobalVal.player["direction"].x < 0:
 		sprite.position.x = initial_position.x - 5
+func update_data():
+	damage = GlobalVal.spear["damage"]

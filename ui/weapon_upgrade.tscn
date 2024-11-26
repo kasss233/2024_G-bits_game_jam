@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcxe76bciqar1"]
+
+[ext_resource type="Script" path="res://ui/gun_upgrade.gd" id="1_4rjv3"]
+
+[sub_resource type="Theme" id="Theme_1rmy1"]
+Button/font_sizes/font_size = 27
+Label/font_sizes/font_size = 40
+
+[node name="weapon_upgrade" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -983.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_1rmy1")
+theme_override_constants/separation = 10
+script = ExtResource("1_4rjv3")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="damage" type="Button" parent="."]
+layout_mode = 2
+text = "升级伤害"
+
+[node name="dlabel" type="Label" parent="."]
+layout_mode = 2
+
+[node name="ammo" type="Button" parent="."]
+layout_mode = 2
+text = "升级弹量"
+
+[node name="alabel" type="Label" parent="."]
+layout_mode = 2
+
+[node name="cd" type="Button" parent="."]
+layout_mode = 2
+text = "升级冷却时间"
+
+[node name="clabel" type="Label" parent="."]
+layout_mode = 2
+
+[connection signal="pressed" from="damage" to="." method="_on_damage_pressed"]
+[connection signal="pressed" from="ammo" to="." method="_on_ammo_pressed"]
+[connection signal="pressed" from="cd" to="." method="_on_cd_pressed"]

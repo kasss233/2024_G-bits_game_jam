@@ -1,13 +1,11 @@
-[gd_scene load_steps=38 format=3 uid="uid://dciamlle615vi"]
+[gd_scene load_steps=36 format=3 uid="uid://dciamlle615vi"]
 
 [ext_resource type="Texture2D" uid="uid://tdc5mo6qptr2" path="res://assets/Pixel Crawler - FREE - 1.8/Heroes/Wizzard/Idle/Idle-Sheet.png" id="1_7fxmy"]
 [ext_resource type="Script" path="res://players/player.gd" id="1_w6ftf"]
 [ext_resource type="Texture2D" uid="uid://blskbp7ebrpwg" path="res://assets/Pixel Crawler - FREE - 1.8/Heroes/Wizzard/Run/Run-Sheet.png" id="2_dhjsb"]
 [ext_resource type="Resource" uid="uid://dametontd8w2k" path="res://resource/player_data.tres" id="2_s6qrl"]
 [ext_resource type="Texture2D" uid="uid://jhb85kjdy7h5" path="res://assets/Pixel Crawler - FREE - 1.8/Heroes/Wizzard/Death/Death-Sheet.png" id="3_0hqx0"]
-[ext_resource type="PackedScene" uid="uid://o2677cycxaex" path="res://tools/sticker_2.tscn" id="8_bm3m3"]
-[ext_resource type="PackedScene" uid="uid://exl2pavgp5w6" path="res://tools/sticker_3.tscn" id="9_w6jod"]
-[ext_resource type="PackedScene" uid="uid://xmreic57dsn1" path="res://tools/sticker.tscn" id="13_4q7pw"]
+[ext_resource type="PackedScene" uid="uid://c4dl61s5dauwm" path="res://weapons/weapon_generator/sticker_generator.tscn" id="7_pejw7"]
 [ext_resource type="PackedScene" uid="uid://cbgkuxbqbmj23" path="res://weapons/weapon_generator/weapon_generator.tscn" id="15_fuc5w"]
 
 [sub_resource type="Animation" id="Animation_bcdg2"]
@@ -360,27 +358,26 @@ collision_mask = 16
 position = Vector2(1, -15)
 shape = SubResource("RectangleShape2D_626yc")
 
-[node name="Node2D" type="Node2D" parent="."]
-
-[node name="sticker" parent="Node2D" instance=ExtResource("13_4q7pw")]
-position = Vector2(20, -39)
-enabled = true
-
-[node name="sticker2" parent="Node2D" instance=ExtResource("8_bm3m3")]
-position = Vector2(-18, -35)
-enabled = true
-
-[node name="sticker3" parent="Node2D" instance=ExtResource("9_w6jod")]
-position = Vector2(1, -53)
-enabled = true
-
-[node name="weapon_generator" parent="." instance=ExtResource("15_fuc5w")]
-position = Vector2(5, -8)
-
-[node name="weapon_generator2" parent="." instance=ExtResource("15_fuc5w")]
+[node name="weapon_generator_left" parent="." instance=ExtResource("15_fuc5w")]
 position = Vector2(-29, -12)
 
-[node name="weapon_generator3" parent="." instance=ExtResource("15_fuc5w")]
+[node name="weapon_generator_mid" parent="." instance=ExtResource("15_fuc5w")]
+position = Vector2(5, -8)
+pos = 1
+
+[node name="weapon_generator_right" parent="." instance=ExtResource("15_fuc5w")]
 position = Vector2(31, -11)
+pos = 2
+
+[node name="sticker_generator_left" parent="." instance=ExtResource("7_pejw7")]
+position = Vector2(-29, -37)
+
+[node name="sticker_generator_mid" parent="." instance=ExtResource("7_pejw7")]
+position = Vector2(0, -52)
+pos = 1
+
+[node name="sticker_generator_right" parent="." instance=ExtResource("7_pejw7")]
+position = Vector2(31, -37)
+pos = 2
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

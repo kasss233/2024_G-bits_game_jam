@@ -186,3 +186,4 @@ shape = SubResource("RectangleShape2D_d3v4v")
 
 [node name="weapon_generator" parent="." instance=ExtResource("4_gjsmr")]
 position = Vector2(-3, -6)
+pos = 3
