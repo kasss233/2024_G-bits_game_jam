@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://cgahjpcrq648b"]
+[gd_scene load_steps=9 format=3 uid="uid://cgahjpcrq648b"]
 
 [ext_resource type="Script" path="res://weapons/sword/sword.gd" id="1_dt8fp"]
 [ext_resource type="Texture2D" uid="uid://5mleyvwe31yi" path="res://public_assets/64x64 weapons final.png" id="2_iuoqp"]
-[ext_resource type="Texture2D" uid="uid://c65fbkwa4hkaw" path="res://assets/Pixel Crawler - FREE - 1.8/Weapons/Hands/Hands.png" id="3_cfscr"]
 [ext_resource type="Texture2D" uid="uid://b58lds8ibyqym" path="res://public_assets/刀光/SlashFX Combos/SlashFX SimpleSmall Combo2 sheet.png" id="6_2ump4"]
 
 [sub_resource type="Animation" id="Animation_t766a"]
@@ -264,13 +263,6 @@ centered = false
 offset = Vector2(-10, -50)
 region_enabled = true
 region_rect = Rect2(102, 25, 18, 59)
-
-[node name="Sprite2D2" type="Sprite2D" parent="sprite/Sprite2D"]
-position = Vector2(1.90735e-06, 1.66667)
-scale = Vector2(1.22703, 1.44144)
-texture = ExtResource("3_cfscr")
-region_enabled = true
-region_rect = Rect2(21, 21, 7, 6)
 
 [node name="bullet_position" type="Node2D" parent="sprite/Sprite2D"]
 position = Vector2(3.11004, 2.05342)

@@ -1,5 +1,5 @@
 extends Node
-
+@onready var canvas=$CanvasLayer
 @export var enemy_scenes: Array[PackedScene] # 敌人预制体列表
 @export var enemies_per_batch: int = 5 # 每批次生成的敌人数量
 @export var total_batches: int = 10 # 总批次数量
@@ -10,6 +10,7 @@ extends Node
 		Vector2(302, -83),
 		Vector2(317, 89)
 	]
+@export var counter:PackedScene
 var spawn_points: Array[Vector2] # 敌人生成点的列表
 var current_batch: int = 0 # 当前批次计数
 var active_enemies: int = 0 # 当前场景中的敌人数量
@@ -87,23 +88,11 @@ func _on_enemy_destroyed():
 		# 如果还有批次，显示升级面板
 		if current_batch < total_batches:
 			GlobalVal.add_points()
-			await  get_tree().create_timer(2).timeout
-			show_upgrade_panel()
+			var c=counter.instantiate()
+			get_tree().current_scene.add_child(c)
+			c.connect("time_out",Callable(self,"_on_time_out"))
 		else:
 			print("All enemies cleared!")  # 所有敌人消灭完成
 
-# 显示升级面板
-func show_upgrade_panel():
-	if upgrade_board:
-		var panel = upgrade_board.instantiate()
-		get_tree().current_scene.add_child(panel)  # 将升级面板添加到场景根节点
-		panel.global_position = get_tree().root.size / 2  # 居中显示
-		panel.connect("closed", Callable(self, "_on_upgrade_panel_closed"))
-		panel.process_mode=Node.PROCESS_MODE_ALWAYS
-		get_tree().paused = true
-
-# 当升级面板关闭时触发
-func _on_upgrade_panel_closed():
-	get_tree().paused = false
+func _on_time_out():
 	_spawn_next_batch()
-	

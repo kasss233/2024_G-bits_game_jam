@@ -21,7 +21,7 @@ func _physics_process(delta: float) -> void:
 	
 func update_direction(delta):
 	direction = (GlobalVal.player["position"] - global_position).normalized()
-	velocity = velocity.move_toward(direction * speed,2000*delta)
+	velocity = velocity.move_toward(direction * speed, 2000 * delta)
 func update_animation():
 	if direction.x < 0:
 		animation.flip_h = true
@@ -36,7 +36,7 @@ func death_event():
 	
 func knockback(back_direction: Vector2):
 	var knockback_direction = back_direction
-	velocity=0.5*speed*back_direction.normalized()
+	velocity = 0.5 * speed * back_direction.normalized()
 	global_position += knockback_direction * knockback_distance
 
 func _on_animated_sprite_2d_animation_finished() -> void:

@@ -2,6 +2,7 @@ extends Control
 
 @export var player: CharacterBody2D
 @export var enemy_generator:Node2D
+@export var upgrade_board:PackedScene
 @onready var hp_sprite = $hps/hp_frame/hp_value
 @onready var label = $labels/VSplitContainer/Label
 @onready var mlabel=$labels/VSplitContainer/money
@@ -35,3 +36,13 @@ func _update_countdown(delta: float):
 # 游戏结束逻辑（可选）
 func _game_over():
 	pass
+
+
+func _on_board_pressed() -> void:
+	var board=upgrade_board.instantiate()
+	get_tree().current_scene.add_child(board)
+	board.process_mode=Node.PROCESS_MODE_ALWAYS
+	get_tree().paused = true
+	board.connect("closed", Callable(self, "_on_upgrade_board_closed"))
+func _on_upgrade_board_closed():
+	get_tree().paused = false
