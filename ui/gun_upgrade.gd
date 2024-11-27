@@ -64,9 +64,9 @@ func _ready() -> void:
 			clabel.queue_free()
 			cd = false
 		GlobalVal.weapons.RPG:
-			dbutton.queue_free()
-			dlabel.queue_free()
-			damage = false
+			cbutton.queue_free()
+			clabel.queue_free()
+			cd = false
 		GlobalVal.weapons.MP5:
 			cbutton.queue_free()
 			clabel.queue_free()

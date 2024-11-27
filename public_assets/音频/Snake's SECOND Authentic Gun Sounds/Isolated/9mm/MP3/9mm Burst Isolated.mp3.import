@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dwtty2bqr4yqc"
+path="res://.godot/imported/9mm Burst Isolated.mp3-3c1acb1f677edeff75899f9818b9f7dc.mp3str"
+
+[deps]
+
+source_file="res://public_assets/音频/Snake's SECOND Authentic Gun Sounds/Isolated/9mm/MP3/9mm Burst Isolated.mp3"
+dest_files=["res://.godot/imported/9mm Burst Isolated.mp3-3c1acb1f677edeff75899f9818b9f7dc.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

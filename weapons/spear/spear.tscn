@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cwd72xqhe7qtl"]
+[gd_scene load_steps=5 format=3 uid="uid://cwd72xqhe7qtl"]
 
 [ext_resource type="Texture2D" uid="uid://5mleyvwe31yi" path="res://public_assets/64x64 weapons final.png" id="1_krxuq"]
 [ext_resource type="Script" path="res://weapons/spear/spear.gd" id="1_p7uwh"]
+[ext_resource type="AudioStream" uid="uid://bikgcl0yng7a1" path="res://public_assets/音频/Minifantasy_Dungeon_SFX/26_sword_hit_3.wav" id="3_df3d0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fsjti"]
 size = Vector2(11, 47)
@@ -30,5 +31,8 @@ collision_mask = 16
 [node name="CollisionShape2D" type="CollisionShape2D" parent="sprite/sprite/Area2D"]
 position = Vector2(-1.5, -57.5)
 shape = SubResource("RectangleShape2D_fsjti")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_df3d0")
 
 [connection signal="body_entered" from="sprite/sprite/Area2D" to="." method="_on_area_2d_body_entered"]

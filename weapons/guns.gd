@@ -5,9 +5,11 @@ extends Node2D
 @onready var bullet_pos = $sprite/Sprite2D/bullet_position
 @onready var method_player = $method_player
 @onready var initial_position: Vector2 = sprite.position
+@onready var audio=$AudioStreamPlayer
 @export var bullet: PackedScene
 @export var weapon: GlobalVal.weapons
 @export var enabled: bool
+
 var number = 30
 var damage: int = 1
 var constNumber: int = 0
@@ -50,6 +52,7 @@ func update_bullets():
 		b.direction = direction
 		b.damage = damage
 		gun_sprite.play("shooting")
+		audio.play()
 		number -= 1
 	
 func update_gun_rotation():

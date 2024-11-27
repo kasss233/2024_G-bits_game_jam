@@ -5,6 +5,7 @@ extends Node2D
 @onready var sword_sprite = $sprite/Sprite2D
 @onready var bullet_pos = $sprite/Sprite2D/bullet_position
 @onready var initial_position=sprite.position
+@onready var audio=$AudioStreamPlayer
 @export var cd:float=0.1
 @export var damage:int=1
 @export var enabled:bool=false
@@ -29,7 +30,7 @@ func _input(event: InputEvent) -> void:
 			animation.play("sword_attack_right")
 		if direction.x < 0:
 			animation.play("sword_attack_left")
-	
+		audio.play()
 func update_rotation():
 	direction = (get_global_mouse_position() - sword_sprite.global_position).normalized()
 	sword_sprite.rotation = direction.angle()

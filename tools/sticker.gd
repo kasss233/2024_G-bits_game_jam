@@ -1,6 +1,7 @@
 extends Node2D
 @onready var sprite = $sprite
 @onready var timer = $Timer
+@onready var audio=$AudioStreamPlayer
 @export var bullet: PackedScene
 @export var enabled:bool=false
 @export var cd:float
@@ -15,6 +16,7 @@ func update_bullets():
 	get_tree().current_scene.add_child(b)
 	b.global_position = global_position
 	b.damage = damage
+	audio.play()
 func _on_timer_timeout() -> void:
 	timer.wait_time = cd
 	for i in number:

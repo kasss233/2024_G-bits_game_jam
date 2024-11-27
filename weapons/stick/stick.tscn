@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://ceqr8peo3gc10"]
+[gd_scene load_steps=8 format=3 uid="uid://ceqr8peo3gc10"]
 
 [ext_resource type="Texture2D" uid="uid://c4q5642mkojpt" path="res://assets/Pixel Crawler - FREE - 1.8/Weapons/Wood/Wood.png" id="1_foguy"]
 [ext_resource type="Script" path="res://weapons/stick/stick.gd" id="1_l1sfp"]
 [ext_resource type="PackedScene" uid="uid://dum2im2q7hfnm" path="res://weapons/bullets/stick_bullets_2.tscn" id="2_bbuc0"]
 [ext_resource type="AnimationLibrary" uid="uid://d4fybwn0or211" path="res://animation/weapon.res" id="2_wynja"]
+[ext_resource type="AudioStream" uid="uid://ntqka5b43iov" path="res://public_assets/音频/RPG_Essentials_Free/12_Player_Movement_SFX/45_Landing_01.wav" id="5_43ve1"]
 
 [sub_resource type="Animation" id="Animation_annrd"]
 length = 0.001
@@ -51,5 +52,8 @@ rotation = 1.5708
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_43ve1")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

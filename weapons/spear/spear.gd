@@ -3,6 +3,7 @@ extends Node2D
 @onready var sprite = $sprite
 @onready var initial_position = sprite.position
 @onready var area=$sprite/sprite/Area2D
+@onready var audio=$AudioStreamPlayer
 @export var damage: int = 1
 @export var enabled: bool = false
 @export var weapon:GlobalVal.weapons
@@ -21,6 +22,7 @@ func _physics_process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("attack") and not is_attacking:
 		attack()
+		audio.play()
 
 func attack():
 	is_attacking = true

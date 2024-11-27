@@ -1,9 +1,10 @@
-[gd_scene load_steps=42 format=3 uid="uid://77xr7edq5miv"]
+[gd_scene load_steps=43 format=3 uid="uid://77xr7edq5miv"]
 
 [ext_resource type="Script" path="res://weapons/guns.gd" id="1_vv0w3"]
 [ext_resource type="PackedScene" uid="uid://brihgfuhq8xps" path="res://weapons/bullets/gun_bullets.tscn" id="3_oervy"]
 [ext_resource type="AnimationLibrary" uid="uid://d4fybwn0or211" path="res://animation/weapon.res" id="4_hp1ub"]
 [ext_resource type="Texture2D" uid="uid://cywjwpy3xemv2" path="res://public_assets/枪械/Guns Update - V1.01/Guns_V1.01 - Commission - Copy/02 - Sprite sheets/Submachine - MP5A3 [80x48]/[SHOOT WITH CASING] Submachine - MP5A3.png" id="5_64754"]
+[ext_resource type="AudioStream" uid="uid://cvan666ct84hi" path="res://public_assets/音频/Snake's SECOND Authentic Gun Sounds/Full Sounds/9mm/MP3/9mm Single.mp3" id="6_61sy7"]
 [ext_resource type="Texture2D" uid="uid://dosdb8yc02lmt" path="res://public_assets/枪械/Guns Update - V1.01/Guns_V1.01 - Commission - Copy/02 - Sprite sheets/Submachine - MP5A3 [80x48]/[RELOAD] Submachine - MP5A3.png" id="6_sxni8"]
 
 [sub_resource type="Animation" id="Animation_annrd"]
@@ -312,7 +313,6 @@ _data = {
 position = Vector2(58, 44)
 script = ExtResource("1_vv0w3")
 bullet = ExtResource("3_oervy")
-number = 40
 weapon = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -337,5 +337,8 @@ scale = Vector2(-58881.1, -134.762)
 libraries = {
 "": SubResource("AnimationLibrary_6ajmd")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_61sy7")
 
 [connection signal="animation_finished" from="sprite/Sprite2D" to="." method="_on_sprite_2d_animation_finished"]

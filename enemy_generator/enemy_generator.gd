@@ -11,6 +11,8 @@ extends Node
 		Vector2(317, 89)
 	]
 @export var counter:PackedScene
+@export var victory_board:PackedScene
+@export var defeat_board:PackedScene
 var spawn_points: Array[Vector2] # 敌人生成点的列表
 var current_batch: int = 0 # 当前批次计数
 var active_enemies: int = 0 # 当前场景中的敌人数量
@@ -39,6 +41,7 @@ func _ready():
 func start_spawning():
 	current_batch = 0
 	spawning = true
+	await get_tree().create_timer(3).timeout
 	_spawn_next_batch()
 
 # 停止生成敌人
@@ -92,7 +95,8 @@ func _on_enemy_destroyed():
 			get_tree().current_scene.add_child(c)
 			c.connect("time_out",Callable(self,"_on_time_out"))
 		else:
-			print("All enemies cleared!")  # 所有敌人消灭完成
+			var v=victory_board.instantiate()
+			get_tree().current_scene.add_child(v)
 
 func _on_time_out():
 	_spawn_next_batch()
