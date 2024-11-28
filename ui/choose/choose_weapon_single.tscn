@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3vd6i7u2icri"]
+
+[ext_resource type="Script" path="res://ui/choose/item_list.gd" id="1_xx0ry"]
+
+[node name="choose_weapon_single" type="ItemList"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -111.5
+offset_top = -117.5
+offset_right = 111.5
+offset_bottom = 117.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+allow_reselect = true
+item_count = 8
+item_0/text = "空"
+item_1/text = "法杖"
+item_2/text = "AK47"
+item_3/text = "GLOCK"
+item_4/text = "RPG"
+item_5/text = "MP5"
+item_6/text = "剑"
+item_7/text = "矛"
+script = ExtResource("1_xx0ry")
+
+[connection signal="item_clicked" from="." to="." method="_on_item_clicked"]

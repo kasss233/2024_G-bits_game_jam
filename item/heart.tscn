@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://c60x0k4ipvksn"]
 
 [ext_resource type="Script" path="res://item/heart.gd" id="1_q62iq"]
-[ext_resource type="Texture2D" uid="uid://gvbisljdee0x" path="res://public_assets/临时拾取物/coins-chests-etc-2-0-noborders.png" id="2_pyosx"]
+[ext_resource type="Texture2D" uid="uid://gvbisljdee0x" path="res://public_assets/pickable/coins-chests-etc-2-0-noborders.png" id="2_pyosx"]
 [ext_resource type="Texture2D" uid="uid://bhuxwjxk031p5" path="res://public_assets/shadow.png" id="3_38i5u"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2geri"]

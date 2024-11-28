@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://5ge1pi1yexre"]
 
-[ext_resource type="Texture2D" uid="uid://c4iax8w32gs34" path="res://public_assets/球类/balls/pix_basketball.png" id="1_7vb0g"]
+[ext_resource type="Texture2D" uid="uid://c4iax8w32gs34" path="res://public_assets/balls/balls/pix_basketball.png" id="1_7vb0g"]
 [ext_resource type="Script" path="res://tools/ball/ball.gd" id="1_xp5pp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sd0om"]

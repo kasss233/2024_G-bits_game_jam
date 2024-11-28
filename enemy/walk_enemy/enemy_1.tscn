@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://enemy/enemy.gd" id="1_k2u41"]
 [ext_resource type="PackedScene" uid="uid://c60x0k4ipvksn" path="res://item/heart.tscn" id="2_6m32n"]
 [ext_resource type="PackedScene" uid="uid://drdy6m07xwd8f" path="res://item/money.tscn" id="3_278bx"]
-[ext_resource type="Texture2D" uid="uid://llv2is12v1wy" path="res://public_assets/敌人/Minotaur - Sprite Sheet.png" id="4_gxfqf"]
+[ext_resource type="Texture2D" uid="uid://llv2is12v1wy" path="res://public_assets/enem/Minotaur - Sprite Sheet.png" id="4_gxfqf"]
 [ext_resource type="Texture2D" uid="uid://ckwy0hmm4q8w3" path="res://assets/Pixel Crawler - FREE - 1.8/Weapons/Bone/Bone.png" id="5_oe1pr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xbtyi"]

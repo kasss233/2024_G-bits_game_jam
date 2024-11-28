@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="my_game"
-run/main_scene="res://world/world.tscn"
+run/main_scene="res://ui/choose/choose_weapon.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
 

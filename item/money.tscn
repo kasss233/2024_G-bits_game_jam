@@ -1,9 +1,9 @@
 [gd_scene load_steps=17 format=3 uid="uid://drdy6m07xwd8f"]
 
 [ext_resource type="Script" path="res://item/money.gd" id="1_5kif4"]
-[ext_resource type="Texture2D" uid="uid://dp6oe0n5pqky7" path="res://public_assets/临时拾取物/coins-chests-etc-2-0.png" id="2_5yaub"]
+[ext_resource type="Texture2D" uid="uid://dp6oe0n5pqky7" path="res://public_assets/pickable/coins-chests-etc-2-0.png" id="2_5yaub"]
 [ext_resource type="Texture2D" uid="uid://bhuxwjxk031p5" path="res://public_assets/shadow.png" id="3_ht1up"]
-[ext_resource type="AudioStream" uid="uid://ds3fwf43jgu41" path="res://public_assets/音频/Coins sounds [OGG]/5_Coins.ogg" id="4_v266q"]
+[ext_resource type="AudioStream" uid="uid://ds3fwf43jgu41" path="res://public_assets/audio/Coins sounds [OGG]/5_Coins.ogg" id="4_v266q"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a53ol"]
 atlas = ExtResource("2_5yaub")

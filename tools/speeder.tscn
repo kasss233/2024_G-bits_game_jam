@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://tools/sticker.gd" id="1_q2pwt"]
 [ext_resource type="PackedScene" uid="uid://d1kmv7m0nvxk8" path="res://weapons/bullets/stick_bullets.tscn" id="2_ucg0b"]
-[ext_resource type="Texture2D" uid="uid://dp6oe0n5pqky7" path="res://public_assets/临时拾取物/coins-chests-etc-2-0.png" id="3_nam37"]
+[ext_resource type="Texture2D" uid="uid://dp6oe0n5pqky7" path="res://public_assets/pickable/coins-chests-etc-2-0.png" id="3_nam37"]
 [ext_resource type="AnimationLibrary" uid="uid://ceq546xrg4i4" path="res://animation/item.res" id="4_6r8j4"]
-[ext_resource type="AudioStream" uid="uid://ntqka5b43iov" path="res://public_assets/音频/RPG_Essentials_Free/12_Player_Movement_SFX/45_Landing_01.wav" id="5_xr684"]
+[ext_resource type="AudioStream" uid="uid://ntqka5b43iov" path="res://public_assets/audio/RPG_Essentials_Free/12_Player_Movement_SFX/45_Landing_01.wav" id="5_xr684"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u1ph1"]
 atlas = ExtResource("3_nam37")

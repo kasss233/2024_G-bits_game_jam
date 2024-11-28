@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cctr05jd60j8m"]
 
 [ext_resource type="Script" path="res://shop/balls/tennisball.gd" id="1_3nspf"]
-[ext_resource type="Texture2D" uid="uid://cilq1heub7xum" path="res://public_assets/球类/balls/pix_tennisball.png" id="2_nkrkn"]
+[ext_resource type="Texture2D" uid="uid://cilq1heub7xum" path="res://public_assets/balls/balls/pix_tennisball.png" id="2_nkrkn"]
 
 [node name="tennisball" type="Node2D"]
 script = ExtResource("1_3nspf")

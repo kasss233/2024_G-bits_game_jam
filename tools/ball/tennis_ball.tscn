@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bpbo6r10gvl2y"]
 
 [ext_resource type="Script" path="res://tools/ball/ball.gd" id="1_t8fxk"]
-[ext_resource type="Texture2D" uid="uid://cilq1heub7xum" path="res://public_assets/球类/balls/pix_tennisball.png" id="2_5neea"]
+[ext_resource type="Texture2D" uid="uid://cilq1heub7xum" path="res://public_assets/balls/balls/pix_tennisball.png" id="2_5neea"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sd0om"]
 radius = 672.012

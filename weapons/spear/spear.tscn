@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://5mleyvwe31yi" path="res://public_assets/64x64 weapons final.png" id="1_krxuq"]
 [ext_resource type="Script" path="res://weapons/spear/spear.gd" id="1_p7uwh"]
-[ext_resource type="AudioStream" uid="uid://bikgcl0yng7a1" path="res://public_assets/音频/Minifantasy_Dungeon_SFX/26_sword_hit_3.wav" id="3_df3d0"]
+[ext_resource type="AudioStream" uid="uid://bikgcl0yng7a1" path="res://public_assets/audio/Minifantasy_Dungeon_SFX/26_sword_hit_3.wav" id="3_df3d0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fsjti"]
 size = Vector2(11, 47)

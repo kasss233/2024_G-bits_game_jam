@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://ci4pjgbf3i4mw"]
 
 [ext_resource type="Script" path="res://tools/ball/ball.gd" id="1_51ocb"]
-[ext_resource type="Texture2D" uid="uid://cpg1eosj0xglx" path="res://public_assets/球类/balls/pix_volleyball.png" id="2_uqdt6"]
+[ext_resource type="Texture2D" uid="uid://cpg1eosj0xglx" path="res://public_assets/balls/balls/pix_volleyball.png" id="2_uqdt6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sd0om"]
 radius = 672.012

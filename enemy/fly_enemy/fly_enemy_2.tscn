@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://enemy/enemy.gd" id="1_dhxe3"]
 [ext_resource type="PackedScene" uid="uid://c60x0k4ipvksn" path="res://item/heart.tscn" id="2_75uhr"]
 [ext_resource type="PackedScene" uid="uid://drdy6m07xwd8f" path="res://item/money.tscn" id="3_ip24h"]
-[ext_resource type="Texture2D" uid="uid://hxbnxo8r3q02" path="res://public_assets/敌人/Flying Demon 2D Pixel Art/Flying Demon 2D Pixel Art/Sprites/without_outline/DEATH.png" id="4_mimgd"]
-[ext_resource type="Texture2D" uid="uid://chfkw662pm7gt" path="res://public_assets/敌人/Flying Demon 2D Pixel Art/Flying Demon 2D Pixel Art/Sprites/without_outline/FLYING.png" id="5_wmyjc"]
+[ext_resource type="Texture2D" uid="uid://hxbnxo8r3q02" path="res://public_assets/enem/Flying Demon 2D Pixel Art/Flying Demon 2D Pixel Art/Sprites/without_outline/DEATH.png" id="4_mimgd"]
+[ext_resource type="Texture2D" uid="uid://chfkw662pm7gt" path="res://public_assets/enem/Flying Demon 2D Pixel Art/Flying Demon 2D Pixel Art/Sprites/without_outline/FLYING.png" id="5_wmyjc"]
 [ext_resource type="Texture2D" uid="uid://bhuxwjxk031p5" path="res://public_assets/shadow.png" id="6_yri1u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xbtyi"]

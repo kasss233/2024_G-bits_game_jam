@@ -1,7 +1,7 @@
 [gd_scene load_steps=20 format=4 uid="uid://dlrf0vep8ps11"]
 
 [ext_resource type="PackedScene" uid="uid://dciamlle615vi" path="res://players/wizzard.tscn" id="1_xhgil"]
-[ext_resource type="Texture2D" uid="uid://buacn734cidh3" path="res://public_assets/瓦片/32x32_DEMO.png" id="2_54erv"]
+[ext_resource type="Texture2D" uid="uid://buacn734cidh3" path="res://public_assets/tile/32x32_DEMO.png" id="2_54erv"]
 [ext_resource type="PackedScene" uid="uid://dn3aulsu7xq2e" path="res://enemy/enemy.tscn" id="3_b2k7v"]
 [ext_resource type="PackedScene" uid="uid://dnvog3ate4vc0" path="res://enemy/fly_enemy/fly_enemy.tscn" id="7_sw5b8"]
 [ext_resource type="PackedScene" uid="uid://spglirt5fokp" path="res://ui/ui.tscn" id="8_ngymi"]
@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://b6fy1cjxrhacu" path="res://cat/cat.tscn" id="10_agtkg"]
 [ext_resource type="PackedScene" uid="uid://bx3hr07ldxequ" path="res://cat/dog.tscn" id="12_q8o2u"]
 
-[sub_resource type="GDScript" id="GDScript_nxe1y"]
+[sub_resource type="GDScript" id="GDScript_0f8pv"]
 resource_local_to_scene = true
 script/source = "extends Resource
 class_name PlayerData
@@ -29,9 +29,9 @@ enum Hands { LEFT, RIGHT }
 @export var state:States=States.IDLE
 "
 
-[sub_resource type="Resource" id="Resource_haiwb"]
+[sub_resource type="Resource" id="Resource_nbmwi"]
 resource_local_to_scene = true
-script = SubResource("GDScript_nxe1y")
+script = SubResource("GDScript_0f8pv")
 direction = Vector2(0, 0)
 left_weapon = 0
 right_weapon = 0
@@ -8651,7 +8651,7 @@ distance = 1.0
 
 [node name="Wizzard" parent="." instance=ExtResource("1_xhgil")]
 position = Vector2(-4, 126)
-data = SubResource("Resource_haiwb")
+data = SubResource("Resource_nbmwi")
 
 [node name="TileMapLayer_1" type="TileMapLayer" parent="."]
 z_index = -5

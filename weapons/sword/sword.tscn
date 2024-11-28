@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://weapons/sword/sword.gd" id="1_dt8fp"]
 [ext_resource type="Texture2D" uid="uid://5mleyvwe31yi" path="res://public_assets/64x64 weapons final.png" id="2_iuoqp"]
-[ext_resource type="AudioStream" uid="uid://bikgcl0yng7a1" path="res://public_assets/音频/Minifantasy_Dungeon_SFX/26_sword_hit_3.wav" id="4_w5jt0"]
-[ext_resource type="Texture2D" uid="uid://b58lds8ibyqym" path="res://public_assets/刀光/SlashFX Combos/SlashFX SimpleSmall Combo2 sheet.png" id="6_2ump4"]
+[ext_resource type="AudioStream" uid="uid://bikgcl0yng7a1" path="res://public_assets/audio/Minifantasy_Dungeon_SFX/26_sword_hit_3.wav" id="4_w5jt0"]
+[ext_resource type="Texture2D" uid="uid://b58lds8ibyqym" path="res://public_assets/knife_light/SlashFX Combos/SlashFX SimpleSmall Combo2 sheet.png" id="6_2ump4"]
 
 [sub_resource type="Animation" id="Animation_t766a"]
 length = 0.001
