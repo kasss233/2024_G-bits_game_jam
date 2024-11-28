@@ -87,7 +87,10 @@ func _ready() -> void:
 			ammo = false
 			cd = false
 		GlobalVal.weapons.NULL:
-			queue_free()
+			damage=false
+			ammo=false
+			cd=false
+			visible=false
 			
 func _physics_process(delta: float) -> void:
 	label.text = weapon_name[weapon_pos[pos]]

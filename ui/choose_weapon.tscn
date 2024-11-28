@@ -1,6 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://cs8cegd4t2a2x"]
+[gd_scene load_steps=2 format=3 uid="uid://dol23oegl0mkq"]
 
-[ext_resource type="Script" path="res://ui/choose_weapon.gd" id="1_lvxfk"]
+[sub_resource type="GDScript" id="GDScript_ct0a6"]
+script/source = "extends Control
+
+
+func _on_stick_pressed() -> void:
+	GlobalVal.player[\"weapon\"]=GlobalVal.weapons.STICK
+
+
+func _on_ak_47_pressed() -> void:
+	GlobalVal.player[\"weapon\"]=GlobalVal.weapons.AK47
+
+
+func _on_start_pressed() -> void:
+	get_tree().change_scene_to_file(\"res://world/world.tscn\")
+"
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -9,7 +23,7 @@ offset_left = 139.0
 offset_top = 114.0
 offset_right = 179.0
 offset_bottom = 154.0
-script = ExtResource("1_lvxfk")
+script = SubResource("GDScript_ct0a6")
 
 [node name="stick" type="Button" parent="."]
 layout_mode = 0
