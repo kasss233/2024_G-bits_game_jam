@@ -1,0 +1,53 @@
+[gd_resource type="SpriteFrames" load_steps=8 format=3 uid="uid://djcr610mskroh"]
+
+[ext_resource type="Texture2D" uid="uid://gvbisljdee0x" path="res://public_assets/临时拾取物/coins-chests-etc-2-0-noborders.png" id="1_q7k7y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4ci8"]
+atlas = ExtResource("1_q7k7y")
+region = Rect2(64, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nq5ck"]
+atlas = ExtResource("1_q7k7y")
+region = Rect2(80, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whemc"]
+atlas = ExtResource("1_q7k7y")
+region = Rect2(96, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0bwvo"]
+atlas = ExtResource("1_q7k7y")
+region = Rect2(112, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t5rjg"]
+atlas = ExtResource("1_q7k7y")
+region = Rect2(128, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vvg6l"]
+atlas = ExtResource("1_q7k7y")
+region = Rect2(144, 16, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j4ci8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nq5ck")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_whemc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0bwvo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t5rjg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vvg6l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]

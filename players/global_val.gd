@@ -1,5 +1,7 @@
 extends Node
 enum states {MOVE, DEATH, IDLE}
+enum pets {CAT,DOG,BIRD,SNAKE,MOUSE}
+enum sports {BASKETBALL,FOOTBALL,BASEBALL,TENNIS}
 enum weapons {STICK, AK47, GLOCK, RPG, MP5, SWORD, SPEAR, NULL}
 enum stickers {SPEEDER, DAMAGER, HPER, NULL}
 enum hands {LEFT, RIGHT}
@@ -71,9 +73,9 @@ var properties = {
 	"knowledge" = 1
 }
 
-var extra_prop = []
+var extra_prop_list = []
 var weapons_list = []
-var pets = []
+var pets_list = []
 
 func _ready() -> void:
 	pass
@@ -111,12 +113,13 @@ func minus_property(prop: String, value: int) -> void:
 		properties[prop] -= value
 
 func add_extra_prop(prop) -> void:
-	extra_prop.append(prop)
+	extra_prop_list.append(prop)
 
 func add_weapon(weapon) -> void:
 	weapons_list.append(weapon)
 
 func add_pet(pet) -> void:
+	pets_list.append(pet)
 	pets.append(pet)
 
 func upgrade_weapon(weapon: weapons, attr: String) -> void:

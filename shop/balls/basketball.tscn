@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddojo251psejc"]
+
+[ext_resource type="Script" path="res://shop/balls/basketball.gd" id="1_v3t77"]
+[ext_resource type="Texture2D" uid="uid://c4iax8w32gs34" path="res://public_assets/球类/balls/pix_basketball.png" id="2_21gss"]
+
+[node name="basketball" type="Node2D"]
+script = ExtResource("1_v3t77")
+texture = ExtResource("2_21gss")
