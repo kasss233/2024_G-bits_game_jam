@@ -1,0 +1,148 @@
+[gd_scene load_steps=16 format=3 uid="uid://drdy6m07xwd8f"]
+
+[ext_resource type="Script" path="res://item/money.gd" id="1_5kif4"]
+[ext_resource type="Texture2D" uid="uid://dp6oe0n5pqky7" path="res://public_assets/临时拾取物/coins-chests-etc-2-0.png" id="2_5yaub"]
+[ext_resource type="Texture2D" uid="uid://bhuxwjxk031p5" path="res://public_assets/shadow.png" id="3_ht1up"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a53ol"]
+atlas = ExtResource("2_5yaub")
+region = Rect2(176, 17, 16, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v7jiq"]
+atlas = ExtResource("2_5yaub")
+region = Rect2(192, 17, 16, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ntt72"]
+atlas = ExtResource("2_5yaub")
+region = Rect2(208, 17, 16, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1uqlm"]
+atlas = ExtResource("2_5yaub")
+region = Rect2(224, 17, 16, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h1nyy"]
+atlas = ExtResource("2_5yaub")
+region = Rect2(240, 17, 16, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4addx"]
+atlas = ExtResource("2_5yaub")
+region = Rect2(256, 17, 16, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yaf0s"]
+atlas = ExtResource("2_5yaub")
+region = Rect2(272, 17, 16, 17)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v6xmk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a53ol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v7jiq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ntt72")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1uqlm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h1nyy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4addx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yaf0s")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="Animation" id="Animation_7uys0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_l8r7d"]
+resource_name = "running"
+loop_mode = 2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -7)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D2:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.15625, 0.223632), Vector2(0.1, 0.144)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ngft2"]
+_data = {
+"RESET": SubResource("Animation_7uys0"),
+"item_animation": SubResource("Animation_l8r7d")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t0bgo"]
+radius = 17.0
+
+[node name="money1" type="Node2D"]
+script = ExtResource("1_5kif4")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_v6xmk")
+autoplay = "default"
+frame_progress = 0.353818
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"item": SubResource("AnimationLibrary_ngft2")
+}
+autoplay = "item/item_animation"
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, -0.395203)
+collision_layer = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_t0bgo")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(0, 14)
+scale = Vector2(0.14606, 0.209206)
+texture = ExtResource("3_ht1up")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

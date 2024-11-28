@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://drmjql4qtiby6"]
+
+[ext_resource type="Script" path="res://ui/count/control.gd" id="1_0mmes"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6hmer"]
+font_size = 30
+
+[node name="count" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0mmes")
+time = 10.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -446.0
+offset_top = 259.0
+offset_right = -406.0
+offset_bottom = 282.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+label_settings = SubResource("LabelSettings_6hmer")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

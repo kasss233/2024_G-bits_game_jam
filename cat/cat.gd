@@ -3,13 +3,18 @@ extends CharacterBody2D
 @export var speed:int
 
 var direction=Vector2.ZERO
+func _ready() -> void:
+	if !GlobalVal.player["cat"]:
+		queue_free()
+	global_position=GlobalVal.player["position"]
+	global_position.x-=20
 func _physics_process(delta: float) -> void:
 	update_velocity()
 	update_animation()
 	move_and_slide()
 func update_velocity():
 	var player_pos=GlobalVal.player["position"]
-	player_pos.x-=100
+	player_pos.x-=20
 	var distance=player_pos.distance_to(global_position)
 	if distance<5:
 		direction=Vector2.ZERO

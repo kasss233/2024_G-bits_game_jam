@@ -3,23 +3,26 @@ extends Node2D
 @onready var sprite = $sprite
 @onready var initial_position = sprite.position
 @onready var area=$sprite/sprite/Area2D
+@onready var audio=$AudioStreamPlayer
 @export var damage: int = 1
 @export var enabled: bool = false
+@export var weapon:GlobalVal.weapons
 var direction = Vector2.ZERO
 var is_attacking = false
 
 func _ready() -> void:
-	if not enabled:
-		print(enabled)
-		queue_free()
-
+	#if not enabled:
+		#queue_free()
+	pass
 func _physics_process(delta: float) -> void:
+	update_data()
 	update_position()
 	update_rotation()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("attack") and not is_attacking:
 		attack()
+		audio.play()
 
 func attack():
 	is_attacking = true
@@ -52,4 +55,6 @@ func update_position():
 	if GlobalVal.player["direction"].x > 0:
 		sprite.position = initial_position
 	elif GlobalVal.player["direction"].x < 0:
-		sprite.position.x = initial_position.x - 15
+		sprite.position.x = initial_position.x - 5
+func update_data():
+	damage = GlobalVal.spear["damage"]

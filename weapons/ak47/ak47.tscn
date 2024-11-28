@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bwh3w4shd0lbx" path="res://assets/Guns Update - V1.01/Guns_V1.01 - Commission - Copy/02 - Sprite sheets/AK 47 [96x48]/[SHOOT] AK 47.png" id="3_pfe8y"]
 [ext_resource type="Texture2D" uid="uid://bfqkx3hqfygho" path="res://assets/Guns Update - V1.01/Guns_V1.01 - Commission - Copy/02 - Sprite sheets/AK 47 [96x48]/[RELOAD] AK 47.png" id="4_mbptq"]
 [ext_resource type="Texture2D" uid="uid://bdud74nmclhp3" path="res://assets/Guns Update - V1.01/Guns_V1.01 - Commission - Copy/02 - Sprite sheets/AK 47 [96x48]/[SHOOT WITH CASING AND MUZZLE FLASH] AK 47.png" id="5_xl2h7"]
-[ext_resource type="Texture2D" uid="uid://c65fbkwa4hkaw" path="res://assets/Pixel Crawler - FREE - 1.8/Weapons/Hands/Hands.png" id="6_e1mf8"]
+[ext_resource type="AudioStream" uid="uid://crwqfic5sapqu" path="res://public_assets/音频/Snake's SECOND Authentic Gun Sounds/Full Sounds/20 Gauge/MP3/20 Gauge Single.mp3" id="8_e8hwg"]
 [ext_resource type="AnimationLibrary" uid="uid://nmjsrip1e1ys" path="res://animation/weapon_shoot.res" id="9_8ujc8"]
 
 [sub_resource type="Animation" id="Animation_annrd"]
@@ -267,6 +267,7 @@ position = Vector2(58, 44)
 script = ExtResource("1_ncgjk")
 bullet = ExtResource("2_hu751")
 weapon = 2
+enabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -285,13 +286,6 @@ frame = 11
 frame_progress = 1.0
 offset = Vector2(20, 10)
 
-[node name="Sprite2D2" type="Sprite2D" parent="sprite/Sprite2D"]
-position = Vector2(-1.66667, 5)
-scale = Vector2(1.22703, 1.44144)
-texture = ExtResource("6_e1mf8")
-region_enabled = true
-region_rect = Rect2(21, 21, 7, 6)
-
 [node name="bullet_position" type="Node2D" parent="sprite/Sprite2D"]
 position = Vector2(48.3333, -3.33333)
 
@@ -299,5 +293,8 @@ position = Vector2(48.3333, -3.33333)
 libraries = {
 "": ExtResource("9_8ujc8")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_e8hwg")
 
 [connection signal="animation_finished" from="sprite/Sprite2D" to="." method="_on_sprite_2d_animation_finished"]

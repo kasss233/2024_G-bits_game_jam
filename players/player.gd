@@ -2,7 +2,11 @@ extends CharacterBody2D
 @export var data: PlayerDatas = null
 @export var animation_tree: AnimationTree ## 动画树
 @export var sprite: Sprite2D
+@export var defeat_board:PackedScene
+@onready var area=$Area2D
 @onready var animation_state = animation_tree.get("parameters/playback")
+signal dead
+var played:bool=false
 func _ready() -> void:
 	init()
 	pass
@@ -39,12 +43,13 @@ func update_animation():
 			animation_state.travel("idle")
 		data.States.DEATH:
 			animation_state.travel("death")
+			death_event()
 func update_velocity(delta):
 	match data.state:
 		data.States.MOVE:
 			velocity = velocity.move_toward(data.direction * data.speed, data.acc * delta)
 		data.States.IDLE:
-			velocity = velocity.move_toward(Vector2.ZERO, data.fri * delta)
+			velocity = Vector2.ZERO
 		data.States.DEATH:
 			velocity = Vector2.ZERO
 func update_global_val():
@@ -55,10 +60,17 @@ func update_global_val():
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	get_attack(body)
 func get_attack(body: Node2D):
-	data.hp -= body.damage
-	modulate = Color(1, 0, 0, 1)
-	await get_tree().create_timer(0.2).timeout
-	modulate = Color(1, 1, 1, 1) # 恢复为白色
+	var bodies = area.get_overlapping_bodies()
+	for Body in bodies:
+		data.hp -= Body.damage
+		modulate = Color(1, 0, 0, 1)
+		await get_tree().create_timer(0.2).timeout
+		modulate = Color(1, 1, 1, 1) # 恢复为白色
 func init():
 	data.hp = GlobalVal.player["hp"]
 	data.speed = GlobalVal.player["speed"]
+	data.state=data.States.IDLE
+func death_event():
+	if !played:
+		AudioPlayer.play_sound_effect("death")
+		played=true

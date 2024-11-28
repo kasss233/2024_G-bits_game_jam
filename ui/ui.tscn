@@ -1,12 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://spglirt5fokp"]
+[gd_scene load_steps=10 format=3 uid="uid://spglirt5fokp"]
 
 [ext_resource type="Script" path="res://ui/ui.gd" id="1_5mtwj"]
+[ext_resource type="PackedScene" uid="uid://bnjbr7267gsho" path="res://ui/upgrade_board.tscn" id="2_2idv7"]
 [ext_resource type="Texture2D" uid="uid://0j0bpe86rk7h" path="res://public_assets/血条和物品栏/Retro Inventory/Retro Inventory/Scaled 2x/Health_01.png" id="2_mbkeh"]
+[ext_resource type="PackedScene" uid="uid://ui8c1g3qen73" path="res://ui/board/defeat_board.tscn" id="3_4amuy"]
 [ext_resource type="Texture2D" uid="uid://bof0nxl4w10fw" path="res://public_assets/血条和物品栏/Retro Inventory/Retro Inventory/Scaled 2x/Health_01_Bar01.png" id="3_xk5ug"]
 [ext_resource type="Texture2D" uid="uid://c327e4mhcyvdx" path="res://public_assets/血条和物品栏/Retro Inventory/Retro Inventory/Scaled 2x/Health_04_Heart_Red_Clear.png" id="4_n1po7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_a3ma6"]
 font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_mwmv3"]
+font_size = 30
+
+[sub_resource type="Theme" id="Theme_rwb85"]
+default_font_size = 30
+Button/fonts/font = null
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -14,6 +23,8 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_5mtwj")
+upgrade_board = ExtResource("2_2idv7")
+defeat_board = ExtResource("3_4amuy")
 
 [node name="hps" type="CanvasLayer" parent="."]
 scale = Vector2(2, 2)
@@ -39,15 +50,35 @@ region_rect = Rect2(6, 4, 22, 20)
 [node name="labels" type="CanvasLayer" parent="."]
 
 [node name="VSplitContainer" type="VBoxContainer" parent="labels"]
-offset_left = 535.0
-offset_top = 54.0
-offset_right = 575.0
-offset_bottom = 131.0
+offset_left = 870.0
+offset_top = 12.0
+offset_right = 910.0
+offset_bottom = 89.0
 
 [node name="Label" type="Label" parent="labels/VSplitContainer"]
 layout_mode = 2
 label_settings = SubResource("LabelSettings_a3ma6")
 
-[node name="Label2" type="Label" parent="labels/VSplitContainer"]
+[node name="money" type="Label" parent="labels/VSplitContainer"]
 layout_mode = 2
-text = "666"
+label_settings = SubResource("LabelSettings_mwmv3")
+
+[node name="buttons" type="CanvasLayer" parent="."]
+
+[node name="board" type="Button" parent="buttons"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -50.0
+offset_right = 64.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_rwb85")
+text = "升级面板"
+
+[connection signal="pressed" from="buttons/board" to="." method="_on_board_pressed"]

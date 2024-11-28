@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dsx2gqjqdw6rp"
+path="res://.godot/imported/9mm Pistol Chamber Check Part 1.wav-ba746885a6d05e80f64a3b75cf2d50cc.sample"
+
+[deps]
+
+source_file="res://public_assets/音频/Snake's SECOND Authentic Gun Sounds/& More/Pistol/WAV/9mm Pistol Chamber Check Part 1.wav"
+dest_files=["res://.godot/imported/9mm Pistol Chamber Check Part 1.wav-ba746885a6d05e80f64a3b75cf2d50cc.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,7 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://b1qnucsboo7jx"]
+[gd_scene load_steps=6 format=3 uid="uid://b1qnucsboo7jx"]
 
 [ext_resource type="Script" path="res://enemy_generator/enemy_generator.gd" id="1_mct0m"]
+[ext_resource type="PackedScene" uid="uid://bnjbr7267gsho" path="res://ui/upgrade_board.tscn" id="2_7ha21"]
+[ext_resource type="PackedScene" uid="uid://drmjql4qtiby6" path="res://ui/count/control.tscn" id="3_kojt3"]
+[ext_resource type="PackedScene" uid="uid://21rkof613s2q" path="res://ui/board/victory_board.tscn" id="4_5uwwu"]
+[ext_resource type="PackedScene" uid="uid://ui8c1g3qen73" path="res://ui/board/defeat_board.tscn" id="5_ja41t"]
 
 [node name="enemy_generator" type="Node2D"]
 script = ExtResource("1_mct0m")
 enemy_scenes = Array[PackedScene]([null])
+upgrade_board = ExtResource("2_7ha21")
+counter = ExtResource("3_kojt3")
+victory_board = ExtResource("4_5uwwu")
+defeat_board = ExtResource("5_ja41t")

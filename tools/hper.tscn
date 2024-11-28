@@ -1,0 +1,81 @@
+[gd_scene load_steps=13 format=3 uid="uid://o2677cycxaex"]
+
+[ext_resource type="Script" path="res://tools/sticker.gd" id="1_a8luv"]
+[ext_resource type="PackedScene" uid="uid://dum2im2q7hfnm" path="res://weapons/bullets/stick_bullets_2.tscn" id="2_km0vs"]
+[ext_resource type="Texture2D" uid="uid://dp6oe0n5pqky7" path="res://public_assets/临时拾取物/coins-chests-etc-2-0.png" id="3_rm1r6"]
+[ext_resource type="AnimationLibrary" uid="uid://ceq546xrg4i4" path="res://animation/item.res" id="4_3l85t"]
+[ext_resource type="AudioStream" uid="uid://ntqka5b43iov" path="res://public_assets/音频/RPG_Essentials_Free/12_Player_Movement_SFX/45_Landing_01.wav" id="5_axeav"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4v03q"]
+atlas = ExtResource("3_rm1r6")
+region = Rect2(80, 384, 16, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2bmxq"]
+atlas = ExtResource("3_rm1r6")
+region = Rect2(96, 384, 16, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_10nii"]
+atlas = ExtResource("3_rm1r6")
+region = Rect2(112, 384, 16, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7y2mv"]
+atlas = ExtResource("3_rm1r6")
+region = Rect2(128, 384, 16, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2wwrv"]
+atlas = ExtResource("3_rm1r6")
+region = Rect2(144, 384, 16, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0cnbp"]
+atlas = ExtResource("3_rm1r6")
+region = Rect2(160, 384, 16, 17)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cx8tr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4v03q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2bmxq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_10nii")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7y2mv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2wwrv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0cnbp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="sticker2" type="Node2D"]
+script = ExtResource("1_a8luv")
+bullet = ExtResource("2_km0vs")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -5.0332)
+sprite_frames = SubResource("SpriteFrames_cx8tr")
+autoplay = "default"
+frame_progress = 0.452095
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"item": ExtResource("4_3l85t")
+}
+autoplay = "item/item_animation"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_axeav")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

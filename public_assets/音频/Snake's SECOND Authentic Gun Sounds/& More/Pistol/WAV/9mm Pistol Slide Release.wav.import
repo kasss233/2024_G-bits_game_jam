@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://mhicmrsw41x3"
+path="res://.godot/imported/9mm Pistol Slide Release.wav-40502ecde2284ba23ed3e83e6a8219ca.sample"
+
+[deps]
+
+source_file="res://public_assets/音频/Snake's SECOND Authentic Gun Sounds/& More/Pistol/WAV/9mm Pistol Slide Release.wav"
+dest_files=["res://.godot/imported/9mm Pistol Slide Release.wav-40502ecde2284ba23ed3e83e6a8219ca.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

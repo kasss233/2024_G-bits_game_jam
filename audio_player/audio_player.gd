@@ -3,7 +3,6 @@ extends Node
 @onready var sound_effect = $SE
 @onready var bgm_player = $BGM/BGMPlayer
 
-
 enum BUSS{
 	master,
 	bgm,

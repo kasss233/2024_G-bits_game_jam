@@ -1,3 +1,29 @@
-[gd_scene format=3 uid="uid://dn3s14ytfsp2q"]
+[gd_scene load_steps=3 format=3 uid="uid://dn3s14ytfsp2q"]
+
+[ext_resource type="Script" path="res://day_map/day_map.gd" id="1_37ouu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2cfsd"]
+font_size = 24
 
 [node name="day_map" type="Node2D"]
+script = ExtResource("1_37ouu")
+
+[node name="change_to_shop" type="Button" parent="."]
+custom_minimum_size = Vector2(64, 0)
+offset_left = 348.0
+offset_top = 173.943
+offset_right = 396.0
+offset_bottom = 207.943
+
+[node name="Label" type="Label" parent="change_to_shop"]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 34.0
+text = "商店"
+label_settings = SubResource("LabelSettings_2cfsd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="back_to_home" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0

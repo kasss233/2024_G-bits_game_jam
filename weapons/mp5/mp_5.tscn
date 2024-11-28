@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://brihgfuhq8xps" path="res://weapons/bullets/gun_bullets.tscn" id="3_oervy"]
 [ext_resource type="AnimationLibrary" uid="uid://d4fybwn0or211" path="res://animation/weapon.res" id="4_hp1ub"]
 [ext_resource type="Texture2D" uid="uid://cywjwpy3xemv2" path="res://public_assets/枪械/Guns Update - V1.01/Guns_V1.01 - Commission - Copy/02 - Sprite sheets/Submachine - MP5A3 [80x48]/[SHOOT WITH CASING] Submachine - MP5A3.png" id="5_64754"]
+[ext_resource type="AudioStream" uid="uid://cvan666ct84hi" path="res://public_assets/音频/Snake's SECOND Authentic Gun Sounds/Full Sounds/9mm/MP3/9mm Single.mp3" id="6_61sy7"]
 [ext_resource type="Texture2D" uid="uid://dosdb8yc02lmt" path="res://public_assets/枪械/Guns Update - V1.01/Guns_V1.01 - Commission - Copy/02 - Sprite sheets/Submachine - MP5A3 [80x48]/[RELOAD] Submachine - MP5A3.png" id="6_sxni8"]
-[ext_resource type="Texture2D" uid="uid://c65fbkwa4hkaw" path="res://assets/Pixel Crawler - FREE - 1.8/Weapons/Hands/Hands.png" id="7_6oi3a"]
 
 [sub_resource type="Animation" id="Animation_annrd"]
 length = 0.001
@@ -313,7 +313,6 @@ _data = {
 position = Vector2(58, 44)
 script = ExtResource("1_vv0w3")
 bullet = ExtResource("3_oervy")
-number = 40
 weapon = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -328,21 +327,18 @@ libraries = {
 scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_x8ojf")
 animation = &"idle"
-offset = Vector2(20, 10)
-
-[node name="Sprite2D2" type="Sprite2D" parent="sprite/Sprite2D"]
-position = Vector2(-1.66667, 5)
-scale = Vector2(1.22703, 1.44144)
-texture = ExtResource("7_6oi3a")
-region_enabled = true
-region_rect = Rect2(21, 21, 7, 6)
+offset = Vector2(20, 5)
 
 [node name="bullet_position" type="Node2D" parent="sprite/Sprite2D"]
-position = Vector2(48.3333, -3.33333)
+position = Vector2(40, -11.6667)
+scale = Vector2(-58881.1, -134.762)
 
 [node name="method_player" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_6ajmd")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_61sy7")
 
 [connection signal="animation_finished" from="sprite/Sprite2D" to="." method="_on_sprite_2d_animation_finished"]

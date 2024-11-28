@@ -1,19 +1,11 @@
-[gd_scene load_steps=43 format=3 uid="uid://dciamlle615vi"]
+[gd_scene load_steps=35 format=3 uid="uid://dciamlle615vi"]
 
-[ext_resource type="Texture2D" uid="uid://tdc5mo6qptr2" path="res://assets/Pixel Crawler - FREE - 1.8/Heroes/Wizzard/Idle/Idle-Sheet.png" id="1_7fxmy"]
 [ext_resource type="Script" path="res://players/player.gd" id="1_w6ftf"]
-[ext_resource type="Texture2D" uid="uid://blskbp7ebrpwg" path="res://assets/Pixel Crawler - FREE - 1.8/Heroes/Wizzard/Run/Run-Sheet.png" id="2_dhjsb"]
 [ext_resource type="Resource" uid="uid://dametontd8w2k" path="res://resource/player_data.tres" id="2_s6qrl"]
-[ext_resource type="Texture2D" uid="uid://jhb85kjdy7h5" path="res://assets/Pixel Crawler - FREE - 1.8/Heroes/Wizzard/Death/Death-Sheet.png" id="3_0hqx0"]
-[ext_resource type="PackedScene" uid="uid://ceqr8peo3gc10" path="res://weapons/stick/stick.tscn" id="5_6kho2"]
-[ext_resource type="PackedScene" uid="uid://djyd2d2r2k1qh" path="res://weapons/glock/glock.tscn" id="8_da58w"]
-[ext_resource type="PackedScene" uid="uid://7srmhe0q62qx" path="res://weapons/ak47/ak47.tscn" id="8_og3ii"]
-[ext_resource type="PackedScene" uid="uid://caxi3vubeee7i" path="res://weapons/rpg/rpg.tscn" id="10_d6kmt"]
-[ext_resource type="PackedScene" uid="uid://cgahjpcrq648b" path="res://weapons/sword/sword.tscn" id="12_ne4kw"]
-[ext_resource type="PackedScene" uid="uid://xmreic57dsn1" path="res://tools/sticker.tscn" id="13_4q7pw"]
-[ext_resource type="PackedScene" uid="uid://cwd72xqhe7qtl" path="res://weapons/spear/spear.tscn" id="13_jblv3"]
-[ext_resource type="PackedScene" uid="uid://77xr7edq5miv" path="res://weapons/mp5/mp_5.tscn" id="13_pqyrx"]
-[ext_resource type="PackedScene" uid="uid://dum2im2q7hfnm" path="res://weapons/bullets/stick_bullets_2.tscn" id="14_msjoh"]
+[ext_resource type="Texture2D" uid="uid://drqxcst0el5f8" path="res://public_assets/AnimationSheet.png" id="3_62enb"]
+[ext_resource type="PackedScene" uid="uid://ui8c1g3qen73" path="res://ui/board/defeat_board.tscn" id="3_pusnh"]
+[ext_resource type="PackedScene" uid="uid://c4dl61s5dauwm" path="res://weapons/weapon_generator/sticker_generator.tscn" id="7_pejw7"]
+[ext_resource type="PackedScene" uid="uid://cbgkuxbqbmj23" path="res://weapons/weapon_generator/weapon_generator.tscn" id="15_fuc5w"]
 
 [sub_resource type="Animation" id="Animation_bcdg2"]
 length = 0.001
@@ -29,10 +21,22 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(0, -14)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
 
 [sub_resource type="Animation" id="Animation_l1x0g"]
 resource_name = "death"
-length = 0.6
+length = 0.4
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -44,7 +48,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [6]
+"values": [8]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -56,7 +60,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [1]
+"values": [6]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -68,7 +72,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_0hqx0")]
+"values": [ExtResource("3_62enb")]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -77,10 +81,10 @@ tracks/3/path = NodePath("Sprite2D:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5]
+"values": [36, 37, 38, 39]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -92,11 +96,77 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(15, -16)]
+"values": [Vector2(0, -21)]
 }
 
 [sub_resource type="Animation" id="Animation_l5sab"]
 resource_name = "idle"
+length = 0.4
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 30, 31]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_62enb")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:vframes")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -21)]
+}
+
+[sub_resource type="Animation" id="Animation_ugg6t"]
+resource_name = "run"
 length = 0.4
 loop_mode = 1
 step = 0.1
@@ -110,7 +180,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3]
+"values": [8, 9, 10, 11]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -122,7 +192,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("1_7fxmy")]
+"values": [ExtResource("3_62enb")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -134,7 +204,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [4]
+"values": [8]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -143,77 +213,11 @@ tracks/3/path = NodePath("Sprite2D:vframes")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Sprite2D:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -16)]
-}
-
-[sub_resource type="Animation" id="Animation_ugg6t"]
-resource_name = "run"
-length = 0.6
-loop_mode = 1
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("2_dhjsb")]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:hframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [6]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D:vframes")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
-}
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
@@ -224,7 +228,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(2, -32)]
+"values": [Vector2(0, -21)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3ymfi"]
@@ -324,11 +328,12 @@ size = Vector2(8, 8)
 size = Vector2(26, 32)
 
 [node name="Wizzard" type="CharacterBody2D" node_paths=PackedStringArray("animation_tree", "sprite")]
-collision_mask = 642
+collision_mask = 130
 script = ExtResource("1_w6ftf")
 data = ExtResource("2_s6qrl")
 animation_tree = NodePath("AnimationPlayer/AnimationTree")
 sprite = NodePath("Sprite2D")
+defeat_board = ExtResource("3_pusnh")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -346,9 +351,11 @@ parameters/move/blend_position = Vector2(-0.000873387, 0.957219)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -14)
-texture = ExtResource("1_7fxmy")
-hframes = 4
-frame = 1
+scale = Vector2(1.7, 1.7)
+texture = ExtResource("3_62enb")
+hframes = 8
+vframes = 6
+frame = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, -11)
@@ -356,30 +363,6 @@ shape = SubResource("RectangleShape2D_2iwoq")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
-
-[node name="weapon" type="Node2D" parent="."]
-
-[node name="ak47" parent="weapon" instance=ExtResource("8_og3ii")]
-position = Vector2(9, -11)
-
-[node name="stick" parent="weapon" instance=ExtResource("5_6kho2")]
-position = Vector2(15, -16)
-
-[node name="glock" parent="weapon" instance=ExtResource("8_da58w")]
-position = Vector2(7, -14)
-
-[node name="RPG" parent="weapon" instance=ExtResource("10_d6kmt")]
-position = Vector2(6, -19)
-enabled = true
-
-[node name="sword" parent="weapon" instance=ExtResource("12_ne4kw")]
-position = Vector2(12, -13)
-
-[node name="mp5" parent="weapon" instance=ExtResource("13_pqyrx")]
-position = Vector2(2, -10)
-
-[node name="spear" parent="weapon" instance=ExtResource("13_jblv3")]
-position = Vector2(8, -6)
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 256
@@ -389,10 +372,28 @@ collision_mask = 16
 position = Vector2(1, -15)
 shape = SubResource("RectangleShape2D_626yc")
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="weapon_generator_left" parent="." instance=ExtResource("15_fuc5w")]
+position = Vector2(-29, -12)
 
-[node name="sticker" parent="Node2D" instance=ExtResource("13_4q7pw")]
-bullet = ExtResource("14_msjoh")
-enabled = true
+[node name="weapon_generator_mid" parent="." instance=ExtResource("15_fuc5w")]
+position = Vector2(1, -9)
+pos = 1
+
+[node name="weapon_generator_right" parent="." instance=ExtResource("15_fuc5w")]
+position = Vector2(31, -11)
+pos = 2
+
+[node name="sticker_generator_left" parent="." instance=ExtResource("7_pejw7")]
+position = Vector2(-29, -37)
+
+[node name="sticker_generator_mid" parent="." instance=ExtResource("7_pejw7")]
+position = Vector2(0, -52)
+pos = 1
+
+[node name="sticker_generator_right" parent="." instance=ExtResource("7_pejw7")]
+position = Vector2(31, -37)
+pos = 2
+
+[node name="method_player" type="AnimationPlayer" parent="."]
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

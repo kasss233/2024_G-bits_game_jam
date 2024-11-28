@@ -3,6 +3,8 @@ extends Node2D
 @onready var sprite = $sprite
 @onready var timer = $Timer
 @onready var initial_position=sprite.position
+@onready var bullet_pos=$sprite/Sprite2D/bullet_pos
+@onready var audio=$AudioStreamPlayer
 @export var bullet: PackedScene
 @export var weapon:GlobalVal.weapons
 @export var enabled:bool=false
@@ -12,9 +14,11 @@ extends Node2D
 func _ready() -> void:
 	#if GlobalVal.player["weapon"]!=GlobalVal.weapons.STICK:
 		#queue_free()
-	if !enabled:
-		queue_free()
+	#if !enabled:
+		#queue_free()
+	pass
 func _physics_process(delta) -> void:
+	update_data()
 	update_animation()
 	update_position()
 func update_animation():
@@ -27,19 +31,23 @@ func update_position():
 		sprite.position = initial_position
 		sprite.z_index = -1;
 	if GlobalVal.player["direction"].x < 0:
-		sprite.position.x = initial_position.x - 7
+		sprite.position.x = initial_position.x - 10
 		sprite.z_index = 1;
 func update_bullets():
 	var b = bullet.instantiate()
 	get_tree().current_scene.add_child(b)
-	b.global_position = global_position
-	b.global_position.y -= 10
+	b.global_position = bullet_pos.global_position
 	b.damage = damage
+	audio.play()
 func _on_timer_timeout() -> void:
 	timer.wait_time = cd
 	for i in number:
 		update_bullets()
 func _init() -> void:
+	damage = GlobalVal.stick["damage"]
+	number = GlobalVal.stick["number"]
+	cd = GlobalVal.stick["cd"]
+func update_data():
 	damage = GlobalVal.stick["damage"]
 	number = GlobalVal.stick["number"]
 	cd = GlobalVal.stick["cd"]
