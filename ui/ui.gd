@@ -7,8 +7,14 @@ extends Control
 @onready var label = $labels/VSplitContainer/Label
 @onready var mlabel=$labels/VSplitContainer/money
 @export var defeat_board:PackedScene
+@export var victory_board:PackedScene
 var countdown_time: float = 15 * 60 # 倒计时总时间（15分钟，单位为秒）
 
+
+
+func _ready() -> void:
+	AudioPlayer.button_se_init(self)
+	enemy_generator.connect("victory",Callable(self,"game_win"))
 # 更新血条和倒计时
 func _physics_process(delta: float) -> void:
 	_update_health_bar()
@@ -39,7 +45,10 @@ func _game_over():
 	var d=defeat_board.instantiate()
 	get_tree().current_scene.add_child(d)
 
-
+func game_win():
+	await get_tree().create_timer(1).timeout
+	var d=victory_board.instantiate()
+	get_tree().current_scene.add_child(d)
 func _on_board_pressed() -> void:
 	AudioPlayer.play_sound_effect("pause")
 	var board=upgrade_board.instantiate()

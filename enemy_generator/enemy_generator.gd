@@ -13,10 +13,13 @@ extends Node
 @export var counter:PackedScene
 @export var victory_board:PackedScene
 @export var defeat_board:PackedScene
+@export var time_gap:int=2
+@export var enemy_per_time:int=3
 var spawn_points: Array[Vector2] # 敌人生成点的列表
 var current_batch: int = 0 # 当前批次计数
 var active_enemies: int = 0 # 当前场景中的敌人数量
 var spawning: bool = true # 是否继续生成敌人
+signal victory
 func generate_random_spawn_points():
 	# 定义四个点
 	var points = spawn_rect
@@ -57,9 +60,13 @@ func spawn_batch():
 	# 随机打乱 spawn_points 列表
 	var shuffled_spawn_points = spawn_points.duplicate()
 	shuffled_spawn_points.shuffle()
-
+	var count:int=0
 	for i in range(enemies_per_batch):
 		_spawn_enemy(shuffled_spawn_points[i])
+		count+=1
+		if count==enemy_per_time:
+			await get_tree().create_timer(time_gap).timeout
+			count=0
 
 # 生成单个敌人（随机类型）
 func _spawn_enemy(spawn_position: Vector2):
@@ -95,8 +102,7 @@ func _on_enemy_destroyed():
 			get_tree().current_scene.add_child(c)
 			c.connect("time_out",Callable(self,"_on_time_out"))
 		else:
-			var v=victory_board.instantiate()
-			get_tree().current_scene.add_child(v)
+			emit_signal("victory")
 
 func _on_time_out():
 	_spawn_next_batch()

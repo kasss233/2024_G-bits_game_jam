@@ -7,6 +7,7 @@ extends Node2D
 @export var cd:float
 @export var number:int
 @export var damage:int
+@warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
 	update_data()
 func _ready() -> void:

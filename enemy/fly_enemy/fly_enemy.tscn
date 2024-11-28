@@ -125,7 +125,7 @@ z_index = 2
 collision_layer = 16
 collision_mask = 2
 script = ExtResource("1_l1p6h")
-speed = 125
+speed = 100
 hp = 30
 possible_drops = Array[PackedScene]([ExtResource("2_1xn4n"), ExtResource("3_4aupn")])
 
@@ -140,10 +140,8 @@ color = Color(100, 95.676, 100, 1)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_q0u2f")
-animation = &"death"
+animation = &"move"
 autoplay = "move"
-frame = 7
-frame_progress = 1.0
 
 [node name="Sprite2D2" type="Sprite2D" parent="AnimatedSprite2D"]
 z_index = -5

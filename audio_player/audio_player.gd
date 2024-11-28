@@ -22,8 +22,8 @@ func play_sound_effect(sound_effect_name:String):
 	if audio == null:
 		return
 	# audio.volume_db = (1 - sound_effect_level * main_sound_level) * sound_offset
-	if audio.playing == true:
-		return
+	#if audio.playing == true:
+		#return
 	audio.play(0)
 
 func play_bgm(bgm:AudioStream):
@@ -67,6 +67,7 @@ func button_se_init(node:Node):
 		return
 	button.pressed.connect(play_sound_effect.bind("button_pressed"))
 	button.focus_entered.connect(play_sound_effect.bind("button_focused"))
+	button.mouse_entered.connect(play_sound_effect.bind("button_hovered"))
 
 
 func get_bus_volume(bus_index:int) -> float:

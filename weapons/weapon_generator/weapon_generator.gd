@@ -15,6 +15,7 @@ var weapon_pos={
 	POS.CAT:GlobalVal.player["cat_weapon"],
 	POS.DOG:GlobalVal.player["dog_weapon"],
 }
+@warning_ignore("unused_parameter")
 func _physics_process(delta: float) -> void:
 	pass
 func _ready() -> void:

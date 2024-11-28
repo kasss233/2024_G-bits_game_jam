@@ -5,7 +5,6 @@ extends CharacterBody2D
 @export var defeat_board:PackedScene
 @onready var area=$Area2D
 @onready var animation_state = animation_tree.get("parameters/playback")
-signal dead
 var played:bool=false
 func _ready() -> void:
 	init()

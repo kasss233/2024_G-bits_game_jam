@@ -9,6 +9,7 @@ var sticker_pos={
 	POS.MID:GlobalVal.player["mid_sticker"],
 	POS.RIGHT:GlobalVal.player["right_sticker"],
 }
+@warning_ignore("unused_parameter")
 func _physics_process(delta: float) -> void:
 	pass
 func _ready() -> void:

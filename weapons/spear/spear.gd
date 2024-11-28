@@ -14,6 +14,7 @@ func _ready() -> void:
 	#if not enabled:
 		#queue_free()
 	pass
+@warning_ignore("unused_parameter")
 func _physics_process(delta: float) -> void:
 	update_data()
 	update_position()
