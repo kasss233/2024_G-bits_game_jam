@@ -19,10 +19,10 @@ config/icon="res://icon.svg"
 
 GlobalVal="*res://players/global_val.gd"
 AudioPlayer="*res://audio_player/audio_player.gd"
-GlobalSoldItemList="*res://shop/global_sold_item_list.gd"
 
 [display]
 
+window/size/resizable=false
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
@@ -35,8 +35,12 @@ enabled=PackedStringArray("res://addons/net.yarvis.pixel_pen/plugin.cfg")
 folder_colors={
 "res://assets/": "green",
 "res://audio_player/": "red",
+"res://day_map/": "orange",
+"res://message/": "green",
+"res://public_assets/": "orange",
 "res://public_resource/": "green",
-"res://shop/": "orange"
+"res://shop/": "orange",
+"res://state_bar_day/": "orange"
 }
 
 [input]

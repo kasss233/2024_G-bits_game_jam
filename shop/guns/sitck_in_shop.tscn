@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://ctg6qpxonp0ii"]
+
+[ext_resource type="Script" path="res://shop/guns/sitck_in_shop.gd" id="1_xuo6o"]
+[ext_resource type="Texture2D" uid="uid://lxxtdtv4jayt" path="res://public_assets/Pixel Crawler - FREE - 1.8/Weapons/Wood/Wood.png" id="2_emsxv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_50qe0"]
+atlas = ExtResource("2_emsxv")
+region = Rect2(81, 3, 29, 10)
+
+[node name="sitck_in_shop" type="Node2D"]
+rotation = 1.5708
+script = ExtResource("1_xuo6o")
+texture = SubResource("AtlasTexture_50qe0")

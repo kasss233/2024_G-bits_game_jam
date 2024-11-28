@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpoose0hnrb6"]
+
+[ext_resource type="Script" path="res://shop/balls/football.gd" id="1_s2y5i"]
+[ext_resource type="Texture2D" uid="uid://squi3uxqe8av" path="res://public_assets/球类/balls/pix_football.png" id="2_kw3jp"]
+
+[node name="football" type="Node2D"]
+script = ExtResource("1_s2y5i")
+texture = ExtResource("2_kw3jp")

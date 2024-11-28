@@ -1,0 +1,206 @@
+[gd_scene load_steps=14 format=3 uid="uid://dsedj3dtxh20k"]
+
+[ext_resource type="Script" path="res://state_bar_day/state_bar_day.gd" id="1_5p6ye"]
+[ext_resource type="Texture2D" uid="uid://gvbisljdee0x" path="res://public_assets/临时拾取物/coins-chests-etc-2-0-noborders.png" id="1_nr31m"]
+[ext_resource type="Texture2D" uid="uid://c02s1ih4s3h5g" path="res://public_assets/UI/Interface.png" id="2_c7cuu"]
+[ext_resource type="LabelSettings" uid="uid://cccpy02lnbqx4" path="res://state_bar_day/new_label_settings.tres" id="3_hypr5"]
+[ext_resource type="PackedScene" uid="uid://dx0j7xbamq7me" path="res://state_bar_day/mobility_chunck/mobility_chunck.tscn" id="4_yqpb0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_reqcj"]
+atlas = ExtResource("2_c7cuu")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4ci8"]
+atlas = ExtResource("1_nr31m")
+region = Rect2(64, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nq5ck"]
+atlas = ExtResource("1_nr31m")
+region = Rect2(80, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whemc"]
+atlas = ExtResource("1_nr31m")
+region = Rect2(96, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0bwvo"]
+atlas = ExtResource("1_nr31m")
+region = Rect2(112, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t5rjg"]
+atlas = ExtResource("1_nr31m")
+region = Rect2(128, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vvg6l"]
+atlas = ExtResource("1_nr31m")
+region = Rect2(144, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pborq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j4ci8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nq5ck")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_whemc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0bwvo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t5rjg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vvg6l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="state_bar_day" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5p6ye")
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(145.5, 195.5)
+scale = Vector2(5.48438, 5.48438)
+texture = SubResource("AtlasTexture_reqcj")
+
+[node name="money" type="Control" parent="."]
+anchors_preset = 0
+
+[node name="number" type="Label" parent="money"]
+layout_mode = 2
+offset_left = 80.0
+offset_top = 107.0
+offset_right = 174.0
+offset_bottom = 141.0
+text = "123"
+label_settings = ExtResource("3_hypr5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="money"]
+position = Vector2(60, 121)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_pborq")
+autoplay = "default"
+
+[node name="body" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="introduce" type="Label" parent="body"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 141.0
+offset_right = 105.0
+offset_bottom = 175.0
+text = "体质："
+label_settings = ExtResource("3_hypr5")
+
+[node name="number" type="Label" parent="body"]
+layout_mode = 0
+offset_left = 91.6661
+offset_top = 140.812
+offset_right = 163.666
+offset_bottom = 174.812
+text = "xxx"
+label_settings = ExtResource("3_hypr5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="intelligence" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="introduce" type="Label" parent="intelligence"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 173.0
+offset_right = 105.0
+offset_bottom = 207.0
+text = "知识："
+label_settings = ExtResource("3_hypr5")
+
+[node name="number" type="Label" parent="intelligence"]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 173.0
+offset_right = 164.0
+offset_bottom = 207.0
+text = "xxx"
+label_settings = ExtResource("3_hypr5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="mood" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="introduce" type="Label" parent="mood"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 204.0
+offset_right = 105.0
+offset_bottom = 238.0
+text = "心情："
+label_settings = ExtResource("3_hypr5")
+
+[node name="number" type="Label" parent="mood"]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 204.0
+offset_right = 164.0
+offset_bottom = 238.0
+text = "xxx"
+label_settings = ExtResource("3_hypr5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="mobilty" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="mobility_chunck" parent="mobilty" instance=ExtResource("4_yqpb0")]
+layout_mode = 1
+offset_left = 146.0
+offset_top = 266.0
+offset_right = 146.0
+offset_bottom = 266.0
+
+[node name="mobility_chunck2" parent="mobilty" instance=ExtResource("4_yqpb0")]
+layout_mode = 1
+offset_left = 195.0
+offset_top = 266.0
+offset_right = 195.0
+offset_bottom = 266.0
+
+[node name="mobility_chunck3" parent="mobilty" instance=ExtResource("4_yqpb0")]
+layout_mode = 1
+offset_left = 244.0
+offset_top = 266.0
+offset_right = 244.0
+offset_bottom = 266.0
+
+[node name="Label" type="Label" parent="mobilty"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 245.0
+offset_right = 127.0
+offset_bottom = 279.0
+text = "行动力："
+label_settings = ExtResource("3_hypr5")
