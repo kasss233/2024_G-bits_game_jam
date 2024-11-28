@@ -52,9 +52,7 @@ var weapon_pos = {
 func _ready() -> void:
 	match weapon_pos[pos]:
 		GlobalVal.weapons.STICK:
-			abutton.queue_free()
-			alabel.queue_free()
-			ammo = false
+			pass
 		GlobalVal.weapons.AK47:
 			cbutton.queue_free()
 			clabel.queue_free()

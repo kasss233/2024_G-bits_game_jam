@@ -6,9 +6,9 @@ extends Node2D
 @onready var bullet_pos = $sprite/Sprite2D/bullet_position
 @onready var initial_position=sprite.position
 @onready var audio=$AudioStreamPlayer
-@export var cd:float=0.1
-@export var damage:int=1
-@export var enabled:bool=false
+var cd:float=0.1
+var damage:int=1
+var enabled:bool=false
 var weapon:GlobalVal.weapons
 var direction = Vector2.ZERO
 func _ready() -> void:

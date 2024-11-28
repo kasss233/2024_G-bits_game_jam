@@ -1,20 +1,20 @@
 extends Node
-@onready var canvas=$CanvasLayer
+@onready var canvas = $CanvasLayer
 @export var enemy_scenes: Array[PackedScene] # 敌人预制体列表
-@export var enemies_per_batch: int = 5 # 每批次生成的敌人数量
-@export var total_batches: int = 10 # 总批次数量
 @export var upgrade_board: PackedScene # 升级面板预制体
-@export var spawn_rect:Array[Vector2]= [
+@export var spawn_rect: Array[Vector2] = [
 		Vector2(-166, -80),
 		Vector2(-164, -75),
 		Vector2(302, -83),
 		Vector2(317, 89)
 	]
-@export var counter:PackedScene
-@export var victory_board:PackedScene
-@export var defeat_board:PackedScene
-@export var time_gap:int=2
-@export var enemy_per_time:int=3
+@export var counter: PackedScene
+@export var victory_board: PackedScene
+@export var defeat_board: PackedScene
+var time_gap: int = 2
+var enemy_per_time: int = 3
+var enemies_per_batch: int = 5 # 每批次生成的敌人数量
+var total_batches: int = 10 # 总批次数量
 var spawn_points: Array[Vector2] # 敌人生成点的列表
 var current_batch: int = 0 # 当前批次计数
 var active_enemies: int = 0 # 当前场景中的敌人数量
@@ -60,13 +60,13 @@ func spawn_batch():
 	# 随机打乱 spawn_points 列表
 	var shuffled_spawn_points = spawn_points.duplicate()
 	shuffled_spawn_points.shuffle()
-	var count:int=0
+	var count: int = 0
 	for i in range(enemies_per_batch):
 		_spawn_enemy(shuffled_spawn_points[i])
-		count+=1
-		if count==enemy_per_time:
+		count += 1
+		if count == enemy_per_time:
 			await get_tree().create_timer(time_gap).timeout
-			count=0
+			count = 0
 
 # 生成单个敌人（随机类型）
 func _spawn_enemy(spawn_position: Vector2):
@@ -98,11 +98,16 @@ func _on_enemy_destroyed():
 		# 如果还有批次，显示升级面板
 		if current_batch < total_batches:
 			GlobalVal.add_points()
-			var c=counter.instantiate()
+			var c = counter.instantiate()
 			get_tree().current_scene.add_child(c)
-			c.connect("time_out",Callable(self,"_on_time_out"))
+			c.connect("time_out", Callable(self, "_on_time_out"))
 		else:
 			emit_signal("victory")
 
 func _on_time_out():
 	_spawn_next_batch()
+func _init():
+	enemies_per_batch = GlobalVal.enemy_gen["enemy_per_batch"]
+	total_batches = GlobalVal.enemy_gen["total_batch"]
+	enemy_per_time = GlobalVal.enemy_gen["enemy_per_time"]
+	time_gap = GlobalVal.enemy_gen["time_gap"]

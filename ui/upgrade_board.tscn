@@ -54,17 +54,17 @@ layout_mode = 2
 pos = 2
 
 [node name="exit" type="Button" parent="CanvasLayer"]
-offset_left = 878.0
-offset_top = 498.0
-offset_right = 982.0
-offset_bottom = 533.0
+offset_left = 653.0
+offset_top = 547.0
+offset_right = 757.0
+offset_bottom = 582.0
 text = "继续"
 
 [node name="reset" type="Button" parent="CanvasLayer"]
-offset_left = 159.0
-offset_top = 497.0
-offset_right = 263.0
-offset_bottom = 532.0
+offset_left = 415.0
+offset_top = 546.0
+offset_right = 519.0
+offset_bottom = 581.0
 text = "重置点数"
 
 [node name="Label" type="Label" parent="CanvasLayer"]

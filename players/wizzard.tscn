@@ -1,10 +1,14 @@
-[gd_scene load_steps=37 format=3 uid="uid://dciamlle615vi"]
+[gd_scene load_steps=41 format=3 uid="uid://dciamlle615vi"]
 
 [ext_resource type="Script" path="res://players/player.gd" id="1_w6ftf"]
 [ext_resource type="Resource" uid="uid://dametontd8w2k" path="res://resource/player_data.tres" id="2_s6qrl"]
 [ext_resource type="Texture2D" uid="uid://drqxcst0el5f8" path="res://public_assets/AnimationSheet.png" id="3_62enb"]
 [ext_resource type="PackedScene" uid="uid://ui8c1g3qen73" path="res://ui/board/defeat_board.tscn" id="3_pusnh"]
+[ext_resource type="PackedScene" uid="uid://5ge1pi1yexre" path="res://tools/ball/basketball.tscn" id="7_fxf35"]
 [ext_resource type="PackedScene" uid="uid://c4dl61s5dauwm" path="res://weapons/weapon_generator/sticker_generator.tscn" id="7_pejw7"]
+[ext_resource type="PackedScene" uid="uid://dkdxnt4yhu2xd" path="res://tools/ball/foot_ball.tscn" id="8_hjoek"]
+[ext_resource type="PackedScene" uid="uid://bpbo6r10gvl2y" path="res://tools/ball/tennis_ball.tscn" id="9_0lsiu"]
+[ext_resource type="PackedScene" uid="uid://ci4pjgbf3i4mw" path="res://tools/ball/volley_ball.tscn" id="10_xqyop"]
 [ext_resource type="PackedScene" uid="uid://cbgkuxbqbmj23" path="res://weapons/weapon_generator/weapon_generator.tscn" id="15_fuc5w"]
 
 [sub_resource type="Animation" id="Animation_bcdg2"]
@@ -386,7 +390,7 @@ position = Vector2(2, -11)
 shape = SubResource("RectangleShape2D_2iwoq")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(3, 3)
+zoom = Vector2(2, 2)
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 256
@@ -423,5 +427,16 @@ libraries = {
 "": SubResource("AnimationLibrary_avbga")
 }
 autoplay = "get_attack"
+
+[node name="basketBall" parent="." instance=ExtResource("7_fxf35")]
+
+[node name="footBall" parent="." instance=ExtResource("8_hjoek")]
+ball_type = 1
+
+[node name="tennisBall" parent="." instance=ExtResource("9_0lsiu")]
+ball_type = 2
+
+[node name="volley_ball" parent="." instance=ExtResource("10_xqyop")]
+ball_type = 3
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

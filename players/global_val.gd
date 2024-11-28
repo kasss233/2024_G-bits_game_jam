@@ -1,7 +1,7 @@
 extends Node
 enum states {MOVE, DEATH, IDLE}
 enum pets {CAT,DOG,BIRD,SNAKE,MOUSE}
-enum sports {BASKETBALL,FOOTBALL,BASEBALL,TENNIS}
+enum sports {BASKETBALL,FOOTBALL,BASEBALL,TENNIS,NULL}
 enum weapons {STICK, AK47, GLOCK, RPG, MP5, SWORD, SPEAR, NULL}
 enum stickers {SPEEDER, DAMAGER, HPER, NULL}
 enum hands {LEFT, RIGHT}
@@ -17,7 +17,7 @@ var player = {
 	"state" = states.IDLE, # 非可修改属性
 	"hp" = 20, # 血量
 	"speed" = 150, # 速度
-	"left_weapon" = weapons.SPEAR, # 左边武器栏
+	"left_weapon" = weapons.STICK, # 左边武器栏
 	"weapon" = weapons.RPG, # 中间武器栏
 	"right_weapon" = weapons.AK47, # 右边武器栏
 	"left_sticker" = stickers.NULL, # 左边饰品栏
@@ -28,6 +28,10 @@ var player = {
 	"dog" = true, # 是否拥有狗狗
 	"dog_weapon" = weapons.AK47, # 狗狗武器
 	"points" = 0, # 武器升级点数
+	"basketball"=true,
+	"football"=false,
+	"tennisball"=true,
+	"volleyball"=true
 }
 var stick = {
 	"damage" = 1, # 伤害
@@ -57,6 +61,11 @@ var spear = {
 	"damage" = 4 # 伤害
 }
 var enemy = { ## 此处不生效，敌人属性在场景设置
+	"hp": 25,
+	"speed": 60,
+	"damage": 1
+}
+var fly_enemy={
 	"hp": 30,
 	"speed": 100,
 	"damage": 1
@@ -65,7 +74,12 @@ var money = {
 	"day" = 1,
 	"night" = 0
 }
-
+var enemy_gen={
+	"enemy_per_batch":10,##每一批次生成的敌人
+	"total_batch":5,##总批次
+	"time_gap":2,##敌人生成间隔时间
+	"enemy_per_time":1,##每次时间生成的敌人数
+}
 var properties = {
 	"mobility" = 1,
 	"stamina" = 1,
@@ -76,9 +90,6 @@ var properties = {
 var extra_prop_list = []
 var weapons_list = []
 var pets_list = []
-
-func _ready() -> void:
-	pass
 func _init() -> void:
 	#bullet["damage"] = 1
 	properties["mobility"] = 3
@@ -120,7 +131,7 @@ func add_weapon(weapon) -> void:
 
 func add_pet(pet) -> void:
 	pets_list.append(pet)
-	pets.append(pet)
+	#pets.append(pet)
 
 func upgrade_weapon(weapon: weapons, attr: String) -> void:
 	match weapon:
