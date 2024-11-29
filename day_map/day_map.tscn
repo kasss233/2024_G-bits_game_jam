@@ -27,3 +27,10 @@ vertical_alignment = 1
 [node name="back_to_home" type="Button" parent="."]
 offset_right = 8.0
 offset_bottom = 8.0
+
+[node name="Label" type="Label" parent="back_to_home"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[connection signal="pressed" from="change_to_shop" to="." method="_on_change_to_shop_pressed"]

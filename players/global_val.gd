@@ -120,7 +120,6 @@ func add_weapon(weapon) -> void:
 
 func add_pet(pet) -> void:
 	pets_list.append(pet)
-	pets.append(pet)
 
 func upgrade_weapon(weapon: weapons, attr: String) -> void:
 	match weapon:
