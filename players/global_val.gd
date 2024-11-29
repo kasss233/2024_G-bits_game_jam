@@ -21,7 +21,7 @@ var player = {
 	"weapon" = weapons.NULL, # 中间武器栏
 	"right_weapon" = weapons.NULL, # 右边武器栏
 	"left_sticker" = false, # 左边饰品栏
-	"mid_sticker" =false, # 中间饰品栏
+	"mid_sticker" = false, # 中间饰品栏
 	"right_sticker" = false, # 右边饰品栏
 	"cat" = true, # 是否拥有猫咪
 	"cat_weapon" = weapons.NULL, # 猫咪武器
@@ -95,14 +95,6 @@ var weapons_list: Array[weapons] = [weapons.STICK, weapons.AK47, weapons.SWORD, 
 var sports_list: Array[sports] = [sports.BASKETBALL, sports.FOOTBALL, sports.TENNIS, sports.VOLLEYBALL] # 购买的球类
 var stickers_list: Array[stickers] = [stickers.DAMAGER, stickers.HPER, stickers.SPEEDER] # 购买的饰品
 var pets_list = []
-func _init() -> void:
-	#bullet["damage"] = 1
-	properties["mobility"] = 3
-	properties["stamina"] = 5
-	properties["mood"] = 5
-	properties["knowledge"] = 5
-	money["day"] = 500
-	money["night"] = 1
 
 func add_day_money(amount: int) -> void:
 	money["day"] += amount
@@ -200,3 +192,51 @@ func reset_weapons():
 	spear["damage"] = 4
 	player["points"] = points
 # TODO: 添加其他武器
+var save_path = "user://data.sav"
+func save_game():
+	var data = {
+		"player": player,
+		"money": money,
+		"properties": properties,
+		"extra_prop_list": extra_prop_list,
+		"weapons_list": weapons_list,
+		"pets_list": pets_list,
+		"points": points,
+		"stick": stick,
+		"ak47": ak47,
+		"glock": glock,
+		"rpg": rpg,
+		"mp5": mp5,
+		"sword": sword,
+		"spear": spear,
+	}
+	var json = JSON.stringify(data)
+	var file = FileAccess.open(save_path, FileAccess.WRITE)
+	file.store_string(json)
+	file.close()
+func load_game():
+	var file = FileAccess.open(save_path, FileAccess.READ)
+	var json = file.get_as_text()
+	file.close()
+	var data = JSON.parse_string(json) as Dictionary
+	player = data["player"]
+	money = data["money"]
+	properties = data["properties"]
+	extra_prop_list = data["extra_prop_list"]
+	weapons_list = data["weapons_list"]
+	pets_list = data["pets_list"]
+	points = data["points"]
+	stick = data["stick"]
+	ak47 = data["ak47"]
+	glock = data["glock"]
+	rpg = data["rpg"]
+	mp5 = data["mp5"]
+	sword = data["sword"]
+	spear = data["spear"]
+
+func init() -> void:
+	reset_weapons()
+	player["left_sticker"] = false
+	player["right_sticker"] = false
+	player["mid_sticker"] = false
+	player["left_weapon_enable"] = false

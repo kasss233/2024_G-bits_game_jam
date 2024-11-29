@@ -3,6 +3,7 @@ extends Control
 @export var player: CharacterBody2D
 @export var enemy_generator:Node2D
 @export var upgrade_board:PackedScene
+@export var menu:PackedScene
 @onready var hp_sprite = $hps/hp_frame/hp_value
 @onready var label = $labels/VSplitContainer/Label
 @onready var mlabel=$labels/VSplitContainer/money
@@ -59,3 +60,7 @@ func _on_board_pressed() -> void:
 func _on_upgrade_board_closed():
 	get_tree().paused = false
 	AudioPlayer.play_sound_effect("unpause")
+
+
+func _on_exit_pressed() -> void:
+	get_tree().change_scene_to_packed(menu)
