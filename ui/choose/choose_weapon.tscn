@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cy2xmwc88slwd"]
+[gd_scene load_steps=9 format=3 uid="uid://cy2xmwc88slwd"]
 
 [ext_resource type="PackedScene" uid="uid://d3vd6i7u2icri" path="res://ui/choose/choose_weapon_single.tscn" id="1_gvect"]
 [ext_resource type="Script" path="res://ui/choose/choose_weapon.gd" id="1_lvxfk"]
 [ext_resource type="PackedScene" uid="uid://dlrf0vep8ps11" path="res://world/world.tscn" id="2_vn4f1"]
+[ext_resource type="Theme" uid="uid://btm6p112q8a7k" path="res://theme/new_theme.tres" id="3_h5vtf"]
 [ext_resource type="PackedScene" uid="uid://dd1gfs2qqexo2" path="res://ui/choose/choose_toolS.tscn" id="4_1kf3u"]
+[ext_resource type="Texture2D" uid="uid://c02s1ih4s3h5g" path="res://public_assets/UI/Interface.png" id="6_sv303"]
 
 [sub_resource type="Theme" id="Theme_511yu"]
 Label/font_sizes/font_size = 30
@@ -24,10 +26,19 @@ world = ExtResource("2_vn4f1")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
-offset_left = 293.0
-offset_top = 177.0
-offset_right = 909.0
-offset_bottom = 443.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -373.5
+offset_top = -133.0
+offset_right = 373.5
+offset_bottom = 133.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme = ExtResource("3_h5vtf")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HBoxContainer"]
 layout_mode = 2
@@ -159,7 +170,16 @@ offset_left = 869.0
 offset_top = 487.0
 offset_right = 909.0
 offset_bottom = 518.0
+theme = ExtResource("3_h5vtf")
 text = "继续"
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+z_index = -1
+position = Vector2(587.5, 361)
+scale = Vector2(13.9531, 7.6875)
+texture = ExtResource("6_sv303")
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 64)
 
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
 

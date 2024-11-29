@@ -110,7 +110,10 @@ func _on_damage_pressed() -> void:
 		dbutton.disabled = true
 func _on_ammo_pressed() -> void:
 	if GlobalVal.player["points"] > 0:
-		weapon_ammo[weapon_pos[pos]] += GlobalVal.add_ammo
+		if weapon_pos[pos]==GlobalVal.weapons.STICK:
+			weapon_ammo[weapon_pos[pos]] += 1
+		else:
+			weapon_ammo[weapon_pos[pos]] += GlobalVal.add_ammo
 		print(weapon_name[weapon_pos[pos]], " ammo:", weapon_ammo[weapon_pos[pos]])
 		ammo_times += 1
 		GlobalVal.player["points"] -= 1

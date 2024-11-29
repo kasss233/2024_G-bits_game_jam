@@ -1,10 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://b78g2bioy7bve"]
+[gd_scene load_steps=21 format=3 uid="uid://b78g2bioy7bve"]
 
 [ext_resource type="Script" path="res://enemy/enemy.gd" id="1_k2u41"]
 [ext_resource type="PackedScene" uid="uid://c60x0k4ipvksn" path="res://item/heart.tscn" id="2_6m32n"]
 [ext_resource type="PackedScene" uid="uid://drdy6m07xwd8f" path="res://item/money.tscn" id="3_278bx"]
 [ext_resource type="Texture2D" uid="uid://llv2is12v1wy" path="res://public_assets/enem/Minotaur - Sprite Sheet.png" id="4_gxfqf"]
-[ext_resource type="Texture2D" uid="uid://ckwy0hmm4q8w3" path="res://assets/Pixel Crawler - FREE - 1.8/Weapons/Bone/Bone.png" id="5_oe1pr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xbtyi"]
 size = Vector2(10, 14)
@@ -144,12 +143,5 @@ animation = &"death"
 autoplay = "move"
 frame = 5
 frame_progress = 1.0
-
-[node name="Sprite2D" type="Sprite2D" parent="AnimatedSprite2D"]
-position = Vector2(11, 0)
-scale = Vector2(0.666667, 0.780488)
-texture = ExtResource("5_oe1pr")
-region_enabled = true
-region_rect = Rect2(114, 20, 12, 41)
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
