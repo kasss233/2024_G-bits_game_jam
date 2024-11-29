@@ -11,6 +11,7 @@ signal nohp
 @export var knockback_distance: int = 20
 @export var drop_chance: float = 0.3 # 掉落概率 (30%)
 @export var possible_drops: Array[PackedScene] = [] # 可掉落的物品预制体数组
+@export var message:PackedScene
 func _ready() -> void:
 	connect("nohp", Callable(self, "death_event"))
 func _physics_process(delta: float) -> void:
@@ -20,8 +21,11 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 func update_direction(delta):
-	direction = (GlobalVal.player["position"] - global_position).normalized()
-	velocity = velocity.move_toward(direction * speed, 2000 * delta)
+	if hp>=0:
+		direction = (GlobalVal.player["position"] - global_position).normalized()
+		velocity = velocity.move_toward(direction * speed, 2000 * delta)
+	else:
+		velocity=Vector2.ZERO
 func update_animation():
 	if direction.x < 0:
 		animation.flip_h = true
@@ -42,6 +46,11 @@ func knockback(back_direction: Vector2):
 func _on_animated_sprite_2d_animation_finished() -> void:
 	queue_free()
 func get_attack(get_damage: int):
+	var m=message.instantiate()
+	get_tree().current_scene.add_child(m)
+	m.global_position=global_position
+	m.global_position.y-=10
+	m.start(var_to_str(get_damage))
 	hp -= get_damage
 	modulate = Color(1, 0, 0, 1)
 	knockback((global_position - GlobalVal.player["position"]).normalized())

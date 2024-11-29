@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 GlobalVal="*res://players/global_val.gd"
 GlobalSoldItemList="*res://shop/global_sold_item_list.gd"
 AudioPlayer="*res://audio_player/audio_player.tscn"
+SceneChanger="*res://ui/change_scene/scene_changer.tscn"
 
 [display]
 

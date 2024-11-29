@@ -27,6 +27,7 @@ var weapon_ammo: Dictionary = {
 	GlobalVal.weapons.AK47: GlobalVal.ak47["number"],
 	GlobalVal.weapons.GLOCK: GlobalVal.glock["number"],
 	GlobalVal.weapons.RPG: GlobalVal.rpg["number"],
+	GlobalVal.weapons.MP5: GlobalVal.mp5["number"],
 }
 var weapon_cd: Dictionary = {
 	GlobalVal.weapons.STICK: GlobalVal.stick["cd"],

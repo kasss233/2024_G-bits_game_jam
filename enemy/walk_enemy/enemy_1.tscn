@@ -1,9 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://b78g2bioy7bve"]
+[gd_scene load_steps=22 format=3 uid="uid://b78g2bioy7bve"]
 
 [ext_resource type="Script" path="res://enemy/enemy.gd" id="1_k2u41"]
 [ext_resource type="PackedScene" uid="uid://c60x0k4ipvksn" path="res://item/heart.tscn" id="2_6m32n"]
 [ext_resource type="PackedScene" uid="uid://drdy6m07xwd8f" path="res://item/money.tscn" id="3_278bx"]
 [ext_resource type="Texture2D" uid="uid://llv2is12v1wy" path="res://public_assets/enem/Minotaur - Sprite Sheet.png" id="4_gxfqf"]
+[ext_resource type="PackedScene" uid="uid://dxddf51y24cby" path="res://ui/damage_number_label/damage_number.tscn" id="4_o5nks"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xbtyi"]
 size = Vector2(10, 14)
@@ -127,6 +128,7 @@ script = ExtResource("1_k2u41")
 speed = 60
 hp = 25
 possible_drops = Array[PackedScene]([ExtResource("2_6m32n"), ExtResource("3_278bx")])
+message = ExtResource("4_o5nks")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, -13)
