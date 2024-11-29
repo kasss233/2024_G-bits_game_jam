@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://dvuumw10e43tj"]
 
 [ext_resource type="Script" path="res://weapons/effect/sword_effect.gd" id="1_02g1i"]
-[ext_resource type="Texture2D" uid="uid://dbvnyui5al6d0" path="res://public_assets/刀光/SlashFX Combos/SlashFX SimpleSmall Combo3 sheet.png" id="1_j2v4j"]
+[ext_resource type="Texture2D" uid="uid://dbvnyui5al6d0" path="res://public_assets/knife_light/SlashFX Combos/SlashFX SimpleSmall Combo3 sheet.png" id="1_j2v4j"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_55lvr"]
 atlas = ExtResource("1_j2v4j")

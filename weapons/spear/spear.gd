@@ -4,9 +4,9 @@ extends Node2D
 @onready var initial_position = sprite.position
 @onready var area=$sprite/sprite/Area2D
 @onready var audio=$AudioStreamPlayer
-@export var damage: int = 1
-@export var enabled: bool = false
-@export var weapon:GlobalVal.weapons
+var damage: int = 1
+var enabled: bool = false
+var weapon:GlobalVal.weapons
 var direction = Vector2.ZERO
 var is_attacking = false
 
@@ -14,6 +14,7 @@ func _ready() -> void:
 	#if not enabled:
 		#queue_free()
 	pass
+@warning_ignore("unused_parameter")
 func _physics_process(delta: float) -> void:
 	update_data()
 	update_position()

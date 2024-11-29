@@ -2,9 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c02s1ih4s3h5g" path="res://public_assets/UI/Interface.png" id="1_jei87"]
 [ext_resource type="Script" path="res://ui/board/victory_board.gd" id="1_tr4te"]
-
-[sub_resource type="Theme" id="Theme_ormm2"]
-Button/font_sizes/font_size = 25
+[ext_resource type="Theme" uid="uid://btm6p112q8a7k" path="res://theme/new_theme.tres" id="3_xwo75"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_426ro"]
 font_size = 30
@@ -32,7 +30,7 @@ offset_left = 553.0
 offset_top = 433.0
 offset_right = 611.0
 offset_bottom = 476.0
-theme = SubResource("Theme_ormm2")
+theme = ExtResource("3_xwo75")
 text = "继续"
 
 [node name="Label" type="Label" parent="CanvasLayer"]

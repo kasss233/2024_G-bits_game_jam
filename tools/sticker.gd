@@ -4,9 +4,10 @@ extends Node2D
 @onready var audio=$AudioStreamPlayer
 @export var bullet: PackedScene
 @export var enabled:bool=false
-@export var cd:float
-@export var number:int
-@export var damage:int
+var cd:float
+var number:int
+var damage:int
+@warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
 	update_data()
 func _ready() -> void:

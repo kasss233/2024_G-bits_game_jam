@@ -1,0 +1,170 @@
+[gd_scene load_steps=7 format=3 uid="uid://cy2xmwc88slwd"]
+
+[ext_resource type="PackedScene" uid="uid://d3vd6i7u2icri" path="res://ui/选择武器/choose_weapon_single.tscn" id="1_gvect"]
+[ext_resource type="Script" path="res://ui/选择武器/choose_weapon.gd" id="1_lvxfk"]
+[ext_resource type="PackedScene" uid="uid://dlrf0vep8ps11" path="res://world/world.tscn" id="2_vn4f1"]
+[ext_resource type="PackedScene" uid="uid://dd1gfs2qqexo2" path="res://ui/选择武器/choose_toolS.tscn" id="4_1kf3u"]
+
+[sub_resource type="Theme" id="Theme_511yu"]
+Label/font_sizes/font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_8c4pu"]
+font_size = 30
+
+[node name="choose_weapon" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lvxfk")
+world = ExtResource("2_vn4f1")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+offset_left = 293.0
+offset_top = 177.0
+offset_right = 909.0
+offset_bottom = 443.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+
+[node name="labels" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_511yu")
+
+[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer/VBoxContainer/labels"]
+layout_mode = 2
+text = "左侧武器"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="choose_weapon_single" parent="CanvasLayer/HBoxContainer/VBoxContainer/HBoxContainer" node_paths=PackedStringArray("label") instance=ExtResource("1_gvect")]
+layout_mode = 2
+size_flags_horizontal = 3
+allow_search = false
+auto_height = true
+label = NodePath("../../labels/Label")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+
+[node name="labels" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_511yu")
+
+[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer/VBoxContainer2/labels"]
+layout_mode = 2
+text = "中间武器"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="choose_weapon_single" parent="CanvasLayer/HBoxContainer/VBoxContainer2/HBoxContainer" node_paths=PackedStringArray("label") instance=ExtResource("1_gvect")]
+layout_mode = 2
+size_flags_horizontal = 3
+allow_search = false
+auto_height = true
+label = NodePath("../../labels/Label")
+pos = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+
+[node name="labels" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_511yu")
+
+[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer/VBoxContainer3/labels"]
+layout_mode = 2
+text = "右侧武器"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="choose_weapon_single" parent="CanvasLayer/HBoxContainer/VBoxContainer3/HBoxContainer" node_paths=PackedStringArray("label") instance=ExtResource("1_gvect")]
+layout_mode = 2
+size_flags_horizontal = 3
+allow_search = false
+auto_height = true
+label = NodePath("../../labels/Label")
+pos = 2
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+
+[node name="labels" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/VBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_511yu")
+
+[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer/VBoxContainer4/labels"]
+layout_mode = 2
+text = "猫的武器"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/VBoxContainer4"]
+layout_mode = 2
+
+[node name="choose_weapon_single" parent="CanvasLayer/HBoxContainer/VBoxContainer4/HBoxContainer" node_paths=PackedStringArray("label") instance=ExtResource("1_gvect")]
+layout_mode = 2
+size_flags_horizontal = 3
+allow_search = false
+auto_height = true
+label = NodePath("../../labels/Label")
+pos = 3
+
+[node name="VBoxContainer5" type="VBoxContainer" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+
+[node name="labels" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/VBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_511yu")
+
+[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer/VBoxContainer5/labels"]
+layout_mode = 2
+text = "狗的武器"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/VBoxContainer5"]
+layout_mode = 2
+
+[node name="choose_weapon_single" parent="CanvasLayer/HBoxContainer/VBoxContainer5/HBoxContainer" node_paths=PackedStringArray("label") instance=ExtResource("1_gvect")]
+layout_mode = 2
+size_flags_horizontal = 3
+allow_search = false
+auto_height = true
+label = NodePath("../../labels/Label")
+pos = 4
+
+[node name="VBoxContainer6" type="VBoxContainer" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer/VBoxContainer6"]
+layout_mode = 2
+text = "选择道具"
+label_settings = SubResource("LabelSettings_8c4pu")
+
+[node name="choose_toolS" parent="CanvasLayer/HBoxContainer/VBoxContainer6" instance=ExtResource("4_1kf3u")]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+offset_left = 869.0
+offset_top = 487.0
+offset_right = 909.0
+offset_bottom = 518.0
+text = "继续"
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
+
+[editable path="CanvasLayer/HBoxContainer/VBoxContainer/HBoxContainer/choose_weapon_single"]
+[editable path="CanvasLayer/HBoxContainer/VBoxContainer2/HBoxContainer/choose_weapon_single"]
+[editable path="CanvasLayer/HBoxContainer/VBoxContainer3/HBoxContainer/choose_weapon_single"]
+[editable path="CanvasLayer/HBoxContainer/VBoxContainer4/HBoxContainer/choose_weapon_single"]
+[editable path="CanvasLayer/HBoxContainer/VBoxContainer5/HBoxContainer/choose_weapon_single"]

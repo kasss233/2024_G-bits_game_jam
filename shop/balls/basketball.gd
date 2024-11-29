@@ -5,4 +5,4 @@ var introduce = "一颗篮球\n价格：600\n简介：球大小适中，颜色�
 
 
 func change_state():
-	pass
+	GlobalVal.sports_list.append(GlobalVal.sports.BASKETBALL)

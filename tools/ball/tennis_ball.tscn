@@ -1,0 +1,82 @@
+[gd_scene load_steps=7 format=3 uid="uid://bpbo6r10gvl2y"]
+
+[ext_resource type="Script" path="res://tools/ball/ball.gd" id="1_t8fxk"]
+[ext_resource type="Texture2D" uid="uid://cilq1heub7xum" path="res://public_assets/balls/balls/pix_tennisball.png" id="2_5neea"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sd0om"]
+radius = 672.012
+
+[sub_resource type="Animation" id="Animation_fcflq"]
+resource_name = "running"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D/Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_lod36"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dyh7o"]
+_data = {
+"RESET": SubResource("Animation_lod36"),
+"running": SubResource("Animation_fcflq")
+}
+
+[node name="tennisBall" type="Node2D"]
+script = ExtResource("1_t8fxk")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+position = Vector2(0, 100)
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("2_5neea")
+
+[node name="Area2D" type="Area2D" parent="Node2D/Sprite2D"]
+scale = Vector2(0.666667, 0.666667)
+collision_layer = 4
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Sprite2D/Area2D"]
+shape = SubResource("CircleShape2D_sd0om")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_dyh7o")
+}
+autoplay = "running"
+
+[connection signal="body_entered" from="Node2D/Sprite2D/Area2D" to="." method="_on_area_2d_body_entered"]

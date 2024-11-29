@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bnjbr7267gsho"]
+[gd_scene load_steps=7 format=3 uid="uid://bnjbr7267gsho"]
 
 [ext_resource type="PackedScene" uid="uid://dcxe76bciqar1" path="res://ui/weapon_upgrade.tscn" id="1_4tk5f"]
 [ext_resource type="Script" path="res://ui/upgrade_board.gd" id="1_pbdyk"]
+[ext_resource type="Theme" uid="uid://btm6p112q8a7k" path="res://theme/new_theme.tres" id="2_uiilb"]
 [ext_resource type="Script" path="res://ui/label.gd" id="3_c3wnn"]
 [ext_resource type="Texture2D" uid="uid://c02s1ih4s3h5g" path="res://public_assets/UI/Interface.png" id="4_82yah"]
 
@@ -40,6 +41,7 @@ offset_right = 285.0
 offset_bottom = 207.5
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_uiilb")
 theme_override_constants/separation = 30
 
 [node name="weapon_upgrade_left" parent="CanvasLayer/HBoxContainer" instance=ExtResource("1_4tk5f")]
@@ -54,17 +56,19 @@ layout_mode = 2
 pos = 2
 
 [node name="exit" type="Button" parent="CanvasLayer"]
-offset_left = 878.0
-offset_top = 498.0
-offset_right = 982.0
-offset_bottom = 533.0
+offset_left = 653.0
+offset_top = 547.0
+offset_right = 757.0
+offset_bottom = 582.0
+theme = ExtResource("2_uiilb")
 text = "继续"
 
 [node name="reset" type="Button" parent="CanvasLayer"]
-offset_left = 159.0
-offset_top = 497.0
-offset_right = 263.0
-offset_bottom = 532.0
+offset_left = 415.0
+offset_top = 546.0
+offset_right = 519.0
+offset_bottom = 581.0
+theme = ExtResource("2_uiilb")
 text = "重置点数"
 
 [node name="Label" type="Label" parent="CanvasLayer"]
@@ -77,8 +81,8 @@ script = ExtResource("3_c3wnn")
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
 z_index = -1
-position = Vector2(578, 329)
-scale = Vector2(15.4531, 8.74206)
+position = Vector2(579.5, 328.5)
+scale = Vector2(15.7656, 9.25397)
 texture = ExtResource("4_82yah")
 region_enabled = true
 region_rect = Rect2(0, 0, 64, 63)

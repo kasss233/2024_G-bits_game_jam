@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c3k0mqplhllpx"
+path="res://.godot/imported/20 Gauge Spray Isolated.mp3-3a66b8583648fbbdde42de2e426de1c1.mp3str"
+
+[deps]
+
+source_file="res://public_assets/audio/Snake's SECOND Authentic Gun Sounds/Isolated/20 Gauge/MP3/20 Gauge Spray Isolated.mp3"
+dest_files=["res://.godot/imported/20 Gauge Spray Isolated.mp3-3a66b8583648fbbdde42de2e426de1c1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://b5808658ppe8g"]
+[gd_scene load_steps=7 format=3 uid="uid://b5808658ppe8g"]
 
 [ext_resource type="Script" path="res://audio_player/audio_player.gd" id="1_wddt7"]
-[ext_resource type="AudioStream" uid="uid://biq2m52kcwpux" path="res://public_assets/音频/RPG Voice Starter Pack/Type 3/damaged1.wav" id="2_m1qcx"]
-[ext_resource type="AudioStream" uid="uid://ci3n6osb7gmmm" path="res://public_assets/音频/RPG_Essentials_Free/10_UI_Menu_SFX/092_Pause_04.wav" id="3_x6fp4"]
+[ext_resource type="AudioStream" uid="uid://d2pf5n1dq2hby" path="res://public_assets/audio/RPG_Essentials_Free/10_UI_Menu_SFX/013_Confirm_03.wav" id="2_dms4r"]
+[ext_resource type="AudioStream" uid="uid://biq2m52kcwpux" path="res://public_assets/audio/RPG Voice Starter Pack/Type 3/damaged1.wav" id="2_m1qcx"]
+[ext_resource type="AudioStream" uid="uid://ci3n6osb7gmmm" path="res://public_assets/audio/RPG_Essentials_Free/10_UI_Menu_SFX/092_Pause_04.wav" id="3_x6fp4"]
+[ext_resource type="AudioStream" uid="uid://7h6gkbmdh547" path="res://public_assets/audio/RPG_Essentials_Free/10_UI_Menu_SFX/098_Unpause_04.wav" id="4_jgvf0"]
+[ext_resource type="AudioStream" uid="uid://6ljfiep3gds8" path="res://public_assets/audio/RPG_Essentials_Free/10_UI_Menu_SFX/001_Hover_01.wav" id="6_2i21u"]
 
 [node name="AudioPlayer" type="Node"]
 process_mode = 3
@@ -14,17 +17,23 @@ script = ExtResource("1_wddt7")
 bus = &"SFX"
 
 [node name="button_pressed" type="AudioStreamPlayer" parent="SE"]
+stream = ExtResource("2_dms4r")
 bus = &"SFX"
 
 [node name="death" type="AudioStreamPlayer" parent="SE"]
 stream = ExtResource("2_m1qcx")
+bus = &"SFX"
 
 [node name="pause" type="AudioStreamPlayer" parent="SE"]
 stream = ExtResource("3_x6fp4")
+bus = &"SFX"
 
 [node name="unpause" type="AudioStreamPlayer" parent="SE"]
+stream = ExtResource("4_jgvf0")
+bus = &"SFX"
 
-[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="SE"]
+[node name="button_hovered" type="AudioStreamPlayer" parent="SE"]
+stream = ExtResource("6_2i21u")
 
 [node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="SE"]
 

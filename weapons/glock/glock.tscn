@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://brihgfuhq8xps" path="res://weapons/bullets/gun_bullets.tscn" id="2_q6dqn"]
 [ext_resource type="Texture2D" uid="uid://bdrp0q7f51xo7" path="res://assets/Guns Update - V1.01/Guns_V1.01 - Commission - Copy/02 - Sprite sheets/Glock - P80 [64x48]/[SHOOT WITH CASING] Glock - P80.png" id="3_q0co2"]
 [ext_resource type="Texture2D" uid="uid://ydrqp0h7jfq3" path="res://assets/Guns Update - V1.01/Guns_V1.01 - Commission - Copy/02 - Sprite sheets/Glock - P80 [64x48]/[RELOAD] Glock - P80.png" id="4_i40bx"]
-[ext_resource type="AudioStream" uid="uid://cvan666ct84hi" path="res://public_assets/音频/Snake's SECOND Authentic Gun Sounds/Full Sounds/9mm/MP3/9mm Single.mp3" id="6_5ocym"]
+[ext_resource type="AudioStream" uid="uid://cvan666ct84hi" path="res://public_assets/audio/Snake's SECOND Authentic Gun Sounds/Full Sounds/9mm/MP3/9mm Single.mp3" id="6_5ocym"]
 
 [sub_resource type="Animation" id="Animation_annrd"]
 length = 0.001

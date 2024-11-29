@@ -8,6 +8,7 @@ var damage:int=1
 func _ready() -> void:
 	init()
 	set_random_direction()
+@warning_ignore("unused_parameter")
 func _physics_process(delta: float) -> void:
 	find_target()
 	update_direction()

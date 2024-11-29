@@ -52,9 +52,7 @@ var weapon_pos = {
 func _ready() -> void:
 	match weapon_pos[pos]:
 		GlobalVal.weapons.STICK:
-			abutton.queue_free()
-			alabel.queue_free()
-			ammo = false
+			pass
 		GlobalVal.weapons.AK47:
 			cbutton.queue_free()
 			clabel.queue_free()
@@ -64,9 +62,12 @@ func _ready() -> void:
 			clabel.queue_free()
 			cd = false
 		GlobalVal.weapons.RPG:
+			abutton.queue_free()
+			alabel.queue_free()
 			cbutton.queue_free()
 			clabel.queue_free()
 			cd = false
+			ammo=false
 		GlobalVal.weapons.MP5:
 			cbutton.queue_free()
 			clabel.queue_free()
@@ -86,7 +87,10 @@ func _ready() -> void:
 			ammo = false
 			cd = false
 		GlobalVal.weapons.NULL:
-			queue_free()
+			damage=false
+			ammo=false
+			cd=false
+			visible=false
 			
 func _physics_process(delta: float) -> void:
 	label.text = weapon_name[weapon_pos[pos]]
@@ -106,7 +110,10 @@ func _on_damage_pressed() -> void:
 		dbutton.disabled = true
 func _on_ammo_pressed() -> void:
 	if GlobalVal.player["points"] > 0:
-		weapon_ammo[weapon_pos[pos]] += GlobalVal.add_ammo
+		if weapon_pos[pos]==GlobalVal.weapons.STICK:
+			weapon_ammo[weapon_pos[pos]] += 1
+		else:
+			weapon_ammo[weapon_pos[pos]] += GlobalVal.add_ammo
 		print(weapon_name[weapon_pos[pos]], " ammo:", weapon_ammo[weapon_pos[pos]])
 		ammo_times += 1
 		GlobalVal.player["points"] -= 1

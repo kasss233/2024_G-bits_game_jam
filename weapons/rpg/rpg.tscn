@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://8027nfokh2mn" path="res://public_assets/Guns Update - V1.01/Guns_V1.01 - Commission - Copy/02 - Sprite sheets/Thick Bazooka - M20 [192x32]/[SHOOT WITH MUZZLE FLASH] Thick Bazooka - M20.png" id="3_1r217"]
 [ext_resource type="PackedScene" uid="uid://c58m1cf2yxv4w" path="res://weapons/bullets/rpg_bullets.tscn" id="3_myc2k"]
 [ext_resource type="Texture2D" uid="uid://cqmkyt7eijlpm" path="res://public_assets/Guns Update - V1.01/Guns_V1.01 - Commission - Copy/02 - Sprite sheets/Thick Bazooka - M20 [192x32]/[ASSEMBLE] Thick Bazooka - M20.png" id="4_dxigk"]
-[ext_resource type="AudioStream" uid="uid://b18gq2idhryyj" path="res://public_assets/音频/RPG_Essentials_Free/8_Atk_Magic_SFX/04_Fire_explosion_04_medium.wav" id="6_i087c"]
+[ext_resource type="AudioStream" uid="uid://b18gq2idhryyj" path="res://public_assets/audio/RPG_Essentials_Free/8_Atk_Magic_SFX/04_Fire_explosion_04_medium.wav" id="6_i087c"]
 
 [sub_resource type="Animation" id="Animation_annrd"]
 length = 0.001

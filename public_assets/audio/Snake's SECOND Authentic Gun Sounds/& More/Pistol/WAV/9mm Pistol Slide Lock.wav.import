@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b4362gst8bagc"
+path="res://.godot/imported/9mm Pistol Slide Lock.wav-711f78ea3473bf31c2d9a17e9e1b1b89.sample"
+
+[deps]
+
+source_file="res://public_assets/audio/Snake's SECOND Authentic Gun Sounds/& More/Pistol/WAV/9mm Pistol Slide Lock.wav"
+dest_files=["res://.godot/imported/9mm Pistol Slide Lock.wav-711f78ea3473bf31c2d9a17e9e1b1b89.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

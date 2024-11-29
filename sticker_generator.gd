@@ -9,21 +9,19 @@ var sticker_pos={
 	POS.MID:GlobalVal.player["mid_sticker"],
 	POS.RIGHT:GlobalVal.player["right_sticker"],
 }
+@warning_ignore("unused_parameter")
 func _physics_process(delta: float) -> void:
 	pass
 func _ready() -> void:
 	generate()
 func choose_weapon() -> PackedScene:
-	match sticker_pos[pos]:
-		GlobalVal.stickers.SPEEDER:
-			return SPEEDER
-		GlobalVal.stickers.DAMAGER:
-			return DAMAGER
-		GlobalVal.stickers.HPER:
-			return HPER
-		_:	
-			print("no sticker")
-			return null
+	if pos==POS.LEFT&&sticker_pos[pos]:
+		return SPEEDER
+	if pos==POS.MID&&sticker_pos[pos]:
+		return DAMAGER
+	if pos==POS.RIGHT&&sticker_pos[pos]:
+		return HPER
+	return null
 func generate():
 	if !choose_weapon():
 		return

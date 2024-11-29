@@ -8,15 +8,16 @@ extends Node2D
 @export var bullet: PackedScene
 @export var weapon:GlobalVal.weapons
 @export var enabled:bool=false
-@export var cd:float
-@export var number:int
-@export var damage:int
+var cd:float
+var number:int
+var damage:int
 func _ready() -> void:
 	#if GlobalVal.player["weapon"]!=GlobalVal.weapons.STICK:
 		#queue_free()
 	#if !enabled:
 		#queue_free()
 	pass
+@warning_ignore("unused_parameter")
 func _physics_process(delta) -> void:
 	update_data()
 	update_animation()
