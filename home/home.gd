@@ -63,7 +63,7 @@ func _on_exist_mouse_exited() -> void:
 
 func sleep() -> void:
 	if GlobalVal.weekday == GlobalVal.week.MONDAY:
-		GlobalVal.enemy_gen["enemy_per_batch"] = 5#5
+		GlobalVal.enemy_gen["enemy_per_batch"] = 8#5
 		GlobalVal.enemy_gen["total_batch"] = 3#3
 		GlobalVal.enemy_gen["time_gap"] = 2#3
 		GlobalVal.enemy_gen["enemy_per_time"] = 1#1

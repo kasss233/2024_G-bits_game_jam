@@ -60,7 +60,7 @@ func _process(delta: float) -> void:
 		$weekday.text = "星期五"
 	if GlobalVal.weekday == GlobalVal.week.SATURDAY:
 		$weekday.text = "星期六"
-
+		
 	if GlobalVal.early_eight == true:
 		$early_eight.text = "明天有早八"
 	if GlobalVal.early_eight == false:
@@ -85,5 +85,3 @@ func use_mobility() -> void:
 		return
 	mobility[current_mobility].use()
 	current_mobility -= 1
-
-
