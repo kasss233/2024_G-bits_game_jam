@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://kxjnh0rjukf6"]
+[gd_scene load_steps=4 format=3 uid="uid://kxjnh0rjukf6"]
 
 [ext_resource type="Script" path="res://activity_place/library.gd" id="1_vix2d"]
+[ext_resource type="PackedScene" uid="uid://dsedj3dtxh20k" path="res://state_bar_day/state_bar_day.tscn" id="2_ryu0v"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_extny"]
 font_size = 64
@@ -20,3 +21,6 @@ text = "假装这里有一个图书馆的背景"
 label_settings = SubResource("LabelSettings_extny")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="state_bar_day" parent="." instance=ExtResource("2_ryu0v")]
+visible = false

@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bb2asgggurtlp"]
+[gd_scene load_steps=10 format=3 uid="uid://bb2asgggurtlp"]
 
 [ext_resource type="Texture2D" uid="uid://den8htc87w3ro" path="res://public_assets/UI/Prinbles_Asset_UNDER (v 1.1) (9_7_2023)/png@2x/Button/Rect/Default@2x.png" id="1_tw3it"]
 [ext_resource type="Script" path="res://ui/menu/menu.gd" id="1_wlxia"]
 [ext_resource type="PackedScene" uid="uid://4ria8nn5lvy7" path="res://home/home.tscn" id="2_e7uon"]
+[ext_resource type="AudioStream" uid="uid://dntbcyitul1wg" path="res://audio_player/resourse/bgm/stage_4.mp3" id="3_dvy2c"]
 [ext_resource type="Texture2D" uid="uid://ce6vb777b8ik4" path="res://public_assets/home.tres" id="3_y1twg"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ddd63"]
@@ -31,6 +32,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wlxia")
 next_scene = ExtResource("2_e7uon")
+bgm = ExtResource("3_dvy2c")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1

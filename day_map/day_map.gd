@@ -25,6 +25,8 @@ var dialog_tscn = preload("res://dialog_box/dialog_box.tscn")
 var message_tscn = preload("res://message/message.tscn")
 func _ready() -> void:
 
+	AudioPlayer.button_se_init(self)
+
 	home_text.size = home_button.size
 	shop_text.size = shop_button.size
 	school_text.size = school_button.size

@@ -9,6 +9,7 @@ extends Control
 @onready var mlabel=$labels/VSplitContainer/money
 @export var defeat_board:PackedScene
 @export var victory_board:PackedScene
+var overed: bool = false # 游戏是否结束
 var countdown_time: float = 15 * 60 # 倒计时总时间（15分钟，单位为秒）
 
 
@@ -42,6 +43,11 @@ func _update_countdown(delta: float):
 	mlabel.text="金币："+var_to_str(GlobalVal.money["day"])
 # 游戏结束逻辑（可选）
 func _game_over():
+	if overed:
+		return
+	if !overed:
+		overed = true
+
 	await get_tree().create_timer(1).timeout
 	var d=defeat_board.instantiate()
 	get_tree().current_scene.add_child(d)

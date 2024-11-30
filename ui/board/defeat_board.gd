@@ -1,5 +1,5 @@
 extends Control
-
+@export var bgm:AudioStream
 func _ready() -> void:
 	effect()
 	AudioPlayer.button_se_init(self)
@@ -14,3 +14,6 @@ func effect():
 	GlobalVal.minus_property("stamina", 2)
 	GlobalVal.minus_property("mood", 2)
 	GlobalVal.minus_property("knowledge", 2)
+
+func _process(delta):
+	AudioPlayer.play_bgm(bgm)

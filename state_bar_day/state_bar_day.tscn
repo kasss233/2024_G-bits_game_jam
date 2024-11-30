@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://dsedj3dtxh20k"]
+[gd_scene load_steps=15 format=3 uid="uid://dsedj3dtxh20k"]
 
 [ext_resource type="Script" path="res://state_bar_day/state_bar_day.gd" id="1_5p6ye"]
 [ext_resource type="Texture2D" uid="uid://gvbisljdee0x" path="res://public_assets/pickable/coins-chests-etc-2-0-noborders.png" id="1_nr31m"]
 [ext_resource type="Texture2D" uid="uid://c02s1ih4s3h5g" path="res://public_assets/UI/Interface.png" id="2_c7cuu"]
+[ext_resource type="AudioStream" uid="uid://c2wgfaqrbxhnv" path="res://audio_player/resourse/bgm/stage_two.mp3" id="2_tawh1"]
 [ext_resource type="LabelSettings" uid="uid://cccpy02lnbqx4" path="res://state_bar_day/new_label_settings.tres" id="3_hypr5"]
 [ext_resource type="PackedScene" uid="uid://dx0j7xbamq7me" path="res://state_bar_day/mobility_chunck/mobility_chunck.tscn" id="4_yqpb0"]
 
@@ -68,6 +69,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5p6ye")
+bgm = ExtResource("2_tawh1")
 
 [node name="background" type="Sprite2D" parent="."]
 position = Vector2(145.5, 195.5)

@@ -1,8 +1,9 @@
 extends Node2D
 @export var texture:Texture2D
-var price = 100
-var introduce = "足球\n价格：100元\n简介：足球是一种球形运动项目，球的大小和质量都很大，可以用来打篮球、踢足球、打网球、打羽毛球等。"
-var enum_value = GlobalVal.sports.FOOTBALL
+var price = 50
+var introduce = "足球\n价格：50元\n简介：据说曾经有一个戴眼镜的小学生用这玩意儿把直升机打下来了"
+var enum_value = GlobalVal.items.FOOTBALL
 
 func change_state():
 	GlobalVal.sports_list.append(GlobalVal.sports.FOOTBALL)
+	GlobalVal.items_list.append(GlobalVal.items.FOOTBALL)

@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://fi2188xn6328"]
+[gd_scene load_steps=4 format=3 uid="uid://fi2188xn6328"]
 
 [ext_resource type="Script" path="res://activity_place/movie.gd" id="1_lyxym"]
+[ext_resource type="PackedScene" uid="uid://dsedj3dtxh20k" path="res://state_bar_day/state_bar_day.tscn" id="2_2njl7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_580fw"]
 font_size = 64
@@ -20,3 +21,6 @@ text = "假装这里有一场电影在播放"
 label_settings = SubResource("LabelSettings_580fw")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="state_bar_day" parent="." instance=ExtResource("2_2njl7")]
+visible = false

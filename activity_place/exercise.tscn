@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://brerd4aqnv6y7"]
+[gd_scene load_steps=4 format=3 uid="uid://brerd4aqnv6y7"]
 
 [ext_resource type="Script" path="res://activity_place/exercise.gd" id="1_04ae2"]
+[ext_resource type="PackedScene" uid="uid://dsedj3dtxh20k" path="res://state_bar_day/state_bar_day.tscn" id="2_gbd8y"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_egf12"]
 font_size = 64
@@ -20,3 +21,6 @@ text = "假装这里有一个健身房的背景"
 label_settings = SubResource("LabelSettings_egf12")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="state_bar_day" parent="." instance=ExtResource("2_gbd8y")]
+visible = false

@@ -11,6 +11,7 @@ func _ready() -> void:
 	dialog.tree_exited.connect(done)
 func done():
 	if get_tree():
-		get_tree().change_scene_to_file("res://day_map/day_map.tscn")
+		# get_tree().change_scene_to_file("res://day_map/day_map.tscn")
+		SceneChanger.change_scene(load("res://day_map/day_map.tscn"))
 func _exit_tree() -> void:
 	GlobalVal.place_visited["playground"] = true

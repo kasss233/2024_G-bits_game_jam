@@ -30,6 +30,7 @@ offset_left = 40.0
 offset_top = 535.0
 offset_right = 143.0
 offset_bottom = 587.0
+mouse_default_cursor_shape = 2
 theme = ExtResource("5_osf8c")
 text = "离开商店"
 

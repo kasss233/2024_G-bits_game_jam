@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://cy2xmwc88slwd"]
+[gd_scene load_steps=11 format=3 uid="uid://cy2xmwc88slwd"]
 
 [ext_resource type="PackedScene" uid="uid://d3vd6i7u2icri" path="res://ui/choose/choose_weapon_single.tscn" id="1_gvect"]
 [ext_resource type="Script" path="res://ui/choose/choose_weapon.gd" id="1_lvxfk"]
 [ext_resource type="PackedScene" uid="uid://dlrf0vep8ps11" path="res://world/world.tscn" id="2_vn4f1"]
 [ext_resource type="Theme" uid="uid://btm6p112q8a7k" path="res://theme/new_theme.tres" id="3_h5vtf"]
+[ext_resource type="AudioStream" uid="uid://cnadskpdhqfjf" path="res://audio_player/resourse/bgm/stage_three_easy.mp3" id="3_m2xie"]
 [ext_resource type="PackedScene" uid="uid://dd1gfs2qqexo2" path="res://ui/choose/choose_toolS.tscn" id="4_1kf3u"]
 [ext_resource type="Texture2D" uid="uid://c02s1ih4s3h5g" path="res://public_assets/UI/Interface.png" id="6_sv303"]
 
@@ -25,6 +26,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lvxfk")
 world = ExtResource("2_vn4f1")
+bgm = ExtResource("3_m2xie")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

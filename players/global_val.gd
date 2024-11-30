@@ -4,6 +4,7 @@ enum pets {CAT, DOG, BIRD, SNAKE, MOUSE}
 enum sports {BASKETBALL, FOOTBALL, VOLLEYBALL, TENNIS, NULL}
 enum weapons {STICK, AK47, GLOCK, RPG, MP5, SWORD, SPEAR, NULL}
 enum stickers {SPEEDER, DAMAGER, HPER, NULL}
+enum items {BASKETBALL, FOOTBALL, VOLLEYBALL, TENNIS, STICK, AK47, GLOCK, RPG, MP5, SWORD, SPEAR, NULL}
 enum week {MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY,LASTDAY}
 enum hands {LEFT, RIGHT}
 const add_damage: int = 1 ## 武器伤害增加
@@ -110,6 +111,7 @@ var weapons_list: Array[weapons] = [weapons.GLOCK] # 购买的武器
 var sports_list: Array[sports] = [] # 购买的球类
 var stickers_list: Array[stickers] = [] # 购买的饰品
 var pets_list = []
+var items_list = []
 
 func add_day_money(amount: int) -> void:
 	money["day"] += amount
@@ -576,28 +578,40 @@ func random_course():
 	var courses = ["英语课","近代史纲要","形势与政策","大学生心理健康","高等数学","线性代数","离散数学","概率论与数理统计","军事理论课","数据结构与算法","计算机导论","数据库系统概念","计算机组成原理","计算机系统设计","人工智能导论","机器学习","深度学习","编译原理","计算机网络"]
 	return courses[randi() % courses.size()]
 
-func add_day():
+func add_weekday():
+	if weekday == week.SUNDAY:
+		weekday = week.MONDAY
+		return
 	if weekday == week.MONDAY:
 		weekday = week.TUESDAY
+		return
 		return
 	if weekday == week.TUESDAY:
 		weekday = week.WEDNESDAY
 		return
+		return
 	if weekday == week.WEDNESDAY:
 		weekday = week.THURSDAY
+		return
 		return
 	if weekday == week.THURSDAY:
 		weekday = week.FRIDAY
 		return
+		return
 	if weekday == week.FRIDAY:
 		weekday = week.SATURDAY
+		return
 		return
 	if weekday == week.SATURDAY:
 		weekday = week.SUNDAY
 		return
+		return
 	if weekday==week.SUNDAY:
 		weekday=week.LASTDAY
 		return
+
+func add_day():
+	add_weekday()
 	place_visited["work"] = false
 	place_visited["exercise"] = false
 	place_visited["library"] = false
@@ -612,6 +626,7 @@ func add_day():
 	if key == 1:
 		early_eight = true
 	new_day = true
+
 func random_game_dialog():
 	var dialogs = []
 	if place_visited["game"] == false:

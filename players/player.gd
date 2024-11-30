@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var animation_tree: AnimationTree ## 动画树
 @export var sprite: Sprite2D
 @export var defeat_board:PackedScene
+@export var bgm:AudioStream
 @onready var area=$Area2D
 @onready var animation_state = animation_tree.get("parameters/playback")
 var played:bool=false
@@ -73,3 +74,8 @@ func death_event():
 	if !played:
 		AudioPlayer.play_sound_effect("death")
 		played=true
+		self.bgm = null
+
+func _process(delta: float) -> void:
+	if bgm!= null:
+		AudioPlayer.play_bgm(bgm)

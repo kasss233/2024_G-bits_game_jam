@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://ui8c1g3qen73"]
+[gd_scene load_steps=6 format=3 uid="uid://ui8c1g3qen73"]
 
 [ext_resource type="Script" path="res://ui/board/defeat_board.gd" id="1_lbt0q"]
+[ext_resource type="AudioStream" uid="uid://cnadskpdhqfjf" path="res://audio_player/resourse/bgm/stage_three_easy.mp3" id="2_cd3ph"]
 [ext_resource type="Texture2D" uid="uid://c02s1ih4s3h5g" path="res://public_assets/UI/Interface.png" id="2_hndsx"]
 [ext_resource type="Theme" uid="uid://btm6p112q8a7k" path="res://theme/new_theme.tres" id="3_1tgwp"]
 
@@ -15,6 +16,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lbt0q")
+bgm = ExtResource("2_cd3ph")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

@@ -5,6 +5,8 @@ extends Control
 @onready var intelligence_label = $intelligence/number
 @onready var mood_label = $mood/number
 
+@export var bgm:AudioStream
+
 var dialog_tscn = preload("res://dialog_box/dialog_box.tscn")
 
 var mobility = []
@@ -13,14 +15,38 @@ var end:bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+
+
 	mobility.append($mobilty/mobility_chunck)
 	mobility.append($mobilty/mobility_chunck2)
 	mobility.append($mobilty/mobility_chunck3)
-	pass # Replace with function body.
+	if GlobalVal.weekday == GlobalVal.week.SUNDAY:
+		$weekday.text = "星期天"
+	if GlobalVal.weekday == GlobalVal.week.MONDAY:
+		$weekday.text = "星期一"
+	if GlobalVal.weekday == GlobalVal.week.TUESDAY:
+		$weekday.text = "星期二"
+	if GlobalVal.weekday == GlobalVal.week.WEDNESDAY:
+		$weekday.text = "星期三"
+	if GlobalVal.weekday == GlobalVal.week.THURSDAY:
+		$weekday.text = "星期四"
+	if GlobalVal.weekday == GlobalVal.week.FRIDAY:
+		$weekday.text = "星期五"
+	if GlobalVal.weekday == GlobalVal.week.SATURDAY:
+		$weekday.text = "星期六"
+
+	if GlobalVal.early_eight == true:
+		$early_eight.text = "明天有早八"
+	if GlobalVal.early_eight == false:
+		$early_eight.text = "明天没早八"
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+
+	if bgm!= null:
+		AudioPlayer.play_bgm(bgm)
+
 	money_label.text = str(GlobalVal.money["day"])
 	intelligence_label.text = "   " + str(GlobalVal.properties["knowledge"]) + " / 10"
 	body_label.text = "   " + str(GlobalVal.properties["stamina"]) + " / 10"
@@ -46,25 +72,6 @@ func _process(delta: float) -> void:
 			return
 		if end == false:
 			end = true
-	if GlobalVal.weekday == GlobalVal.week.SUNDAY:
-		$weekday.text = "星期天"
-	if GlobalVal.weekday == GlobalVal.week.MONDAY:
-		$weekday.text = "星期一"
-	if GlobalVal.weekday == GlobalVal.week.TUESDAY:
-		$weekday.text = "星期二"
-	if GlobalVal.weekday == GlobalVal.week.WEDNESDAY:
-		$weekday.text = "星期三"
-	if GlobalVal.weekday == GlobalVal.week.THURSDAY:
-		$weekday.text = "星期四"
-	if GlobalVal.weekday == GlobalVal.week.FRIDAY:
-		$weekday.text = "星期五"
-	if GlobalVal.weekday == GlobalVal.week.SATURDAY:
-		$weekday.text = "星期六"
-		
-	if GlobalVal.early_eight == true:
-		$early_eight.text = "明天有早八"
-	if GlobalVal.early_eight == false:
-		$early_eight.text = "明天没早八"
 func add_mobility(count: int) -> void:
 	if count + current_mobility >= 2:
 		current_mobility = 2

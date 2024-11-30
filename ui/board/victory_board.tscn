@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://21rkof613s2q"]
+[gd_scene load_steps=6 format=3 uid="uid://21rkof613s2q"]
 
 [ext_resource type="Texture2D" uid="uid://c02s1ih4s3h5g" path="res://public_assets/UI/Interface.png" id="1_jei87"]
 [ext_resource type="Script" path="res://ui/board/victory_board.gd" id="1_tr4te"]
+[ext_resource type="AudioStream" uid="uid://cnadskpdhqfjf" path="res://audio_player/resourse/bgm/stage_three_easy.mp3" id="2_e41xj"]
 [ext_resource type="Theme" uid="uid://btm6p112q8a7k" path="res://theme/new_theme.tres" id="3_xwo75"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_426ro"]
@@ -15,6 +16,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_tr4te")
+bgm = ExtResource("2_e41xj")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

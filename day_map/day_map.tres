@@ -1,4 +1,10 @@
-[gd_resource type="LabelSettings" format=3 uid="uid://cirx3pwe1lpe5"]
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://cirx3pwe1lpe5"]
+
+[sub_resource type="SystemFont" id="SystemFont_mpgvo"]
+font_names = PackedStringArray("黑体")
 
 [resource]
+font = SubResource("SystemFont_mpgvo")
 font_size = 24
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
