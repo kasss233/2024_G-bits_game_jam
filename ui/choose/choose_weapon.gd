@@ -7,12 +7,14 @@ extends  Control
 func _on_button_pressed() -> void:
 	#get_tree().change_scene_to_packed(world)
 	SceneChanger.change_scene(world)
-func _ready() -> void:
-	if GlobalVal.last_day_early_eight:
-		label.text="因为今天的早八，你今晚感到疲惫（怪物更加活跃）"
+# func _ready() -> void:
+# 	if GlobalVal.last_day_early_eight:
+# 		label.text="因为今天的早八，你今晚感到疲惫（怪物更加活跃）"
 
 func _process(delta):
 
 	AudioPlayer.play_bgm(bgm)
 
 	pass
+	if GlobalVal.day_early_eight:
+		label.text="因为明天的早八，睡眠收到影响（梦魇更加活跃）"

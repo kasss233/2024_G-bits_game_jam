@@ -72,7 +72,6 @@ func _process(delta: float) -> void:
 			return
 		if end == false:
 			end = true
-
 func add_mobility(count: int) -> void:
 	if count + current_mobility >= 2:
 		current_mobility = 2
@@ -93,5 +92,3 @@ func use_mobility() -> void:
 		return
 	mobility[current_mobility].use()
 	current_mobility -= 1
-
-

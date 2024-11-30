@@ -19,7 +19,7 @@ var jjh_count = 0
 var points: int = 0
 var new_day: bool = true
 var place_visited = {
-	"play_game" = false,
+	"game" = false,
 	"playground" = false,
 	"work" = false,
 	"library" = false,
@@ -585,20 +585,26 @@ func add_weekday():
 	if weekday == week.MONDAY:
 		weekday = week.TUESDAY
 		return
+		return
 	if weekday == week.TUESDAY:
 		weekday = week.WEDNESDAY
+		return
 		return
 	if weekday == week.WEDNESDAY:
 		weekday = week.THURSDAY
 		return
+		return
 	if weekday == week.THURSDAY:
 		weekday = week.FRIDAY
+		return
 		return
 	if weekday == week.FRIDAY:
 		weekday = week.SATURDAY
 		return
+		return
 	if weekday == week.SATURDAY:
 		weekday = week.SUNDAY
+		return
 		return
 	if weekday==week.SUNDAY:
 		weekday=week.LASTDAY
