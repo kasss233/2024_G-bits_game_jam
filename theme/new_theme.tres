@@ -9,7 +9,7 @@ region_rect = Rect2(0, 0, 320.587, 161.172)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_376k3"]
 
 [resource]
-Button/font_sizes/font_size = 16
+Button/font_sizes/font_size = 24
 Button/styles/hover = SubResource("StyleBoxTexture_ddd63")
 Button/styles/normal = SubResource("StyleBoxTexture_ddd63")
 Button/styles/pressed = SubResource("StyleBoxTexture_ddd63")

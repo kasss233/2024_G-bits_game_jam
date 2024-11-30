@@ -4,6 +4,7 @@ enum pets {CAT, DOG, BIRD, SNAKE, MOUSE}
 enum sports {BASKETBALL, FOOTBALL, VOLLEYBALL, TENNIS, NULL}
 enum weapons {STICK, AK47, GLOCK, RPG, MP5, SWORD, SPEAR, NULL}
 enum stickers {SPEEDER, DAMAGER, HPER, NULL}
+enum items {BASKETBALL, FOOTBALL, VOLLEYBALL, TENNIS, STICK, AK47, GLOCK, RPG, MP5, SWORD, SPEAR, NULL}
 enum week {MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY}
 enum hands {LEFT, RIGHT}
 const add_damage: int = 1 ## 武器伤害增加
@@ -110,6 +111,7 @@ var weapons_list: Array[weapons] = [] # 购买的武器
 var sports_list: Array[sports] = [] # 购买的球类
 var stickers_list: Array[stickers] = [] # 购买的饰品
 var pets_list = []
+var items_list = []
 
 func add_day_money(amount: int) -> void:
 	money["day"] += amount

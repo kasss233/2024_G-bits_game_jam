@@ -26,11 +26,9 @@ func _ready() -> void:
 	else:
 		self.size = Vector2(64, 64)
 	if item!= null:
-		if item.enum_value in GlobalVal.weapons_list:
+		if item.enum_value in GlobalVal.items_list:
 			self.queue_free()
-		if item.enum_value in GlobalVal.sports_list:
-			self.queue_free()
-
+			
 		price = item.price
 		introduce = item.introduce
 		if item.texture!= null:
