@@ -26,6 +26,11 @@ func _ready() -> void:
 	else:
 		self.size = Vector2(64, 64)
 	if item!= null:
+		if item.enum_value in GlobalVal.weapons_list:
+			self.queue_free()
+		if item.enum_value in GlobalVal.sports_list:
+			self.queue_free()
+
 		price = item.price
 		introduce = item.introduce
 		if item.texture!= null:
@@ -90,7 +95,7 @@ func _on_money_not_enough() -> void:
 	var node = message.instantiate()
 	node.set_time(1)
 	node.set_color(Color.BLACK)
-	node.set_message("没米了/(ㄒoㄒ)/~~")
+	node.set_message(GlobalVal.random_no_money_message())
 	get_parent().add_child(node)
 	node.global_position = Vector2(0,0)
 	node.start()

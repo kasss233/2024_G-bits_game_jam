@@ -34,6 +34,7 @@ enabled=PackedStringArray("res://addons/net.yarvis.pixel_pen/plugin.cfg")
 [file_customization]
 
 folder_colors={
+"res://activity_place/": "red",
 "res://assets/": "green",
 "res://audio_player/": "red",
 "res://day_map/": "orange",

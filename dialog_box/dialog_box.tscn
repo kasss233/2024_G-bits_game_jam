@@ -15,6 +15,7 @@ font_color = Color(0, 0, 0, 1)
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_weu6s")
+metadata/_edit_group_ = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
@@ -30,5 +31,4 @@ offset_left = 109.0
 offset_top = 488.0
 offset_right = 970.0
 offset_bottom = 628.0
-text = "test_text"
 label_settings = SubResource("LabelSettings_w8uun")

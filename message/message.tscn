@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://bsfp2mrchqntr"]
+[gd_scene load_steps=3 format=3 uid="uid://bsfp2mrchqntr"]
 
 [ext_resource type="Script" path="res://message/message.gd" id="1_h4pk1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_11ghu"]
+font_size = 20
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
 
 [node name="message" type="Label"]
 anchors_preset = 15
@@ -10,6 +15,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 text = "aaaaaaa"
+label_settings = SubResource("LabelSettings_11ghu")
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("1_h4pk1")

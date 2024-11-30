@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7josywq8b54u"]
+
+[ext_resource type="Script" path="res://activity_place/school.gd" id="1_ygub2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_i6jxi"]
+font_size = 64
+
+[node name="school" type="Node2D"]
+script = ExtResource("1_ygub2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_right = 1152.0
+offset_bottom = 461.0
+text = "假装这里有老师在讲课的动画"
+label_settings = SubResource("LabelSettings_i6jxi")
+horizontal_alignment = 1
+vertical_alignment = 1

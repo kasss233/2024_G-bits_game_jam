@@ -5,8 +5,11 @@ extends Control
 @onready var intelligence_label = $intelligence/number
 @onready var mood_label = $mood/number
 
+var dialog_tscn = preload("res://dialog_box/dialog_box.tscn")
+
 var mobility = []
 var current_mobility = 2
+var end:bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -38,6 +41,12 @@ func _process(delta: float) -> void:
 		mobility[0].charge()
 		mobility[1].charge()
 		mobility[2].charge()
+	if GlobalVal.properties["mobility"] == 0:
+		if end == true:
+			return
+		if end == false:
+			end = true
+
 func add_mobility(count: int) -> void:
 	if count + current_mobility >= 2:
 		current_mobility = 2
@@ -58,3 +67,5 @@ func use_mobility() -> void:
 		return
 	mobility[current_mobility].use()
 	current_mobility -= 1
+
+

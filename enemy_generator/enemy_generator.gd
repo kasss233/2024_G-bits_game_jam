@@ -103,7 +103,7 @@ func _on_enemy_destroyed():
 			c.connect("time_out", Callable(self, "_on_time_out"))
 		else:
 			emit_signal("victory")
-
+			
 func _on_time_out():
 	_spawn_next_batch()
 func _init():

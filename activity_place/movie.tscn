@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://fi2188xn6328"]
+
+[ext_resource type="Script" path="res://activity_place/movie.gd" id="1_lyxym"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_580fw"]
+font_size = 64
+
+[node name="movie" type="Node2D"]
+script = ExtResource("1_lyxym")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_right = 1152.0
+offset_bottom = 461.0
+text = "假装这里有一场电影在播放"
+label_settings = SubResource("LabelSettings_580fw")
+horizontal_alignment = 1
+vertical_alignment = 1

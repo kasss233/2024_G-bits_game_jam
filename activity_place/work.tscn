@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://e75h4cve6dvc"]
+
+[ext_resource type="Script" path="res://activity_place/work.gd" id="1_s13qa"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bn3k0"]
+font_size = 64
+
+[node name="work" type="Node2D"]
+script = ExtResource("1_s13qa")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_right = 1152.0
+offset_bottom = 461.0
+text = "假装这里有一个在打工的动画"
+label_settings = SubResource("LabelSettings_bn3k0")
+horizontal_alignment = 1
+vertical_alignment = 1
