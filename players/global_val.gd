@@ -12,8 +12,11 @@ const sub_cd: float = 0.1 ## 武器冷却时间减少
 const add_hp: int = 1 ## 血量增加
 const add_speed: int = 10 ## 速度增加
 var weekday = week.MONDAY
+var early_eight = false
+var last_day_early_eight = false
 var jjh_count = 0
 var points: int = 0
+var new_day: bool = true
 var place_visited = {
 	"play_game" = false,
 	"playground" = false,
@@ -35,18 +38,18 @@ var player = {
 	"left_sticker" = false, # 左边饰品栏
 	"mid_sticker" = false, # 中间饰品栏
 	"right_sticker" = false, # 右边饰品栏
-	"cat" = true, # 是否拥有猫咪
+	"cat" = false, # 是否拥有猫咪
 	"cat_weapon" = weapons.NULL, # 猫咪武器
-	"dog" = true, # 是否拥有狗狗
+	"dog" = false, # 是否拥有狗狗
 	"dog_weapon" = weapons.NULL, # 狗狗武器
 	"points" = 0, # 武器升级点数
 	"basketball" = false,
 	"football" = false,
 	"tennisball" = false,
 	"volleyball" = false,
-	"left_weapon_enable" = true,
+	"left_weapon_enable" = false,
 	"weapon_enable" = true,
-	"right_weapon_enable" = true,
+	"right_weapon_enable" = false,
 }
 var stick = {
 	"damage" = 1, # 伤害
@@ -595,7 +598,13 @@ func add_day():
 	place_visited["game"] = false
 	place_visited["school"] = false
 	properties["mobility"] = 3
-
+	last_day_early_eight = early_eight
+	var key = randi() % 2
+	if key == 0:
+		early_eight = true
+	if key == 1:
+		early_eight = true
+	new_day = true
 func random_game_dialog():
 	var dialogs = []
 	if place_visited["game"] == false:
@@ -665,3 +674,15 @@ func random_single_player_game():
 func random_multi_player_game():
 	var games = ["瓦洛兰特","CS2","守望先锋","怪物猎人","双人成行","王者荣耀","博德之门3","星露谷","泰拉瑞亚","我的世界","骗子酒馆","胡闹厨房","PAYDAY","第五人格","人类一败涂地","深岩银河","文明6","任天堂明星大乱斗"]
 	return games[randi()%games.size()]
+
+func _process(delta: float) -> void:
+	if properties["stamina"] >= 4 && properties["stamina"] <= 6:
+		player["left_weapon_enable"] = true
+		player["right_weapon_enable"] = false
+	if properties["stamina"] <= 3:
+		player["left_weapon_enable"] = false
+		player["right_weapon_enable"] = false
+	if properties["stamina"] >= 7:
+		player["left_weapon_enable"] = true
+		player["right_weapon_enable"] = true
+

@@ -46,7 +46,25 @@ func _process(delta: float) -> void:
 			return
 		if end == false:
 			end = true
+	if GlobalVal.weekday == GlobalVal.week.SUNDAY:
+		$weekday.text = "星期天"
+	if GlobalVal.weekday == GlobalVal.week.MONDAY:
+		$weekday.text = "星期一"
+	if GlobalVal.weekday == GlobalVal.week.TUESDAY:
+		$weekday.text = "星期二"
+	if GlobalVal.weekday == GlobalVal.week.WEDNESDAY:
+		$weekday.text = "星期三"
+	if GlobalVal.weekday == GlobalVal.week.THURSDAY:
+		$weekday.text = "星期四"
+	if GlobalVal.weekday == GlobalVal.week.FRIDAY:
+		$weekday.text = "星期五"
+	if GlobalVal.weekday == GlobalVal.week.SATURDAY:
+		$weekday.text = "星期六"
 
+	if GlobalVal.early_eight == true:
+		$early_eight.text = "明天有早八"
+	if GlobalVal.early_eight == false:
+		$early_eight.text = "明天没早八"
 func add_mobility(count: int) -> void:
 	if count + current_mobility >= 2:
 		current_mobility = 2

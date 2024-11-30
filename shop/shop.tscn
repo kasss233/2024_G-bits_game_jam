@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bmxplr0w5os0c"]
+[gd_scene load_steps=6 format=3 uid="uid://bmxplr0w5os0c"]
 
 [ext_resource type="PackedScene" uid="uid://1v60nrr6cgdt" path="res://shop/sold_item_container/sold_item_container.tscn" id="1_ic0ww"]
 [ext_resource type="Script" path="res://shop/shop.gd" id="1_kprfx"]
 [ext_resource type="PackedScene" uid="uid://dsedj3dtxh20k" path="res://state_bar_day/state_bar_day.tscn" id="2_lcnwf"]
 [ext_resource type="Texture2D" uid="uid://ibmyvigbw80g" path="res://shop/resource/background/pxArt.png" id="3_d102q"]
+[ext_resource type="Theme" uid="uid://btm6p112q8a7k" path="res://theme/new_theme.tres" id="5_osf8c"]
 
 [node name="shop" type="Node2D"]
 script = ExtResource("1_kprfx")
@@ -29,8 +30,11 @@ offset_left = 40.0
 offset_top = 535.0
 offset_right = 143.0
 offset_bottom = 587.0
+theme = ExtResource("5_osf8c")
 text = "离开商店"
 
+[connection signal="mouse_entered" from="exsit" to="." method="_on_exsit_mouse_entered"]
+[connection signal="mouse_exited" from="exsit" to="." method="_on_exsit_mouse_exited"]
 [connection signal="pressed" from="exsit" to="." method="_on_exsit_pressed"]
 
 [editable path="sold_item_container"]

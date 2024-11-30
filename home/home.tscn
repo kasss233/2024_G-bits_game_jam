@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://4ria8nn5lvy7"]
+[gd_scene load_steps=6 format=3 uid="uid://4ria8nn5lvy7"]
 
 [ext_resource type="Script" path="res://home/home.gd" id="1_hc5jf"]
 [ext_resource type="Texture2D" uid="uid://cwwotrs80d5of" path="res://home/resource/background/image.png" id="1_j236r"]
+[ext_resource type="Theme" uid="uid://btm6p112q8a7k" path="res://theme/new_theme.tres" id="3_l8o5g"]
 [ext_resource type="PackedScene" uid="uid://dsedj3dtxh20k" path="res://state_bar_day/state_bar_day.tscn" id="3_wp8mh"]
 [ext_resource type="LabelSettings" uid="uid://cirx3pwe1lpe5" path="res://day_map/day_map.tres" id="4_v7710"]
 
@@ -25,6 +26,7 @@ offset_left = 873.0
 offset_top = 384.0
 offset_right = 1024.0
 offset_bottom = 465.0
+theme = ExtResource("3_l8o5g")
 text = "睡觉"
 
 [node name="exist" type="Button" parent="."]
@@ -32,6 +34,7 @@ offset_left = 37.0
 offset_top = 418.0
 offset_right = 122.0
 offset_bottom = 477.0
+theme = ExtResource("3_l8o5g")
 text = "出门
 "
 

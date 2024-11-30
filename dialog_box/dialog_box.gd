@@ -24,7 +24,13 @@ func true_start(texts)->void:
 	if texts is Array:
 		dialog_text = PackedStringArray(texts)
 	line_cnt = 0
-	$Label.text = dialog_text[line_cnt]
+	$Label.text = ""
+
+	input_lock()
+	var tween = get_tree().create_tween()
+	tween.tween_property($Label, "text", dialog_text[line_cnt], 0.3)
+	tween.tween_callback(input_unlock)
+
 	line_cnt += 1
 
 
@@ -34,13 +40,29 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouse:
 		if event.is_pressed():
 			if line_cnt < dialog_text.size():
-				label.text = dialog_text[line_cnt]
-				line_cnt += 1
+				next_sentence()
 				return
 			if line_cnt >= dialog_text.size():
 				true_end()
 				using = false
 				return
+
+func next_sentence()->void:
+	label.text = ""
+
+	input_lock()
+	var tween = get_tree().create_tween()
+	tween.tween_property(label, "text", dialog_text[line_cnt], 0.3)
+	tween.tween_callback(input_unlock)
+
+	line_cnt += 1
+	pass
+
+func input_lock()->void:
+	using = false
+
+func input_unlock()->void:
+	using = true
 
 func true_end()->void:
 	var tween = get_tree().create_tween()

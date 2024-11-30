@@ -4,8 +4,6 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_11ghu"]
 font_size = 20
-outline_size = 1
-outline_color = Color(0, 0, 0, 1)
 
 [node name="message" type="Label"]
 anchors_preset = 15

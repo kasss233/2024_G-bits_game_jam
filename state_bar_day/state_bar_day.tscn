@@ -204,3 +204,21 @@ offset_right = 127.0
 offset_bottom = 279.0
 text = "行动力："
 label_settings = ExtResource("3_hypr5")
+
+[node name="weekday" type="Label" parent="."]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 65.0
+offset_right = 150.0
+offset_bottom = 99.0
+text = "123"
+label_settings = ExtResource("3_hypr5")
+
+[node name="early_eight" type="Label" parent="."]
+layout_mode = 0
+offset_left = 31.483
+offset_top = 285.011
+offset_right = 79.483
+offset_bottom = 319.011
+text = "早八"
+label_settings = ExtResource("3_hypr5")

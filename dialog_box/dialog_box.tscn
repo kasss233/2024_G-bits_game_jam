@@ -8,7 +8,7 @@ atlas = ExtResource("2_7s022")
 region = Rect2(132, 2, 28, 28)
 
 [sub_resource type="LabelSettings" id="LabelSettings_w8uun"]
-font_size = 20
+font_size = 24
 font_color = Color(0, 0, 0, 1)
 
 [node name="dialog_box" type="Control"]
