@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://4ria8nn5lvy7"]
 
 [ext_resource type="Script" path="res://home/home.gd" id="1_hc5jf"]
-[ext_resource type="Texture2D" uid="uid://cwwotrs80d5of" path="res://home/resource/background/image.png" id="1_j236r"]
+[ext_resource type="Texture2D" uid="uid://ce6vb777b8ik4" path="res://public_assets/home.tres" id="2_acntp"]
 [ext_resource type="Theme" uid="uid://btm6p112q8a7k" path="res://theme/new_theme.tres" id="3_l8o5g"]
 [ext_resource type="PackedScene" uid="uid://dsedj3dtxh20k" path="res://state_bar_day/state_bar_day.tscn" id="3_wp8mh"]
 [ext_resource type="LabelSettings" uid="uid://cirx3pwe1lpe5" path="res://day_map/day_map.tres" id="4_v7710"]
@@ -12,7 +12,7 @@ script = ExtResource("1_hc5jf")
 [node name="background" type="TextureRect" parent="."]
 offset_right = 1152.0
 offset_bottom = 648.0
-texture = ExtResource("1_j236r")
+texture = ExtResource("2_acntp")
 
 [node name="play_game" type="Button" parent="."]
 offset_left = 479.0

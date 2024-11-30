@@ -2,11 +2,10 @@ extends Control
 @export var next_scene:PackedScene
 
 func _on_start_pressed() -> void:
-	pass # Replace with function body.
+	SceneChanger.change_scene(next_scene)
 
 
-func _on_continue_pressed() -> void:
-	pass # Replace with function body.
+	
 
 
 func _on_exit_pressed() -> void:

@@ -34,14 +34,14 @@ var weapon_cd: Dictionary = {
 }
 
 var weapon_name: Dictionary = {
-	GlobalVal.weapons.STICK: "STICK",
+	GlobalVal.weapons.STICK: "魔杖",
 	GlobalVal.weapons.AK47: "AK47",
 	GlobalVal.weapons.GLOCK: "GLOCK",
 	GlobalVal.weapons.RPG: "RPG",
 	GlobalVal.weapons.MP5: "MP5",
-	GlobalVal.weapons.SWORD: "SWORD",
-	GlobalVal.weapons.SPEAR: "SPEAR",
-	GlobalVal.weapons.NULL: "NULL"
+	GlobalVal.weapons.SWORD: "剑",
+	GlobalVal.weapons.SPEAR: "矛",
+	GlobalVal.weapons.NULL: "空"
 }
 enum POS {LEFT, MID, RIGHT}
 @export var pos: POS

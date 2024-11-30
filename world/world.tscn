@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://b6fy1cjxrhacu" path="res://cat/cat.tscn" id="10_agtkg"]
 [ext_resource type="PackedScene" uid="uid://bx3hr07ldxequ" path="res://cat/dog.tscn" id="12_q8o2u"]
 
-[sub_resource type="GDScript" id="GDScript_fcq5u"]
+[sub_resource type="GDScript" id="GDScript_oy7e6"]
 resource_local_to_scene = true
 script/source = "extends Resource
 class_name PlayerData
@@ -29,9 +29,9 @@ enum Hands { LEFT, RIGHT }
 @export var state:States=States.IDLE
 "
 
-[sub_resource type="Resource" id="Resource_3mdat"]
+[sub_resource type="Resource" id="Resource_iqk2n"]
 resource_local_to_scene = true
-script = SubResource("GDScript_fcq5u")
+script = SubResource("GDScript_oy7e6")
 direction = Vector2(0, 0)
 left_weapon = 0
 right_weapon = 0
@@ -8651,7 +8651,7 @@ distance = 1.0
 
 [node name="Wizzard" parent="." instance=ExtResource("1_xhgil")]
 position = Vector2(-4, 126)
-data = SubResource("Resource_3mdat")
+data = SubResource("Resource_iqk2n")
 
 [node name="TileMapLayer_1" type="TileMapLayer" parent="."]
 z_index = -5
@@ -8672,10 +8672,11 @@ tile_set = SubResource("TileSet_81iru")
 player = NodePath("../Wizzard")
 enemy_generator = NodePath("../enemy_generator")
 
-[node name="enemy_generator" parent="." instance=ExtResource("9_l2rqa")]
+[node name="enemy_generator" parent="." node_paths=PackedStringArray("ui") instance=ExtResource("9_l2rqa")]
 position = Vector2(2, 1)
 enemy_scenes = Array[PackedScene]([ExtResource("7_sw5b8"), ExtResource("3_b2k7v"), ExtResource("9_rh6qo"), ExtResource("10_4dd0q")])
 spawn_rect = Array[Vector2]([Vector2(-550, -120), Vector2(-550, 380), Vector2(590, 390), Vector2(590, -130)])
+ui = NodePath("../Control")
 
 [node name="cat" parent="." instance=ExtResource("10_agtkg")]
 position = Vector2(-150, 51)

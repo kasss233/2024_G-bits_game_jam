@@ -4,7 +4,7 @@ enum pets {CAT, DOG, BIRD, SNAKE, MOUSE}
 enum sports {BASKETBALL, FOOTBALL, VOLLEYBALL, TENNIS, NULL}
 enum weapons {STICK, AK47, GLOCK, RPG, MP5, SWORD, SPEAR, NULL}
 enum stickers {SPEEDER, DAMAGER, HPER, NULL}
-enum week {MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY}
+enum week {MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY,LASTDAY}
 enum hands {LEFT, RIGHT}
 const add_damage: int = 1 ## 武器伤害增加
 const add_ammo: int = 5 ## 武器弹量增加
@@ -106,7 +106,7 @@ var properties = {
 }
 ########################################
 var extra_prop_list = []
-var weapons_list: Array[weapons] = [] # 购买的武器
+var weapons_list: Array[weapons] = [weapons.GLOCK] # 购买的武器
 var sports_list: Array[sports] = [] # 购买的球类
 var stickers_list: Array[stickers] = [] # 购买的饰品
 var pets_list = []
@@ -591,6 +591,8 @@ func add_day():
 		weekday = week.SATURDAY
 	if weekday == week.SATURDAY:
 		weekday = week.SUNDAY
+	if weekday==week.SUNDAY:
+		weekday=week.LASTDAY
 	place_visited["work"] = false
 	place_visited["exercise"] = false
 	place_visited["library"] = false
@@ -685,4 +687,3 @@ func _process(delta: float) -> void:
 	if properties["stamina"] >= 7:
 		player["left_weapon_enable"] = true
 		player["right_weapon_enable"] = true
-

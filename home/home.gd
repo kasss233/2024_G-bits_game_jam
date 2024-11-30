@@ -97,7 +97,9 @@ func sleep() -> void:
 		GlobalVal.enemy_gen["total_batch"] = 8
 		GlobalVal.enemy_gen["time_gap"] = 1
 		GlobalVal.enemy_gen["enemy_per_time"] = 5
-		
+	if GlobalVal.last_day_early_eight:
+		GlobalVal.enemy_gen["total_batch"] +=1
+		GlobalVal.enemy_gen["enemy_per_time"]+=1
 	if get_tree():
 		SceneChanger.change_scene(load("res://ui/choose/choose_weapon.tscn"))
 

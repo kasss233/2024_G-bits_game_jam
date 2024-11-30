@@ -39,7 +39,7 @@ func _update_countdown(delta: float):
 		label.text = "剩余时间：%02d:%02d" % [minutes, seconds] # 格式化为 mm:ss
 	else:
 		label.text = "啊？这么有耐心"
-	mlabel.text="金币："+var_to_str(GlobalVal.money["night"])
+	mlabel.text="金币："+var_to_str(GlobalVal.money["day"])
 # 游戏结束逻辑（可选）
 func _game_over():
 	await get_tree().create_timer(1).timeout
@@ -60,7 +60,3 @@ func _on_board_pressed() -> void:
 func _on_upgrade_board_closed():
 	get_tree().paused = false
 	AudioPlayer.play_sound_effect("unpause")
-
-
-func _on_exit_pressed() -> void:
-	get_tree().change_scene_to_packed(menu)
