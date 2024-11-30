@@ -11,6 +11,7 @@ extends Node
 @export var counter: PackedScene
 @export var victory_board: PackedScene
 @export var defeat_board: PackedScene
+@export var ui:Control
 var time_gap: int = 2
 var enemy_per_time: int = 3
 var enemies_per_batch: int = 5 # 每批次生成的敌人数量
@@ -37,19 +38,19 @@ func generate_random_spawn_points():
 
 # 开始生成敌人
 func _ready():
+	print("currentbatch:",current_batch)
+	print("totalbatch:",total_batches)
+	print("active_enemies:",active_enemies)
 	generate_random_spawn_points()
 	start_spawning()
 
 # 开始按批次生成敌人
 func start_spawning():
 	current_batch = 0
-	spawning = true
 	await get_tree().create_timer(3).timeout
 	_spawn_next_batch()
 
 # 停止生成敌人
-func stop_spawning():
-	spawning = false
 
 # 生成一批敌人
 func spawn_batch():
@@ -61,6 +62,7 @@ func spawn_batch():
 	var shuffled_spawn_points = spawn_points.duplicate()
 	shuffled_spawn_points.shuffle()
 	var count: int = 0
+	active_enemies=enemies_per_batch
 	for i in range(enemies_per_batch):
 		_spawn_enemy(shuffled_spawn_points[i])
 		count += 1
@@ -77,20 +79,23 @@ func _spawn_enemy(spawn_position: Vector2):
 		enemy.global_position = spawn_position
 		add_child(enemy)
 		enemy.connect("tree_exited", Callable(self, "_on_enemy_destroyed"))
-		active_enemies += 1
 
 # 当前批次生成逻辑
 func _spawn_next_batch():
-	if current_batch < total_batches and spawning:
+	if current_batch < total_batches:
 		current_batch += 1
 		spawn_batch()
 		print("Batch %d spawned with %d enemies." % [current_batch, enemies_per_batch])
 	else:
 		print("All batches spawned!")
+		emit_signal("victory")
 
 # 当敌人被销毁时触发
 func _on_enemy_destroyed():
 	active_enemies -= 1 # 减少活动敌人计数
+	print("currentbatch:",current_batch)
+	print("totalbatch:",total_batches)
+	print("active_enemies:",active_enemies)
 	if active_enemies == 0:
 		# 当前批次被清空
 		print("Batch %d cleared!" % current_batch)
@@ -99,9 +104,9 @@ func _on_enemy_destroyed():
 		if current_batch < total_batches:
 			GlobalVal.add_points()
 			var c = counter.instantiate()
-			get_tree().current_scene.add_child(c)
+			ui.add_child(c)
 			c.connect("time_out", Callable(self, "_on_time_out"))
-		else:
+		if current_batch==total_batches:
 			emit_signal("victory")
 			
 func _on_time_out():

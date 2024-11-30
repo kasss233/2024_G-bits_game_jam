@@ -126,7 +126,7 @@ collision_layer = 16
 collision_mask = 2
 script = ExtResource("1_k2u41")
 speed = 60
-hp = 25
+hp = 10
 possible_drops = Array[PackedScene]([ExtResource("2_6m32n"), ExtResource("3_278bx")])
 message = ExtResource("4_o5nks")
 

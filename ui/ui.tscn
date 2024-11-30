@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://spglirt5fokp"]
+[gd_scene load_steps=12 format=3 uid="uid://spglirt5fokp"]
 
 [ext_resource type="Script" path="res://ui/ui.gd" id="1_5mtwj"]
 [ext_resource type="PackedScene" uid="uid://bnjbr7267gsho" path="res://ui/upgrade_board.tscn" id="2_2idv7"]
@@ -9,23 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://21rkof613s2q" path="res://ui/board/victory_board.tscn" id="4_0i20k"]
 [ext_resource type="Texture2D" uid="uid://c327e4mhcyvdx" path="res://public_assets/bars/Retro Inventory/Retro Inventory/Scaled 2x/Health_04_Heart_Red_Clear.png" id="4_n1po7"]
 [ext_resource type="Theme" uid="uid://btm6p112q8a7k" path="res://theme/new_theme.tres" id="8_phetr"]
-[ext_resource type="Texture2D" uid="uid://bkfijek6p48ir" path="res://public_assets/UI/Prinbles_Asset_UNDER (v 1.1) (9_7_2023)/png@2x/Button/Icon/Home@2x.png" id="9_w3llg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_a3ma6"]
 font_size = 30
 
 [sub_resource type="LabelSettings" id="LabelSettings_mwmv3"]
 font_size = 30
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bu5dj"]
-texture = ExtResource("9_w3llg")
-
-[sub_resource type="Theme" id="Theme_4gtml"]
-Button/styles/disabled = SubResource("StyleBoxTexture_bu5dj")
-Button/styles/focus = SubResource("StyleBoxTexture_bu5dj")
-Button/styles/hover = SubResource("StyleBoxTexture_bu5dj")
-Button/styles/normal = SubResource("StyleBoxTexture_bu5dj")
-Button/styles/pressed = SubResource("StyleBoxTexture_bu5dj")
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -94,12 +83,4 @@ theme = ExtResource("8_phetr")
 theme_override_font_sizes/font_size = 25
 text = "升级面板"
 
-[node name="exit" type="Button" parent="buttons"]
-offset_left = 1088.0
-offset_top = 4.0
-offset_right = 1147.0
-offset_bottom = 63.0
-theme = SubResource("Theme_4gtml")
-
 [connection signal="pressed" from="buttons/board" to="." method="_on_board_pressed"]
-[connection signal="pressed" from="buttons/exit" to="." method="_on_exit_pressed"]

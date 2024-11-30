@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cy2xmwc88slwd"]
+[gd_scene load_steps=10 format=3 uid="uid://cy2xmwc88slwd"]
 
 [ext_resource type="PackedScene" uid="uid://d3vd6i7u2icri" path="res://ui/choose/choose_weapon_single.tscn" id="1_gvect"]
 [ext_resource type="Script" path="res://ui/choose/choose_weapon.gd" id="1_lvxfk"]
@@ -12,6 +12,9 @@ Label/font_sizes/font_size = 30
 
 [sub_resource type="LabelSettings" id="LabelSettings_8c4pu"]
 font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_vcfcu"]
+font_size = 40
 
 [node name="choose_weapon" type="Control"]
 layout_mode = 3
@@ -180,6 +183,31 @@ scale = Vector2(13.9531, 7.6875)
 texture = ExtResource("6_sv303")
 region_enabled = true
 region_rect = Rect2(0, 0, 64, 64)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0177324, 0.0177324, 0.0177324, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 39.0
+offset_right = 760.0
+offset_bottom = 94.0
+text = "选择武器，击退梦魇"
+label_settings = SubResource("LabelSettings_vcfcu")
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 76.0
+offset_top = 60.0
+offset_right = 116.0
+offset_bottom = 83.0
 
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
 
