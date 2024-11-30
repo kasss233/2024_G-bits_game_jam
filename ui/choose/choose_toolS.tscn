@@ -40,15 +40,15 @@ layout_mode = 2
 
 [node name="stick1" type="CheckBox" parent="HBoxContainer/VBoxContainer2"]
 layout_mode = 2
-text = "魔法宝石1"
+text = "顶针的助力"
 
 [node name="stick2" type="CheckBox" parent="HBoxContainer/VBoxContainer2"]
 layout_mode = 2
-text = "魔法宝石2"
+text = "坤坤的助力"
 
 [node name="stick3" type="CheckBox" parent="HBoxContainer/VBoxContainer2"]
 layout_mode = 2
-text = "魔法宝石3"
+text = "渣渣灰的助力"
 
 [connection signal="toggled" from="HBoxContainer/VBoxContainer/basketball" to="." method="_on_basketball_toggled"]
 [connection signal="toggled" from="HBoxContainer/VBoxContainer/football" to="." method="_on_football_toggled"]
