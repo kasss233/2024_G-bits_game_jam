@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dn3aulsu7xq2e"]
+[gd_scene load_steps=27 format=3 uid="uid://dn3aulsu7xq2e"]
 
 [ext_resource type="Texture2D" uid="uid://bcbvortf1h0mu" path="res://assets/Pixel Crawler - FREE - 1.8/Enemy/Orc Crew/Orc/Death/Death-Sheet.png" id="1_ofu68"]
 [ext_resource type="Script" path="res://enemy/enemy.gd" id="1_sdcho"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c5r8egfqwgm88" path="res://assets/Pixel Crawler - FREE - 1.8/Enemy/Orc Crew/Orc/Idle/Idle-Sheet.png" id="2_hid04"]
 [ext_resource type="Texture2D" uid="uid://48ivlpjlinqf" path="res://assets/Pixel Crawler - FREE - 1.8/Enemy/Orc Crew/Orc/Run/Run-Sheet.png" id="3_d14rp"]
 [ext_resource type="PackedScene" uid="uid://drdy6m07xwd8f" path="res://item/money.tscn" id="3_ja5dl"]
+[ext_resource type="PackedScene" uid="uid://dxddf51y24cby" path="res://ui/damage_number_label/damage_number.tscn" id="4_iaipq"]
 [ext_resource type="Texture2D" uid="uid://ckwy0hmm4q8w3" path="res://assets/Pixel Crawler - FREE - 1.8/Weapons/Bone/Bone.png" id="6_r3f1g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xbtyi"]
@@ -149,6 +150,7 @@ script = ExtResource("1_sdcho")
 speed = 60
 hp = 25
 possible_drops = Array[PackedScene]([ExtResource("2_b1pf7"), ExtResource("3_ja5dl")])
+message = ExtResource("4_iaipq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, -13)
