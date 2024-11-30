@@ -579,18 +579,25 @@ func random_course():
 func add_day():
 	if weekday == week.MONDAY:
 		weekday = week.TUESDAY
+		return
 	if weekday == week.TUESDAY:
 		weekday = week.WEDNESDAY
+		return
 	if weekday == week.WEDNESDAY:
 		weekday = week.THURSDAY
+		return
 	if weekday == week.THURSDAY:
 		weekday = week.FRIDAY
+		return
 	if weekday == week.FRIDAY:
 		weekday = week.SATURDAY
+		return
 	if weekday == week.SATURDAY:
 		weekday = week.SUNDAY
+		return
 	if weekday==week.SUNDAY:
 		weekday=week.LASTDAY
+		return
 	place_visited["work"] = false
 	place_visited["exercise"] = false
 	place_visited["library"] = false
