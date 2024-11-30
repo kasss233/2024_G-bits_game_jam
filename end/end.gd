@@ -24,4 +24,5 @@ func judge():
 
 
 func _on_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://ui/menu/menu.tscn")
+	SceneChanger.change_scene(load("res://ui/menu/menu.tscn"))
+	# get_tree().change_scene_to_file("res://ui/menu/menu.tscn")

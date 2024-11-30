@@ -53,6 +53,7 @@ func _game_over():
 	get_tree().current_scene.add_child(d)
 
 func game_win():
+	$"../Wizzard".bgm = null
 	await get_tree().create_timer(1).timeout
 	var d=victory_board.instantiate()
 	get_tree().current_scene.add_child(d)

@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://b6fy1cjxrhacu" path="res://cat/cat.tscn" id="10_agtkg"]
 [ext_resource type="PackedScene" uid="uid://bx3hr07ldxequ" path="res://cat/dog.tscn" id="12_q8o2u"]
 
-[sub_resource type="GDScript" id="GDScript_2s26e"]
+[sub_resource type="GDScript" id="GDScript_8x34o"]
 resource_local_to_scene = true
 script/source = "extends Resource
 class_name PlayerData
@@ -30,9 +30,9 @@ enum Hands { LEFT, RIGHT }
 @export var state:States=States.IDLE
 "
 
-[sub_resource type="Resource" id="Resource_cx6rk"]
+[sub_resource type="Resource" id="Resource_02pov"]
 resource_local_to_scene = true
-script = SubResource("GDScript_2s26e")
+script = SubResource("GDScript_8x34o")
 direction = Vector2(0, 0)
 left_weapon = 0
 right_weapon = 0
@@ -8652,7 +8652,7 @@ distance = 1.0
 
 [node name="Wizzard" parent="." instance=ExtResource("1_xhgil")]
 position = Vector2(-4, 126)
-data = SubResource("Resource_cx6rk")
+data = SubResource("Resource_02pov")
 bgm = ExtResource("2_xbsph")
 
 [node name="TileMapLayer_1" type="TileMapLayer" parent="."]

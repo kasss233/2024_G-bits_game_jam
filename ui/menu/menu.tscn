@@ -20,8 +20,10 @@ Button/styles/pressed = SubResource("StyleBoxTexture_ddd63")
 ItemList/colors/font_color = Color(0.99024, 0.940971, 0.916199, 1)
 ItemList/styles/panel = SubResource("StyleBoxTexture_376k3")
 
-[sub_resource type="LabelSettings" id="LabelSettings_66s33"]
+[sub_resource type="LabelSettings" id="LabelSettings_s3qal"]
 font_size = 40
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
 
 [node name="menu" type="Control"]
 layout_mode = 3
@@ -42,9 +44,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -73.0
-offset_top = 45.0
+offset_top = 36.0
 offset_right = 47.0
-offset_bottom = 231.0
+offset_bottom = 222.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_nmxro")
@@ -60,13 +62,15 @@ text = "退出游戏"
 
 [node name="name" type="Label" parent="."]
 layout_mode = 2
-offset_left = 478.0
-offset_top = 241.0
-offset_right = 649.0
-offset_bottom = 351.0
-text = "还剩一周
-期末考试·"
-label_settings = SubResource("LabelSettings_66s33")
+offset_left = 436.0
+offset_top = 187.0
+offset_right = 676.0
+offset_bottom = 297.0
+text = "距离期末考试
+还剩一周"
+label_settings = SubResource("LabelSettings_s3qal")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -1
