@@ -18,7 +18,7 @@ var jjh_count = 0
 var points: int = 0
 var new_day: bool = true
 var place_visited = {
-	"play_game" = false,
+	"game" = false,
 	"playground" = false,
 	"work" = false,
 	"library" = false,
@@ -577,8 +577,6 @@ func random_course():
 	return courses[randi() % courses.size()]
 
 func add_day():
-	if weekday == week.SUNDAY:
-		weekday = week.MONDAY
 	if weekday == week.MONDAY:
 		weekday = week.TUESDAY
 	if weekday == week.TUESDAY:

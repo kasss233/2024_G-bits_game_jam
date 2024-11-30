@@ -65,23 +65,23 @@ func sleep() -> void:
 	if GlobalVal.weekday == GlobalVal.week.MONDAY:
 		GlobalVal.enemy_gen["enemy_per_batch"] = 5#5
 		GlobalVal.enemy_gen["total_batch"] = 3#3
-		GlobalVal.enemy_gen["time_gap"] = 3#3
+		GlobalVal.enemy_gen["time_gap"] = 2#3
 		GlobalVal.enemy_gen["enemy_per_time"] = 1#1
 	elif GlobalVal.weekday == GlobalVal.week.TUESDAY:
 		GlobalVal.enemy_gen["enemy_per_batch"] = 20
 		GlobalVal.enemy_gen["total_batch"] = 5
-		GlobalVal.enemy_gen["time_gap"] = 3
+		GlobalVal.enemy_gen["time_gap"] = 2
 		GlobalVal.enemy_gen["enemy_per_time"] = 3
 	elif GlobalVal.weekday == GlobalVal.week.WEDNESDAY:
-		GlobalVal.enemy_gen["enemy_per_batch"] = 40
+		GlobalVal.enemy_gen["enemy_per_batch"] = 50
 		GlobalVal.enemy_gen["total_batch"] = 5
-		GlobalVal.enemy_gen["time_gap"] = 2
+		GlobalVal.enemy_gen["time_gap"] = 1
 		GlobalVal.enemy_gen["enemy_per_time"] = 2
 	elif GlobalVal.weekday == GlobalVal.week.THURSDAY:
 		GlobalVal.enemy_gen["enemy_per_batch"] = 60
 		GlobalVal.enemy_gen["total_batch"] = 5
 		GlobalVal.enemy_gen["time_gap"] = 1
-		GlobalVal.enemy_gen["enemy_per_time"] = 2
+		GlobalVal.enemy_gen["enemy_per_time"] = 3
 	elif GlobalVal.weekday == GlobalVal.week.FRIDAY:
 		GlobalVal.enemy_gen["enemy_per_batch"] = 80
 		GlobalVal.enemy_gen["total_batch"] = 6
