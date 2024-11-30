@@ -1,5 +1,13 @@
 extends Node2D
 @onready var label = $Label
+@export var bgm:AudioStream
+func _ready() -> void:
+	AudioPlayer.button_se_init(self)
+
+func _process(delta: float) -> void:
+
+	AudioPlayer.play_bgm(bgm)
+
 func judge():
 	if GlobalVal.properties["stamina"] == 10 && GlobalVal.properties["mood"] == 10 && GlobalVal.properties["knowledge"] == 10:
 		label.text = "神！"

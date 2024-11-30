@@ -38,6 +38,7 @@ offset_left = 479.0
 offset_top = 253.0
 offset_right = 637.0
 offset_bottom = 335.0
+mouse_default_cursor_shape = 2
 text = "玩游戏"
 
 [node name="sleep" type="Button" parent="."]
@@ -45,6 +46,7 @@ offset_left = 873.0
 offset_top = 384.0
 offset_right = 1024.0
 offset_bottom = 465.0
+mouse_default_cursor_shape = 2
 theme = ExtResource("3_l8o5g")
 text = "睡觉"
 
@@ -53,6 +55,7 @@ offset_left = 37.0
 offset_top = 388.145
 offset_right = 180.0
 offset_bottom = 476.145
+mouse_default_cursor_shape = 2
 theme = SubResource("Theme_w37as")
 text = "出门
 "

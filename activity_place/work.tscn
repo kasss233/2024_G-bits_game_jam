@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://e75h4cve6dvc"]
+[gd_scene load_steps=4 format=3 uid="uid://e75h4cve6dvc"]
 
 [ext_resource type="Script" path="res://activity_place/work.gd" id="1_s13qa"]
+[ext_resource type="PackedScene" uid="uid://dsedj3dtxh20k" path="res://state_bar_day/state_bar_day.tscn" id="2_nbjw2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_bn3k0"]
 font_size = 64
@@ -20,3 +21,6 @@ text = "假装这里有一个在打工的动画"
 label_settings = SubResource("LabelSettings_bn3k0")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="state_bar_day" parent="." instance=ExtResource("2_nbjw2")]
+visible = false

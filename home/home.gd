@@ -122,6 +122,8 @@ func _ready() -> void:
 		self.add_child(dialog)
 		dialog.start(text)
 		dialog.tree_exited.connect(start_day)
+	
+	AudioPlayer.button_se_init(self)
 		
 func start_day() -> void:
 	if get_tree():

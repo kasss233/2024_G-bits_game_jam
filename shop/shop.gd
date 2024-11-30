@@ -4,6 +4,8 @@ func _on_exsit_pressed() -> void:
 	# get_tree().change_scene_to_file("res://day_map/day_map.tscn")
 	SceneChanger.change_scene(load("res://day_map/day_map.tscn"))
 
+func _ready() -> void:
+	AudioPlayer.button_se_init(self)
 
 
 func _on_exsit_mouse_exited() -> void:
