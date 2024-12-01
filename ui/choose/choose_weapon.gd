@@ -10,3 +10,6 @@ func _on_button_pressed() -> void:
 func _ready() -> void:
 	if GlobalVal.early_eight:
 		label.text = "因为明天的早八，睡眠收到影响（梦魇更加活跃）"
+func _process(delta: float) -> void:
+	if bgm:
+		AudioPlayer.play_bgm(bgm)

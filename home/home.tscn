@@ -9,6 +9,7 @@
 
 [sub_resource type="SystemFont" id="SystemFont_y6uqa"]
 font_names = PackedStringArray("黑体")
+subpixel_positioning = 0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ddd63"]
 texture = ExtResource("4_iej8a")

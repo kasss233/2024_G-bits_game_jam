@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b5808658ppe8g"]
+[gd_scene load_steps=8 format=3 uid="uid://b5808658ppe8g"]
 
 [ext_resource type="Script" path="res://audio_player/audio_player.gd" id="1_wddt7"]
 [ext_resource type="AudioStream" uid="uid://d2pf5n1dq2hby" path="res://public_assets/audio/RPG_Essentials_Free/10_UI_Menu_SFX/013_Confirm_03.wav" id="2_dms4r"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://ci3n6osb7gmmm" path="res://public_assets/audio/RPG_Essentials_Free/10_UI_Menu_SFX/092_Pause_04.wav" id="3_x6fp4"]
 [ext_resource type="AudioStream" uid="uid://7h6gkbmdh547" path="res://public_assets/audio/RPG_Essentials_Free/10_UI_Menu_SFX/098_Unpause_04.wav" id="4_jgvf0"]
 [ext_resource type="AudioStream" uid="uid://6ljfiep3gds8" path="res://public_assets/audio/RPG_Essentials_Free/10_UI_Menu_SFX/001_Hover_01.wav" id="6_2i21u"]
+[ext_resource type="AudioStream" uid="uid://cjki7edf5gwwv" path="res://audio_player/resourse/sfx/player_pick.mp3" id="7_dfeoo"]
 
 [node name="AudioPlayer" type="Node"]
 process_mode = 3
@@ -36,6 +37,11 @@ bus = &"SFX"
 stream = ExtResource("6_2i21u")
 
 [node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="SE"]
+
+[node name="word" type="AudioStreamPlayer" parent="SE"]
+stream = ExtResource("7_dfeoo")
+
+[node name="new_partner" type="AudioStreamPlayer" parent="SE"]
 
 [node name="BGM" type="Node" parent="."]
 

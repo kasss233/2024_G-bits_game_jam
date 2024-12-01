@@ -114,7 +114,7 @@ func _ready() -> void:
 	if GlobalVal.new_day:
 		GlobalVal.new_day = false
 		var dialog = dialog_tscn.instantiate()
-		var text = ["新的一天开始了","“昨天做了个好长的梦”","你想"]
+		var text = random_new_day_dialog()
 		if GlobalVal.last_day_early_eight:
 			text.append("今天有早八")
 		else:
@@ -132,3 +132,63 @@ func start_day() -> void:
 		$play_game.visible = true
 		$Label.visible = true
 		$state_bar_day.visible = true
+
+func random_new_day_dialog():
+	var dialogs = []
+	var key = randi() % 3
+	if GlobalVal.weekday == GlobalVal.week.MONDAY:
+		dialogs.append("游戏说明（此消息只会在第一天开始的时候出现）：")
+		dialogs.append("你是一名大二的学生")
+		dialogs.append("一个不幸的消息是")
+		dialogs.append("今天是周一")
+		dialogs.append("另一个不幸的消息是")
+		dialogs.append("还有一周你就要期末考试了")
+		dialogs.append("你需要安排好接下来一周的日程")
+		dialogs.append("同时还要对付自己的梦魇")
+		dialogs.append("尽可能的保持好身体和心理状况然后取得一个好成绩吧！")
+		dialogs.append("退出游戏存档可就没了")
+		dialogs.append("所以一定要一口气玩完哦！")
+		dialogs.append("顺便初始属性值是随机的")
+		dialogs.append("如果想取得更好的结局或许可以刷个好一点的开局？")
+		dialogs.append("游戏说明结束")
+		dialogs.append("-------------------------------------")
+	if key == 0:
+		dialogs.append("新的一天开始了")
+		dialogs.append("“昨天做了个好长的梦”")
+		dialogs.append("你想")
+	if key == 1:
+		dialogs.append("新的一天开始了")
+		dialogs.append("“距离期末考试好像只剩" + str(GlobalVal.week.LASTDAY - GlobalVal.weekday) + "天了”")
+		dialogs.append("“该怎么办呢”")
+		dialogs.append("你想")
+	if key == 2:
+		dialogs.append("新的一天开始了")
+		if GlobalVal.properties["mood"] <= 3:
+			dialogs.append("“这几天心情不太好”")
+		if GlobalVal.properties["mood"] >= 4 && GlobalVal.properties["mood"] <= 6:
+			dialogs.append("“今天心情不错”")
+		if GlobalVal.properties["mood"] >= 7:
+			dialogs.append("“今天心情很好，又是元气满满的一天”")
+		if GlobalVal.properties["knowledge"] <= 3:
+			dialogs.append("“感觉学习上还差点功夫”")
+		if GlobalVal.properties["knowledge"] >= 4 && GlobalVal.properties["knowledge"] <= 6:
+			dialogs.append("“感觉学习有在稳步推进了”")
+		if GlobalVal.properties["knowledge"] >= 7:
+			dialogs.append("“感觉期末考试已经是囊中之物了”")
+		if GlobalVal.properties["stamina"] <= 3:
+			dialogs.append("“身体状况感觉有点不太好”")
+		if GlobalVal.properties["stamina"] >= 4 && GlobalVal.properties["stamina"] <= 6:
+			dialogs.append("“身体状况还不错”")
+		if GlobalVal.properties["stamina"] >= 7:
+			dialogs.append("“身体状况非常好，似乎这几天的锻炼有效果了”")
+		if GlobalVal.money["day"] <= 50:
+			dialogs.append("“感觉剩下的钱不够我活到期末考试了”")
+			dialogs.append("“该怎么办呢”")
+		if GlobalVal.money["day"] >= 51 && GlobalVal.money["day"] <= 500:
+			dialogs.append("“看起来我不用为经济问题发愁”")
+		if GlobalVal.money["day"] >= 501:
+			dialogs.append("“我现在感觉我富可敌国”")
+		dialogs.append("你想")
+	
+	
+	return dialogs
