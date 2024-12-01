@@ -579,9 +579,6 @@ func random_course():
 	return courses[randi() % courses.size()]
 
 func add_weekday():
-	if weekday == week.SUNDAY:
-		weekday = week.MONDAY
-		return
 	if weekday == week.MONDAY:
 		weekday = week.TUESDAY
 		return

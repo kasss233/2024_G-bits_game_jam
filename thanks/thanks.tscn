@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://yk7l0x8y74hp"]
+
+[ext_resource type="Script" path="res://thanks/thanks.gd" id="1_1b40x"]
+[ext_resource type="Texture2D" uid="uid://dxyh3hswapewi" path="res://public_assets/46ad361df36d5776c252dc210c6c9c9e.jpg" id="1_28prl"]
+
+[node name="thanks" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1b40x")
+
+[node name="46Ad361Df36d5776c252Dc210c6c9c9e" type="Sprite2D" parent="."]
+position = Vector2(310, 333)
+scale = Vector2(0.882298, 0.928571)
+texture = ExtResource("1_28prl")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 586.0
+offset_top = 51.0
+offset_right = 662.0
+offset_bottom = 74.0
+text = "素材提供：ElvGames
+                   Anokolisa
+音乐提供：唐瑞阳"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 21.0
+offset_right = 70.0
+offset_bottom = 44.0
+text = "素材提供"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 880.0
+offset_top = 602.0
+offset_right = 920.0
+offset_bottom = 633.0
+text = "返回"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

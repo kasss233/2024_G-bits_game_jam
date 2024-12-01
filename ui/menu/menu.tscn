@@ -78,5 +78,14 @@ position = Vector2(576, 323.5)
 scale = Vector2(1.125, 1.12326)
 texture = ExtResource("3_y1twg")
 
+[node name="thank" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1106.0
+offset_top = 4.0
+offset_right = 1146.0
+offset_bottom = 35.0
+text = "致谢"
+
 [connection signal="pressed" from="VBoxContainer/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="thank" to="." method="_on_thank_pressed"]
