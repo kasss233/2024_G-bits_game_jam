@@ -6,9 +6,21 @@ var line_cnt = 0
 
 var using: bool = false
 
+signal text_change
+var last_tick_text: String = ""
+
+func _process(delta: float) -> void:
+	if label.text!= last_tick_text && label.text!="":
+		last_tick_text = label.text
+		text_change.emit()
+
+func text_sound()->void:
+	AudioPlayer.play_sound_effect("word")
+
 func _ready() -> void:
 	self.visible = false
 	using = false
+	text_change.connect(text_sound)
 	pass
 func start(texts) -> void:
 	var tween = get_tree().create_tween()

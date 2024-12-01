@@ -329,11 +329,13 @@ func random_playground_dialog():
 			dialogs.append("你感觉和坤坤的关系加深了")
 			dialogs.append("-------------------")
 			dialogs.append("在梦里得到坤坤的助力了")
-	
+			AudioPlayer.play_sound_effect("new_partner")
 	return dialogs
 
 func random_work_dialog():
 	var dialogs = []
+	var earned_money = 0
+	earned_money += randi() % 50 + 40
 	if place_visited["work"] == false:
 		dialogs.append("你来到了平时打工的店里")
 	if place_visited["work"] == true:
@@ -343,43 +345,43 @@ func random_work_dialog():
 		dialogs.append("今天店里生意不错")
 		dialogs.append("你忙碌了两个小时一会儿没停")
 		dialogs.append("很累，但也没出什么差错")
-		dialogs.append("店长很高兴多给你了你50块钱")
-		add_day_money(50)
-		dialogs.append("心情+1")
-		dialogs.append("生活费+150")
+		dialogs.append("心情-1")
+		dialogs.append("生活费+" + str(earned_money))
 	if key == 1:
 		dialogs.append("今天店里生意不错")
 		dialogs.append("你忙碌了两个小时一会儿没停")
 		dialogs.append("你不小心打碎了一个盘子")
 		dialogs.append("今天的工资少了25")
-		minus_day_money(25)
-		dialogs.append("心情+1")
-		dialogs.append("生活费-25")
+		earned_money -= 25
+		dialogs.append("心情-1")
+		dialogs.append("生活费+" + str(earned_money))
 	if key == 2:
 		dialogs.append("今天店里生意一般")
 		dialogs.append("今天的打工很轻松")
 		dialogs.append("大部分时间都在玩手机")
 		dialogs.append("心情额外加1")
 		add_property("mood", 1)
-		dialogs.append("生活费+100")
 		dialogs.append("心情+0")
+		dialogs.append("生活费+" + str(earned_money))
 	if key == 3:
 		dialogs.append("今天店里生意一般")
 		dialogs.append("今天的打工很轻松")
 		dialogs.append("也是非常顺利的完成了今天的工作")
-		dialogs.append("心情+1")
-		dialogs.append("生活费+100")
+		dialogs.append("心情-1")
+		dialogs.append("生活费+" + str(earned_money))
 	if key == 4:
 		dialogs.append("今天店里生意不错")
 		dialogs.append("来打工的学生也不少")
 		dialogs.append("你趁机偷偷摸鱼")
 		dialogs.append("心情额外加1")
 		dialogs.append("心情+0")
-		dialogs.append("生活费+100")
+		dialogs.append("生活费+" + str(earned_money))
 		add_property("mood", 1)
 
 	dialogs.append("行动力-1")
-	
+
+	add_day_money(earned_money)
+
 	if weekday == week.THURSDAY:
 		if place_visited["work"]:
 			dialogs.append("“今天周四，你们再多干点活我请就你们吃肯德基”")
@@ -477,6 +479,7 @@ func random_library_dialog():
 				dialogs.append("-----------------------")
 				dialogs.append("在梦里得到顶真的帮助了")
 				stickers_list.append(stickers.SPEEDER)
+				AudioPlayer.play_sound_effect("new_partner")
 		else :
 			dialogs.append("你也不会")
 			dialogs.append("你尴尬的笑笑")
@@ -521,7 +524,7 @@ func random_movie_dialog():
 	if key == 1 || key == 2:
 		dialogs.append("你看了一部中规中矩的电影")
 		dialogs.append("心情+1")
-	dialogs.append("生活费-50")
+	dialogs.append("生活费-45")
 	dialogs.append("行动力-1")
 	return dialogs
 
@@ -585,26 +588,20 @@ func add_weekday():
 	if weekday == week.MONDAY:
 		weekday = week.TUESDAY
 		return
-		return
 	if weekday == week.TUESDAY:
 		weekday = week.WEDNESDAY
-		return
 		return
 	if weekday == week.WEDNESDAY:
 		weekday = week.THURSDAY
 		return
-		return
 	if weekday == week.THURSDAY:
 		weekday = week.FRIDAY
-		return
 		return
 	if weekday == week.FRIDAY:
 		weekday = week.SATURDAY
 		return
-		return
 	if weekday == week.SATURDAY:
 		weekday = week.SUNDAY
-		return
 		return
 	if weekday==week.SUNDAY:
 		weekday=week.LASTDAY
@@ -671,6 +668,7 @@ func random_game_dialog():
 			dialogs.append("你感觉和渣渣灰的关系变得很要好了")
 			dialogs.append("------------------------")
 			dialogs.append("在梦里得到渣渣灰的帮助了")
+			AudioPlayer.play_sound_effect("new_partner")
 			stickers_list.append(stickers.HPER)
 		dialogs.append("你感觉心情更好了")
 		dialogs.append("心情+1")
@@ -707,3 +705,9 @@ func _process(delta: float) -> void:
 	if properties["stamina"] >= 7:
 		player["left_weapon_enable"] = true
 		player["right_weapon_enable"] = true
+
+func _ready() -> void:
+	properties["mood"] = randi() % 5
+	properties["stamina"] = randi() % 5
+	properties["knowledge"] = randi() % 5
+	money["day"] = randi() % 100
